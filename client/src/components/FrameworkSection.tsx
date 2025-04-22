@@ -322,7 +322,7 @@ export default function FrameworkSection() {
                     ))}
                     
                     {/* Progress Bar */}
-                    <div className="absolute left-0 top-6 transform -translate-y-1/2 h-2 bg-gray-200 w-full z-0 rounded-full">
+                    <div className="absolute left-0 top-6 mt-3 transform -translate-y-1/2 h-2 bg-gray-200 w-full z-0 rounded-full">
                       <div 
                         ref={progressBarRef}
                         className="h-full bg-primary rounded-full transition-all duration-700 ease-in-out w-[0%]" 
