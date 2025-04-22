@@ -1,5 +1,8 @@
 import { useState, useEffect, useRef } from 'react';
 import { frameworkLevels } from '@/data/frameworkLevels';
+import { ChevronRight, ChevronLeft, CheckIcon, AlertTriangleIcon, Cpu, Brain, Wrench, Zap } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { Badge } from '@/components/ui/badge';
 
 export default function FrameworkSection() {
   const [activeLevel, setActiveLevel] = useState(0);
@@ -33,110 +36,194 @@ export default function FrameworkSection() {
     setActiveLevel(levelIndex);
   };
 
+  const navigateLevel = (direction: 'next' | 'prev') => {
+    if (direction === 'next' && activeLevel < frameworkLevels.length - 1) {
+      setActiveLevel(activeLevel + 1);
+    } else if (direction === 'prev' && activeLevel > 0) {
+      setActiveLevel(activeLevel - 1);
+    }
+  };
+
   return (
-    <section id="framework" className="py-16 bg-gray-50">
+    <section id="framework" className="py-16 sm:py-24 bg-gray-50">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-extrabold text-gray-900 text-center">The DARE Framework Levels</h2>
-          <p className="mt-4 text-lg text-gray-600 text-center max-w-3xl mx-auto">
-            Six progressive levels of AI integration in design, from entirely manual approaches to advanced automation—each with its own appropriate use cases.
-          </p>
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center justify-center px-4 py-1 mb-3 border border-primary/20 rounded-full bg-primary/5 text-primary text-sm font-medium">
+              6 níveis de adoção de IA
+            </div>
+            <h2 className="gradient-text">Níveis do Framework DARE</h2>
+            <p className="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">
+              Seis níveis progressivos de integração de IA no design, de abordagens totalmente manuais à automação avançada — cada um com seus casos de uso apropriados.
+            </p>
+          </div>
           
           {/* Interactive Level Selector */}
-          <div className="mt-10 bg-white rounded-lg shadow-md p-4">
+          <div className="mt-10 bg-white rounded-xl shadow-md p-4 sm:p-6">
             <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-4">
               {frameworkLevels.map((level, index) => (
                 <button
                   key={index}
                   onClick={() => handleLevelChange(index)}
-                  className={`level-btn flex-1 min-w-[140px] px-4 py-3 text-sm font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 text-center transition-colors ${
+                  className={`level-btn min-w-[130px] px-4 py-3 text-sm font-medium rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary text-center transition-all duration-200 ${
                     activeLevel === index
-                      ? 'text-white bg-blue-600 hover:bg-blue-700'
+                      ? 'text-white bg-primary shadow-md hover:bg-primary/90'
                       : 'text-gray-700 bg-gray-100 hover:bg-gray-200'
                   }`}
                 >
-                  Level {index}: {level.shortName}
+                  <span className="block text-xs opacity-75 mb-1">Nível {index}</span>
+                  <span className="block">{level.shortName}</span>
                 </button>
               ))}
             </div>
           </div>
           
           {/* Level Details */}
-          <div className="mt-10 bg-white rounded-lg shadow-md overflow-hidden">
+          <div className="mt-10 bg-white rounded-xl shadow-md overflow-hidden relative">
             {frameworkLevels.map((level, index) => (
               <div 
                 key={index} 
-                className={activeLevel === index ? 'block' : 'hidden'}
+                className={`transition-opacity duration-300 ${activeLevel === index ? 'block opacity-100' : 'hidden opacity-0'}`}
               >
+                {/* Navigation Buttons */}
+                <div className="absolute top-1/2 left-0 transform -translate-y-1/2 z-10">
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    onClick={() => navigateLevel('prev')}
+                    disabled={activeLevel === 0}
+                    className="ml-2 bg-white/80 shadow-sm hover:bg-white"
+                  >
+                    <ChevronLeft className="h-6 w-6" />
+                  </Button>
+                </div>
+                <div className="absolute top-1/2 right-0 transform -translate-y-1/2 z-10">
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    onClick={() => navigateLevel('next')}
+                    disabled={activeLevel === frameworkLevels.length - 1}
+                    className="mr-2 bg-white/80 shadow-sm hover:bg-white"
+                  >
+                    <ChevronRight className="h-6 w-6" />
+                  </Button>
+                </div>
+                
                 <div className="grid grid-cols-1 lg:grid-cols-3">
-                  <div className="bg-blue-700 text-white p-8">
-                    <h3 className="text-xl font-bold">{level.name}</h3>
-                    <p className="mt-2 text-blue-100 italic">"{level.tagline}"</p>
+                  <div className="bg-gradient-to-br from-primary to-blue-700 text-white p-8 relative overflow-hidden">
+                    {/* Decorative pattern */}
+                    <div className="absolute inset-0 opacity-10">
+                      <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+                        <defs>
+                          <pattern id="grid-pattern-level" width="40" height="40" patternUnits="userSpaceOnUse">
+                            <path d="M0 20h40M20 0v40" stroke="white" strokeWidth="0.5" fill="none" />
+                          </pattern>
+                        </defs>
+                        <rect width="100%" height="100%" fill="url(#grid-pattern-level)" />
+                      </svg>
+                    </div>
                     
-                    {level.tools && level.tools.length > 0 && (
-                      <div className="mt-6">
-                        <h4 className="font-semibold text-lg">Tools</h4>
-                        <div className="mt-2 flex flex-wrap gap-2">
-                          {level.tools.map((tool, toolIndex) => (
-                            <span 
-                              key={toolIndex} 
-                              className="inline-flex items-center px-3 py-0.5 rounded-full text-sm font-medium bg-blue-100 text-blue-800"
-                            >
-                              {tool}
-                            </span>
-                          ))}
+                    <div className="relative">
+                      <Badge variant="outline" className="bg-white/10 text-white border-white/20 mb-4">
+                        Nível {level.id}
+                      </Badge>
+                      
+                      <h3 className="text-2xl font-bold">{level.name}</h3>
+                      <p className="mt-3 text-blue-100 italic text-lg">"{level.tagline}"</p>
+                      
+                      {level.tools && level.tools.length > 0 && (
+                        <div className="mt-8">
+                          <div className="flex items-center mb-3">
+                            <Wrench className="h-5 w-5 mr-2 text-blue-200" />
+                            <h4 className="font-semibold text-lg">Ferramentas</h4>
+                          </div>
+                          <div className="flex flex-wrap gap-2">
+                            {level.tools.map((tool, toolIndex) => (
+                              <span 
+                                key={toolIndex} 
+                                className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-white/20 text-white hover:bg-white/30 transition-colors"
+                              >
+                                {tool}
+                              </span>
+                            ))}
+                          </div>
                         </div>
-                      </div>
-                    )}
-                    
-                    {level.appropriateUses && level.appropriateUses.length > 0 && (
-                      <div className="mt-6">
-                        <h4 className="font-semibold text-lg">Appropriate Uses</h4>
-                        <ul className="mt-2 space-y-2 text-blue-50">
-                          {level.appropriateUses.map((use, useIndex) => (
-                            <li key={useIndex} className="flex items-start">
-                              <svg className="h-5 w-5 text-blue-200 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                              </svg>
-                              <span>{use}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    )}
+                      )}
+                      
+                      {level.appropriateUses && level.appropriateUses.length > 0 && (
+                        <div className="mt-8">
+                          <div className="flex items-center mb-3">
+                            <CheckIcon className="h-5 w-5 mr-2 text-blue-200" />
+                            <h4 className="font-semibold text-lg">Usos Apropriados</h4>
+                          </div>
+                          <ul className="space-y-2 text-blue-50">
+                            {level.appropriateUses.map((use, useIndex) => (
+                              <li key={useIndex} className="flex items-start">
+                                <div className="flex-shrink-0 h-5 w-5 rounded-full bg-blue-400/30 flex items-center justify-center mr-2 mt-0.5">
+                                  <CheckIcon className="h-3 w-3 text-white" />
+                                </div>
+                                <span>{use}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
+                    </div>
                   </div>
+                  
                   <div className="p-8 lg:col-span-2">
                     <div className="prose max-w-none">
-                      <p>{level.description}</p>
+                      <div className="flex items-center gap-2 mb-4">
+                        <div className="p-2 bg-primary/10 rounded-md">
+                          <Brain className="h-5 w-5 text-primary" />
+                        </div>
+                        <span className="text-sm font-medium text-primary">Descrição</span>
+                      </div>
+                      <p className="text-gray-700 text-lg">{level.description}</p>
                       
-                      <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div>
-                          <h4 className="font-medium text-gray-900">Prós</h4>
-                          <ul className="mt-2 list-disc pl-5 space-y-1 text-gray-600">
+                      <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div className="bg-green-50 p-5 rounded-lg border border-green-100">
+                          <div className="flex items-center text-green-700 mb-3">
+                            <CheckIcon className="h-5 w-5 mr-2" />
+                            <h4 className="font-medium text-green-800">Prós</h4>
+                          </div>
+                          <ul className="mt-2 space-y-2">
                             {level.pros.map((pro, proIndex) => (
-                              <li key={proIndex}>{pro}</li>
+                              <li key={proIndex} className="flex items-start text-gray-700">
+                                <CheckIcon className="h-5 w-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" />
+                                <span>{pro}</span>
+                              </li>
                             ))}
                           </ul>
                         </div>
-                        <div>
-                          <h4 className="font-medium text-gray-900">Contras</h4>
-                          <ul className="mt-2 list-disc pl-5 space-y-1 text-gray-600">
+                        
+                        <div className="bg-red-50 p-5 rounded-lg border border-red-100">
+                          <div className="flex items-center text-red-700 mb-3">
+                            <svg className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                            <h4 className="font-medium text-red-800">Contras</h4>
+                          </div>
+                          <ul className="mt-2 space-y-2">
                             {level.cons.map((con, conIndex) => (
-                              <li key={conIndex}>{con}</li>
+                              <li key={conIndex} className="flex items-start text-gray-700">
+                                <svg className="h-5 w-5 text-red-500 mr-2 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                                </svg>
+                                <span>{con}</span>
+                              </li>
                             ))}
                           </ul>
                         </div>
                       </div>
                       
-                      <div className="mt-6">
-                        <h4 className="font-medium text-gray-900">Riscos</h4>
-                        <div className="mt-2 flex items-start">
-                          <div className="flex-shrink-0">
-                            <svg className="h-5 w-5 text-amber-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                              <path fillRule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
-                            </svg>
-                          </div>
-                          <p className="ml-2 text-gray-600">{level.risks}</p>
+                      <div className="mt-8 bg-amber-50 p-5 rounded-lg border border-amber-100">
+                        <div className="flex items-center text-amber-700 mb-3">
+                          <AlertTriangleIcon className="h-5 w-5 mr-2" />
+                          <h4 className="font-medium text-amber-800">Riscos</h4>
+                        </div>
+                        <div className="text-gray-700">
+                          {level.risks}
                         </div>
                       </div>
                     </div>
@@ -148,69 +235,105 @@ export default function FrameworkSection() {
           
           {/* Framework Visual */}
           <div className="mt-16">
-            <h3 className="text-2xl font-bold text-gray-900 text-center">Framework Evolution</h3>
-            <p className="mt-2 text-lg text-gray-600 text-center mb-8">The progressive integration of AI into design processes</p>
+            <div className="text-center mb-8">
+              <div className="inline-flex items-center justify-center px-4 py-1 mb-3 border border-primary/20 rounded-full bg-primary/5 text-primary text-sm font-medium">
+                Métricas evolutivas
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900">Evolução do Framework</h3>
+              <p className="mt-3 text-gray-600 max-w-2xl mx-auto">
+                A integração progressiva de IA nos processos de design e seus impactos nas métricas principais
+              </p>
+            </div>
             
-            <div className="bg-white rounded-lg shadow-md p-6 overflow-auto">
-              <div className="min-w-[768px]">
+            <div className="bg-white rounded-xl shadow-md p-6 sm:p-8 overflow-hidden">
+              <div className="min-w-[768px] overflow-x-auto pb-4">
                 <div className="relative">
                   {/* Steps */}
-                  <div className="relative flex items-center justify-between mb-12">
+                  <div className="relative flex items-center justify-between mb-16">
                     {frameworkLevels.map((level, index) => (
-                      <div key={index} className="flex flex-col items-center relative z-10">
+                      <div 
+                        key={index} 
+                        className={`flex flex-col items-center relative z-10 cursor-pointer ${
+                          activeLevel === index ? 'scale-110 transition-transform duration-200' : ''
+                        }`}
+                        onClick={() => handleLevelChange(index)}
+                      >
                         <div 
-                          className={`w-10 h-10 rounded-full flex items-center justify-center ${
-                            index <= 2 
-                              ? `bg-blue-${600 - index * 100} text-white` 
-                              : `bg-blue-${300 - (index - 3) * 100} text-gray-800`
+                          className={`w-12 h-12 rounded-full flex items-center justify-center transition-colors ${
+                            activeLevel === index 
+                              ? 'bg-primary text-white shadow-md ring-4 ring-primary/20' 
+                              : index < activeLevel 
+                                ? 'bg-primary/80 text-white'
+                                : 'bg-gray-200 text-gray-700'
                           }`}
                         >
                           <span className="font-bold">{index}</span>
                         </div>
-                        <p className={`mt-2 font-medium ${
-                          index <= 2 
-                            ? `text-blue-${600 - index * 100}` 
-                            : `text-blue-${300 - (index - 3) * 100}`
+                        <p className={`mt-3 font-medium transition-colors ${
+                          activeLevel === index
+                            ? 'text-primary' 
+                            : 'text-gray-500'
                         }`}>{level.shortName}</p>
                       </div>
                     ))}
                     
                     {/* Progress Bar */}
-                    <div className="absolute left-0 top-5 transform -translate-y-1/2 h-1 bg-gray-200 w-full z-0">
+                    <div className="absolute left-0 top-6 transform -translate-y-1/2 h-2 bg-gray-200 w-full z-0 rounded-full">
                       <div 
                         ref={progressBarRef}
-                        className="h-full bg-blue-500 w-[0%]" 
+                        className="h-full bg-primary rounded-full transition-all duration-700 ease-in-out w-[0%]" 
                       />
                     </div>
                   </div>
                   
                   {/* Metrics */}
-                  <div className="grid grid-cols-3 gap-8">
-                    <div>
-                      <h4 className="font-bold text-gray-700">Human Control</h4>
-                      <div className="mt-2 h-4 bg-gray-200 rounded-full overflow-hidden">
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div className="bg-gray-50 p-5 rounded-lg">
+                      <div className="flex items-center mb-3">
+                        <Brain className="h-5 w-5 text-green-600 mr-2" />
+                        <h4 className="font-bold text-gray-800">Controle Humano</h4>
+                      </div>
+                      <div className="mt-2 h-6 bg-gray-200 rounded-full overflow-hidden">
                         <div 
                           ref={humanControlBarRef}
-                          className="h-full bg-green-500 w-[100%]" 
+                          className="h-full bg-gradient-to-r from-green-400 to-green-600 transition-all duration-700 ease-in-out w-[100%]" 
                         />
                       </div>
+                      <div className="mt-2 flex justify-between text-xs text-gray-500">
+                        <span>Baixo</span>
+                        <span>Alto</span>
+                      </div>
                     </div>
-                    <div>
-                      <h4 className="font-bold text-gray-700">Speed</h4>
-                      <div className="mt-2 h-4 bg-gray-200 rounded-full overflow-hidden">
+                    <div className="bg-gray-50 p-5 rounded-lg">
+                      <div className="flex items-center mb-3">
+                        <Zap className="h-5 w-5 text-blue-600 mr-2" />
+                        <h4 className="font-bold text-gray-800">Velocidade</h4>
+                      </div>
+                      <div className="mt-2 h-6 bg-gray-200 rounded-full overflow-hidden">
                         <div 
                           ref={speedBarRef}
-                          className="h-full bg-blue-500 w-[16%]" 
+                          className="h-full bg-gradient-to-r from-blue-400 to-blue-600 transition-all duration-700 ease-in-out w-[16%]" 
                         />
                       </div>
+                      <div className="mt-2 flex justify-between text-xs text-gray-500">
+                        <span>Baixa</span>
+                        <span>Alta</span>
+                      </div>
                     </div>
-                    <div>
-                      <h4 className="font-bold text-gray-700">AI Dependency</h4>
-                      <div className="mt-2 h-4 bg-gray-200 rounded-full overflow-hidden">
+                    <div className="bg-gray-50 p-5 rounded-lg">
+                      <div className="flex items-center mb-3">
+                        <Cpu className="h-5 w-5 text-amber-600 mr-2" />
+                        <h4 className="font-bold text-gray-800">Dependência de IA</h4>
+                      </div>
+                      <div className="mt-2 h-6 bg-gray-200 rounded-full overflow-hidden">
                         <div 
                           ref={aiDependencyBarRef}
-                          className="h-full bg-amber-500 w-[0%]" 
+                          className="h-full bg-gradient-to-r from-amber-400 to-amber-600 transition-all duration-700 ease-in-out w-[0%]" 
                         />
+                      </div>
+                      <div className="mt-2 flex justify-between text-xs text-gray-500">
+                        <span>Baixa</span>
+                        <span>Alta</span>
                       </div>
                     </div>
                   </div>
