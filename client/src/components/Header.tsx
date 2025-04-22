@@ -29,7 +29,7 @@ export default function Header() {
       className={`sticky top-0 z-40 w-full transition-all duration-200 ${
         scrolled 
           ? 'bg-white/90 backdrop-blur-md shadow-sm' 
-          : 'bg-transparent'
+          : 'bg-gradient-to-b from-black/50 to-transparent'
       }`}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
