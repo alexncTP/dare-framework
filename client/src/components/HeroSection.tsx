@@ -31,7 +31,7 @@ export default function HeroSection() {
 
             <h1 className="text-white mb-6">
               <span className="block mb-2">Design AI Reliable</span>
-              <span className="block bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent">
+              <span className="block mb-2 bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent">
                 Engagement Framework
               </span>
             </h1>
