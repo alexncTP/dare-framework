@@ -41,26 +41,15 @@ export default function HeroSection() {
               equilibrando inovação com criatividade humana.
             </p>
             
-            <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">
+            <div className="mt-12 flex items-center justify-center">
               <Button 
                 size="lg"
                 variant="default" 
-                className="w-full sm:w-auto bg-white text-primary hover:bg-blue-50"
+                className="bg-white text-primary hover:bg-blue-50"
                 asChild
               >
                 <a href="#framework">
                   Explorar Framework
-                </a>
-              </Button>
-              
-              <Button 
-                size="lg"
-                variant="outline" 
-                className="w-full sm:w-auto border-white text-white hover:bg-white/10"
-                asChild
-              >
-                <a href="#contribute" aria-label="Contribuir para o framework" title="Contribuir para o framework">
-                  Contribuir
                 </a>
               </Button>
             </div>
