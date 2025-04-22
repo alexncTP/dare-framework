@@ -7,6 +7,14 @@ export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   
+  // Configuração de navegação
+  const navItems = [
+    { href: "#about", label: "Sobre" },
+    { href: "#framework", label: "Framework" },
+    { href: "#manifesto", label: "Manifesto" },
+    { href: "#contribute", label: "Contribuir" }
+  ];
+  
   // Handle scroll effect
   useEffect(() => {
     const handleScroll = () => {
@@ -26,99 +34,96 @@ export default function Header() {
 
   return (
     <header 
-      className={`sticky top-0 z-40 w-full transition-all duration-200 ${
+      className={`sticky top-0 z-40 w-full transition-all duration-300 ${
         scrolled 
-          ? 'bg-white/90 backdrop-blur-md shadow-sm' 
-          : 'bg-gradient-to-b from-black/50 to-transparent'
+          ? 'bg-white shadow-md' 
+          : 'bg-black/70 backdrop-blur-md'
       }`}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center py-4">
+        <div className="flex justify-between items-center py-3">
+          {/* Logo e menu principal */}
           <div className="flex items-center">
-            <a href="/" className="flex-shrink-0 flex items-center">
-              <svg className="h-8 w-8 text-primary" viewBox="0 0 40 40" fill="currentColor">
-                <path d="M20 3C10.6 3 3 10.6 3 20s7.6 17 17 17 17-7.6 17-17S29.4 3 20 3zm8 21h-8v8h-4v-8H8v-4h8v-8h4v8h8v4z"></path>
-              </svg>
-              <span className={`ml-2 text-xl font-bold ${scrolled ? 'text-gray-900' : 'text-white'}`}>
+            <a href="/" className="flex-shrink-0 flex items-center group">
+              <div className={`p-1.5 rounded-md transition-colors ${
+                scrolled 
+                  ? 'bg-primary/10 group-hover:bg-primary/20' 
+                  : 'bg-white/10 group-hover:bg-white/20'
+              }`}>
+                <svg 
+                  className={`h-6 w-6 ${scrolled ? 'text-primary' : 'text-white'}`} 
+                  viewBox="0 0 40 40" 
+                  fill="currentColor"
+                >
+                  <path d="M20 3C10.6 3 3 10.6 3 20s7.6 17 17 17 17-7.6 17-17S29.4 3 20 3zm8 21h-8v8h-4v-8H8v-4h8v-8h4v8h8v4z"></path>
+                </svg>
+              </div>
+              <span className={`ml-2.5 text-lg font-bold ${scrolled ? 'text-gray-900' : 'text-white'}`}>
                 DARE Framework
               </span>
             </a>
-            <nav className="hidden md:ml-10 md:flex md:space-x-8">
-              <a 
-                href="#about" 
-                className={`px-3 py-2 text-sm font-medium transition-colors ${
-                  scrolled 
-                    ? 'text-gray-700 hover:text-primary' 
-                    : 'text-white/90 hover:text-white'
-                }`}
-              >
-                Sobre
-              </a>
-              <a 
-                href="#framework" 
-                className={`px-3 py-2 text-sm font-medium transition-colors ${
-                  scrolled 
-                    ? 'text-gray-700 hover:text-primary' 
-                    : 'text-white/90 hover:text-white'
-                }`}
-              >
-                Framework
-              </a>
-              <a 
-                href="#manifesto" 
-                className={`px-3 py-2 text-sm font-medium transition-colors ${
-                  scrolled 
-                    ? 'text-gray-700 hover:text-primary' 
-                    : 'text-white/90 hover:text-white'
-                }`}
-              >
-                Manifesto
-              </a>
-              <a 
-                href="#contribute" 
-                className={`px-3 py-2 text-sm font-medium transition-colors ${
-                  scrolled 
-                    ? 'text-gray-700 hover:text-primary' 
-                    : 'text-white/90 hover:text-white'
-                }`}
-              >
-                Contribuir
-              </a>
+            
+            {/* Desktop Navigation */}
+            <nav className="hidden md:ml-10 md:flex md:space-x-1">
+              {navItems.map((item) => (
+                <a 
+                  key={item.href}
+                  href={item.href} 
+                  className={`px-4 py-2 rounded-md text-sm font-medium transition-colors duration-150 ${
+                    scrolled 
+                      ? 'text-gray-700 hover:text-primary hover:bg-gray-50' 
+                      : 'text-white hover:bg-white/10'
+                  }`}
+                >
+                  {item.label}
+                </a>
+              ))}
             </nav>
           </div>
-          <div className="flex items-center space-x-4">
+          
+          {/* CTA e controles */}
+          <div className="flex items-center space-x-3">
             <a 
               href="https://github.com/dare-framework/dare" 
               target="_blank" 
-              rel="noopener noreferrer" 
-              className={`${scrolled ? 'text-gray-600 hover:text-gray-900' : 'text-white/80 hover:text-white'}`}
+              rel="noopener noreferrer"
+              aria-label="GitHub"
+              className={`p-2 rounded-full transition-colors ${
+                scrolled 
+                  ? 'text-gray-600 hover:text-gray-900 hover:bg-gray-100' 
+                  : 'text-white hover:bg-white/10'
+              }`}
             >
-              <span className="sr-only">GitHub</span>
               <Github className="h-5 w-5" />
             </a>
+            
             <Button
-              variant={scrolled ? "default" : "outline"}
+              variant="default"
               size="sm"
-              className={scrolled 
-                ? "bg-primary text-white hover:bg-primary/90" 
-                : "border-white text-white hover:bg-white/10"}
+              className={`px-4 font-medium ${
+                scrolled 
+                  ? "bg-primary text-white hover:bg-primary/90" 
+                  : "bg-white text-primary hover:bg-white/90"
+              }`}
             >
-              <span>Começar</span>
+              Começar
             </Button>
+            
+            {/* Mobile menu toggle */}
             <button 
               type="button" 
-              className={`md:hidden p-2 rounded-md inline-flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-inset ${
+              aria-label={isMobileMenuOpen ? "Fechar menu" : "Abrir menu"}
+              className={`md:hidden p-2 rounded-full transition-colors ${
                 scrolled 
-                  ? 'text-gray-500 hover:text-gray-900 hover:bg-gray-100 focus:ring-primary' 
-                  : 'text-white hover:text-white/80 hover:bg-white/10 focus:ring-white'
+                  ? 'text-gray-600 hover:text-gray-900 hover:bg-gray-100' 
+                  : 'text-white hover:bg-white/10'
               }`}
               onClick={toggleMobileMenu}
             >
-              <span className="sr-only">Abrir menu</span>
               {isMobileMenuOpen ? (
-                <X className="h-6 w-6" />
+                <X className="h-5 w-5" />
               ) : (
-                <Menu className="h-6 w-6" />
+                <Menu className="h-5 w-5" />
               )}
             </button>
           </div>
@@ -128,50 +133,28 @@ export default function Header() {
       {/* Mobile menu */}
       <div 
         className={`md:hidden transition-all duration-200 ease-in-out overflow-hidden ${
-          isMobileMenuOpen ? 'max-h-64 opacity-100' : 'max-h-0 opacity-0'
+          isMobileMenuOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'
         }`}
       >
-        <div className={`py-3 px-4 space-y-1 ${scrolled ? 'bg-white' : 'bg-primary/95 backdrop-blur-md'}`}>
-          <a 
-            href="#about" 
-            className={`block py-2 px-3 text-base font-medium rounded-md ${
-              scrolled 
-                ? 'text-gray-700 hover:text-primary hover:bg-gray-50' 
-                : 'text-white hover:bg-white/10'
-            }`}
-          >
-            Sobre
-          </a>
-          <a 
-            href="#framework" 
-            className={`block py-2 px-3 text-base font-medium rounded-md ${
-              scrolled 
-                ? 'text-gray-700 hover:text-primary hover:bg-gray-50' 
-                : 'text-white hover:bg-white/10'
-            }`}
-          >
-            Framework
-          </a>
-          <a 
-            href="#manifesto" 
-            className={`block py-2 px-3 text-base font-medium rounded-md ${
-              scrolled 
-                ? 'text-gray-700 hover:text-primary hover:bg-gray-50' 
-                : 'text-white hover:bg-white/10'
-            }`}
-          >
-            Manifesto
-          </a>
-          <a 
-            href="#contribute" 
-            className={`block py-2 px-3 text-base font-medium rounded-md ${
-              scrolled 
-                ? 'text-gray-700 hover:text-primary hover:bg-gray-50' 
-                : 'text-white hover:bg-white/10'
-            }`}
-          >
-            Contribuir
-          </a>
+        <div className={`py-3 px-3 shadow-md ${
+          scrolled 
+            ? 'bg-white' 
+            : 'bg-black/90 backdrop-blur-md'
+        }`}>
+          {navItems.map((item) => (
+            <a 
+              key={item.href}
+              href={item.href} 
+              className={`block py-2.5 px-4 mb-1 text-base font-medium rounded-md ${
+                scrolled 
+                  ? 'text-gray-700 hover:text-primary hover:bg-gray-50' 
+                  : 'text-white hover:bg-white/10'
+              }`}
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              {item.label}
+            </a>
+          ))}
         </div>
       </div>
     </header>
