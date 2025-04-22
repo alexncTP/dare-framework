@@ -1,0 +1,51 @@
+Nível 0 – Manual Total
+“Nenhuma IA. Só cérebro, mão e suor.”
+	•	Tudo feito à moda antiga. O designer conduz pesquisa, criação e entrega com ferramentas tradicionais, sem IA.
+	•	Uso típico: Projetos sensíveis à identidade, branding rígido, entregas finais.
+	•	Prós: Máximo controle, refinamento e autoria.
+	•	Contras: Lento, pouco escalável, sujeito a retrabalho braçal.
+
+⸻
+
+Nível 1 – IA Assistiva
+“A IA te ajuda, mas não cria.”
+	•	Uso pontual da IA para tarefas operacionais: resumir pesquisas, organizar dados, revisar textos, gerar insights.
+	•	Ferramentas: ChatGPT, FigJam AI, Notion AI, MonkeyLearn.
+	•	Prós: Agiliza sem interferir no resultado visual.
+	•	Contras: Nenhuma aceleração no design em si.
+
+⸻
+
+Nível 2 – IA como Acelerador Visual
+“Você cria, a IA preenche.”
+	•	A IA entra para gerar partes do design (imagens, textos, ícones, padrões). Designer controla a composição.
+	•	Ferramentas: Midjourney, DALL·E, Runway, Magician for Figma.
+	•	Prós: Ganha-se tempo nas tarefas repetitivas e criativas.
+	•	Contras: Risco de quebra de consistência ou visual genérico.
+
+⸻
+
+Nível 3 – IA como Copiloto
+“Você lidera, a IA propõe.”
+	•	A IA sugere layouts, fluxos, conteúdos e transições. O designer edita, mistura, ajusta.
+	•	Ferramentas: Figma AI, Galileo AI, Uizard, Firefly.
+	•	Prós: Geração rápida de protótipos, múltiplas variações instantâneas.
+	•	Contras: Requer curadoria crítica, risco de vício criativo (design preguiçoso).
+
+⸻
+
+Nível 4 – Co-criação Modular
+“A IA monta, você direciona.”
+	•	IA gera telas inteiras, animações ou identidades parciais com base em prompts. Designer atua como diretor de arte.
+	•	Ferramentas: Runway Gen-2, Visily, ferramentas de design-to-code.
+	•	Prós: Criação em velocidade insana, útil para sprints, MVPs e testes.
+	•	Contras: Falta finesse; exige ajustes pesados para virar produto real.
+
+⸻
+
+Nível 5 – Automação Guiada por Prompt
+“Você descreve, a IA entrega.”
+	•	O design é quase totalmente gerado via linguagem natural. Criação, layout, conteúdo e até protótipo funcional vêm prontos.
+	•	Ferramentas: V0.dev, GPT-Engineer, modelos customizados.
+	•	Prós: Protótipos e páginas inteiras em minutos.
+	•	Contras: Baixo controle, outputs genéricos, revisão crítica obrigatória.
