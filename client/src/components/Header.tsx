@@ -45,19 +45,13 @@ export default function Header() {
           {/* Logo e menu principal */}
           <div className="flex items-center">
             <a href="/" className="flex-shrink-0 flex items-center group">
-              <div className={`p-1.5 rounded-md transition-colors ${
-                scrolled 
-                  ? 'bg-primary/10 group-hover:bg-primary/20' 
-                  : 'bg-white/10 group-hover:bg-white/20'
-              }`}>
-                <svg 
-                  className={`h-6 w-6 ${scrolled ? 'text-primary' : 'text-white'}`} 
-                  viewBox="0 0 40 40" 
-                  fill="currentColor"
-                >
-                  <path d="M20 3C10.6 3 3 10.6 3 20s7.6 17 17 17 17-7.6 17-17S29.4 3 20 3zm8 21h-8v8h-4v-8H8v-4h8v-8h4v8h8v4z"></path>
-                </svg>
-              </div>
+              <svg 
+                className={`h-6 w-6 ${scrolled ? 'text-primary' : 'text-white'}`} 
+                viewBox="0 0 40 40" 
+                fill="currentColor"
+              >
+                <path d="M20 3C10.6 3 3 10.6 3 20s7.6 17 17 17 17-7.6 17-17S29.4 3 20 3zm8 21h-8v8h-4v-8H8v-4h8v-8h4v8h8v4z"></path>
+              </svg>
               <span className={`ml-2.5 text-lg font-bold ${scrolled ? 'text-gray-900' : 'text-white'}`}>
                 DARE Framework
               </span>
