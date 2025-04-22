@@ -59,7 +59,7 @@ export default function HeroSection() {
                 className="w-full sm:w-auto border-white text-white hover:bg-white/10"
                 asChild
               >
-                <a href="#contribute">
+                <a href="#contribute" aria-label="Contribuir para o framework" title="Contribuir para o framework">
                   Contribuir
                 </a>
               </Button>

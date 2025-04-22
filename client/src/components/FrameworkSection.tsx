@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
-import { frameworkLevels } from '@/data/frameworkLevels';
 import { ChevronRight, ChevronLeft, CheckIcon, AlertTriangleIcon, Cpu, Brain, Wrench, Zap } from 'lucide-react';
+import { useQuery } from '@tanstack/react-query';
+import type { FrameworkLevel } from '@shared/schema';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 
@@ -12,6 +13,14 @@ export default function FrameworkSection() {
   const speedBarRef = useRef<HTMLDivElement>(null);
   const aiDependencyBarRef = useRef<HTMLDivElement>(null);
   const progressBarRef = useRef<HTMLDivElement>(null);
+  
+  // Fetch framework levels from the API
+  const { data: frameworkLevels = [], isLoading, error } = useQuery<FrameworkLevel[]>({
+    queryKey: ['/api/framework-levels'],
+  });
+  
+  // Ensure the proper type safety
+  const levels = Array.isArray(frameworkLevels) ? frameworkLevels : [];
   
   // Update framework visuals when active level changes
   useEffect(() => {
@@ -37,12 +46,47 @@ export default function FrameworkSection() {
   };
 
   const navigateLevel = (direction: 'next' | 'prev') => {
-    if (direction === 'next' && activeLevel < frameworkLevels.length - 1) {
+    if (direction === 'next' && activeLevel < levels.length - 1) {
       setActiveLevel(activeLevel + 1);
     } else if (direction === 'prev' && activeLevel > 0) {
       setActiveLevel(activeLevel - 1);
     }
   };
+  
+  // Show loading state while fetching data
+  if (isLoading) {
+    return (
+      <section id="framework" className="py-16 sm:py-24 bg-gray-50">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="gradient-text">Níveis do Framework DARE</h2>
+              <p className="mt-4 text-lg text-gray-600">Carregando os níveis do framework...</p>
+            </div>
+            <div className="py-20 flex justify-center">
+              <div className="w-10 h-10 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    );
+  }
+  
+  // Show error state if there was a problem fetching data
+  if (error) {
+    return (
+      <section id="framework" className="py-16 sm:py-24 bg-gray-50">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="gradient-text">Níveis do Framework DARE</h2>
+              <p className="mt-4 text-lg text-red-600">Erro ao carregar os níveis do framework.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section id="framework" className="py-16 sm:py-24 bg-gray-50">
@@ -61,7 +105,7 @@ export default function FrameworkSection() {
           {/* Interactive Level Selector */}
           <div className="mt-10 bg-white rounded-xl shadow-md p-4 sm:p-6">
             <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-4">
-              {frameworkLevels.map((level, index) => (
+              {levels.map((level, index) => (
                 <button
                   key={index}
                   onClick={() => handleLevelChange(index)}
