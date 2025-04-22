@@ -124,7 +124,7 @@ export default function FrameworkSection() {
           
           {/* Level Details */}
           <div className="mt-10 bg-white rounded-xl shadow-md overflow-hidden relative">
-            {frameworkLevels.map((level, index) => (
+            {levels.map((level, index) => (
               <div 
                 key={index} 
                 className={`transition-opacity duration-300 ${activeLevel === index ? 'block opacity-100' : 'hidden opacity-0'}`}
@@ -146,7 +146,7 @@ export default function FrameworkSection() {
                     variant="ghost"
                     size="icon"
                     onClick={() => navigateLevel('next')}
-                    disabled={activeLevel === frameworkLevels.length - 1}
+                    disabled={activeLevel === levels.length - 1}
                     className="mr-2 bg-white/80 shadow-sm hover:bg-white"
                   >
                     <ChevronRight className="h-6 w-6" />
@@ -175,14 +175,14 @@ export default function FrameworkSection() {
                       <h3 className="text-2xl font-bold">{level.name}</h3>
                       <p className="mt-3 text-blue-100 italic text-lg">"{level.tagline}"</p>
                       
-                      {level.tools && level.tools.length > 0 && (
+                      {Array.isArray(level.tools) && level.tools.length > 0 && (
                         <div className="mt-8">
                           <div className="flex items-center mb-3">
                             <Wrench className="h-5 w-5 mr-2 text-blue-200" />
                             <h4 className="font-semibold text-lg">Ferramentas</h4>
                           </div>
                           <div className="flex flex-wrap gap-2">
-                            {level.tools.map((tool, toolIndex) => (
+                            {level.tools.map((tool: string, toolIndex: number) => (
                               <span 
                                 key={toolIndex} 
                                 className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-white/20 text-white hover:bg-white/30 transition-colors"
@@ -194,14 +194,14 @@ export default function FrameworkSection() {
                         </div>
                       )}
                       
-                      {level.appropriateUses && level.appropriateUses.length > 0 && (
+                      {Array.isArray(level.appropriateUses) && level.appropriateUses.length > 0 && (
                         <div className="mt-8">
                           <div className="flex items-center mb-3">
                             <CheckIcon className="h-5 w-5 mr-2 text-blue-200" />
                             <h4 className="font-semibold text-lg">Usos Apropriados</h4>
                           </div>
                           <ul className="space-y-2 text-blue-50">
-                            {level.appropriateUses.map((use, useIndex) => (
+                            {level.appropriateUses.map((use: string, useIndex: number) => (
                               <li key={useIndex} className="flex items-start">
                                 <div className="flex-shrink-0 h-5 w-5 rounded-full bg-blue-400/30 flex items-center justify-center mr-2 mt-0.5">
                                   <CheckIcon className="h-3 w-3 text-white" />
@@ -232,7 +232,7 @@ export default function FrameworkSection() {
                             <h4 className="font-medium text-green-800">Prós</h4>
                           </div>
                           <ul className="mt-2 space-y-2">
-                            {level.pros.map((pro, proIndex) => (
+                            {Array.isArray(level.pros) && level.pros.map((pro: string, proIndex: number) => (
                               <li key={proIndex} className="flex items-start text-gray-700">
                                 <CheckIcon className="h-5 w-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" />
                                 <span>{pro}</span>
@@ -249,7 +249,7 @@ export default function FrameworkSection() {
                             <h4 className="font-medium text-red-800">Contras</h4>
                           </div>
                           <ul className="mt-2 space-y-2">
-                            {level.cons.map((con, conIndex) => (
+                            {Array.isArray(level.cons) && level.cons.map((con: string, conIndex: number) => (
                               <li key={conIndex} className="flex items-start text-gray-700">
                                 <svg className="h-5 w-5 text-red-500 mr-2 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
@@ -294,7 +294,7 @@ export default function FrameworkSection() {
                 <div className="relative">
                   {/* Steps */}
                   <div className="relative flex items-center justify-between mb-16">
-                    {frameworkLevels.map((level, index) => (
+                    {levels.map((level, index) => (
                       <div 
                         key={index} 
                         className={`flex flex-col items-center relative z-10 cursor-pointer ${
