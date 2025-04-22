@@ -84,18 +84,6 @@ export default function Header() {
               <Github className="h-5 w-5" />
             </a>
             
-            <Button
-              variant="default"
-              size="sm"
-              className={`px-4 font-medium ${
-                scrolled 
-                  ? "bg-primary text-white hover:bg-primary/90" 
-                  : "bg-white text-primary hover:bg-white/90"
-              }`}
-            >
-              Começar
-            </Button>
-            
             {/* Mobile menu toggle */}
             <button 
               type="button" 
