@@ -293,7 +293,7 @@ export default function FrameworkSection() {
               <div className="min-w-[768px] overflow-x-auto pb-4">
                 <div className="relative">
                   {/* Steps */}
-                  <div className="relative flex items-center justify-between mb-16 px-2 py-2">
+                  <div className="relative flex items-center justify-between mb-16 px-3 py-3">
                     {levels.map((level, index) => (
                       <div 
                         key={index} 
