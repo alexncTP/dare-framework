@@ -4,9 +4,14 @@ import {
   Contribution, 
   InsertContribution, 
   FrameworkLevel, 
-  InsertFrameworkLevel 
+  InsertFrameworkLevel,
+  users,
+  contributions,
+  frameworkLevels
 } from "@shared/schema";
 import { frameworkLevels as initialFrameworkLevels } from "../client/src/data/frameworkLevels";
+import { db } from "./db";
+import { eq, desc, SQL, asc } from "drizzle-orm";
 
 export interface IStorage {
   // User methods
@@ -27,137 +32,137 @@ export interface IStorage {
   createContribution(contribution: InsertContribution): Promise<Contribution>;
   updateContributionStatus(id: number, status: 'pending' | 'approved' | 'rejected'): Promise<Contribution | undefined>;
   deleteContribution(id: number): Promise<boolean>;
+
+  // Database initialization
+  initializeDatabase(): Promise<void>;
 }
 
-export class MemStorage implements IStorage {
-  private users: Map<number, User>;
-  private contributions: Map<number, Contribution>;
-  private frameworkLevels: Map<number, FrameworkLevel>;
-  private userId: number;
-  private contributionId: number;
-  private frameworkLevelId: number;
-
-  constructor() {
-    this.users = new Map();
-    this.contributions = new Map();
-    this.frameworkLevels = new Map();
-    this.userId = 1;
-    this.contributionId = 1;
-    this.frameworkLevelId = 0;
-
-    // Initialize with example framework levels
-    this.initializeFrameworkLevels();
-  }
-
-  private initializeFrameworkLevels() {
-    initialFrameworkLevels.forEach(level => {
-      const newLevel: FrameworkLevel = {
-        ...level,
+export class DatabaseStorage implements IStorage {
+  async initializeDatabase(): Promise<void> {
+    // Check if we have any framework levels already
+    const existingLevels = await db.select().from(frameworkLevels);
+    
+    if (existingLevels.length === 0) {
+      console.log("Initializing database with framework levels...");
+      
+      // Insert initial framework levels
+      const levelsToInsert = initialFrameworkLevels.map(level => ({
+        name: level.name,
+        shortName: level.shortName,
+        tagline: level.tagline,
+        description: level.description,
+        tools: level.tools || [],
+        appropriateUses: level.appropriateUses || [],
+        pros: level.pros,
+        cons: level.cons,
+        risks: level.risks,
         order: level.id,
-        createdAt: new Date(),
-        updatedAt: new Date(),
-      };
-      this.frameworkLevels.set(level.id, newLevel);
-      this.frameworkLevelId = Math.max(this.frameworkLevelId, level.id + 1);
-    });
+      }));
+      
+      await db.insert(frameworkLevels).values(levelsToInsert);
+      console.log("Framework levels initialized successfully.");
+    }
   }
 
   // User methods
   async getUser(id: number): Promise<User | undefined> {
-    return this.users.get(id);
+    const [user] = await db.select().from(users).where(eq(users.id, id));
+    return user;
   }
 
   async getUserByUsername(username: string): Promise<User | undefined> {
-    return Array.from(this.users.values()).find(
-      (user) => user.username === username,
-    );
+    const [user] = await db.select().from(users).where(eq(users.username, username));
+    return user;
   }
 
   async createUser(insertUser: InsertUser): Promise<User> {
-    const id = this.userId++;
-    const user: User = { ...insertUser, id };
-    this.users.set(id, user);
+    const [user] = await db
+      .insert(users)
+      .values(insertUser)
+      .returning();
     return user;
   }
 
   // Framework Level methods
   async getFrameworkLevel(id: number): Promise<FrameworkLevel | undefined> {
-    return this.frameworkLevels.get(id);
+    const [level] = await db.select().from(frameworkLevels).where(eq(frameworkLevels.id, id));
+    return level;
   }
 
   async getAllFrameworkLevels(): Promise<FrameworkLevel[]> {
-    return Array.from(this.frameworkLevels.values())
-      .sort((a, b) => a.order - b.order);
+    return db.select().from(frameworkLevels).orderBy(asc(frameworkLevels.order));
   }
 
   async createFrameworkLevel(level: InsertFrameworkLevel): Promise<FrameworkLevel> {
-    const id = this.frameworkLevelId++;
-    const newLevel: FrameworkLevel = {
-      ...level,
-      id,
-      createdAt: new Date(),
-      updatedAt: new Date(),
-    };
-    this.frameworkLevels.set(id, newLevel);
+    const [newLevel] = await db
+      .insert(frameworkLevels)
+      .values(level)
+      .returning();
     return newLevel;
   }
 
   async updateFrameworkLevel(id: number, level: Partial<InsertFrameworkLevel>): Promise<FrameworkLevel | undefined> {
-    const existingLevel = this.frameworkLevels.get(id);
-    if (!existingLevel) return undefined;
-
-    const updatedLevel: FrameworkLevel = {
-      ...existingLevel,
-      ...level,
-      updatedAt: new Date(),
-    };
-    this.frameworkLevels.set(id, updatedLevel);
+    const [updatedLevel] = await db
+      .update(frameworkLevels)
+      .set({
+        ...level,
+        updatedAt: new Date()
+      })
+      .where(eq(frameworkLevels.id, id))
+      .returning();
     return updatedLevel;
   }
 
   async deleteFrameworkLevel(id: number): Promise<boolean> {
-    return this.frameworkLevels.delete(id);
+    const result = await db
+      .delete(frameworkLevels)
+      .where(eq(frameworkLevels.id, id));
+    return !!result;
   }
 
   // Contribution methods
   async getContribution(id: number): Promise<Contribution | undefined> {
-    return this.contributions.get(id);
+    const [contribution] = await db.select().from(contributions).where(eq(contributions.id, id));
+    return contribution;
   }
 
   async getAllContributions(): Promise<Contribution[]> {
-    return Array.from(this.contributions.values())
-      .sort((a, b) => b.createdAt.getTime() - a.createdAt.getTime());
+    return db
+      .select()
+      .from(contributions)
+      .orderBy(desc(contributions.createdAt));
   }
 
   async createContribution(insertContribution: InsertContribution): Promise<Contribution> {
-    const id = this.contributionId++;
-    const contribution: Contribution = {
-      ...insertContribution,
-      id,
-      status: 'pending',
-      createdAt: new Date(),
-      updatedAt: new Date(),
-    };
-    this.contributions.set(id, contribution);
+    const [contribution] = await db
+      .insert(contributions)
+      .values({
+        ...insertContribution,
+        status: 'pending'
+      })
+      .returning();
     return contribution;
   }
 
   async updateContributionStatus(id: number, status: 'pending' | 'approved' | 'rejected'): Promise<Contribution | undefined> {
-    const existingContribution = this.contributions.get(id);
-    if (!existingContribution) return undefined;
-
-    const updatedContribution: Contribution = {
-      ...existingContribution,
-      status,
-      updatedAt: new Date(),
-    };
-    this.contributions.set(id, updatedContribution);
+    const [updatedContribution] = await db
+      .update(contributions)
+      .set({ 
+        status,
+        updatedAt: new Date()
+      })
+      .where(eq(contributions.id, id))
+      .returning();
     return updatedContribution;
   }
 
   async deleteContribution(id: number): Promise<boolean> {
-    return this.contributions.delete(id);
+    const result = await db
+      .delete(contributions)
+      .where(eq(contributions.id, id));
+    return !!result;
   }
 }
 
-export const storage = new MemStorage();
+// Use the DatabaseStorage implementation instead of MemStorage
+export const storage = new DatabaseStorage();
