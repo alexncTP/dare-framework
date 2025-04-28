@@ -78,8 +78,8 @@ export default function ContributeSection() {
                     Ajude a tornar o DARE acessível a designers em todo o mundo contribuindo com traduções do framework para diferentes idiomas.
                   </p>
                   <div className="mt-6">
-                    <a href="https://github.com/guigonzalez/dare-framework/wiki/Translations" className="inline-flex items-center text-blue-600 hover:text-blue-700">
-                      Começar a traduzir
+                    <a href="#diretrizes" className="inline-flex items-center text-blue-600 hover:text-blue-700">
+                      Ver diretrizes
                       <svg className="ml-1 h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                         <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
                       </svg>
