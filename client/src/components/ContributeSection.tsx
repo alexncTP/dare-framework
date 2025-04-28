@@ -42,18 +42,18 @@ export default function ContributeSection() {
                 <div className="flex items-center">
                   <div className="flex-shrink-0 p-3 rounded-md bg-blue-100">
                     <svg className="h-6 w-6 text-blue-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                     </svg>
                   </div>
-                  <h3 className="ml-3 text-xl font-medium text-gray-900">Adicionar Casos de Estudo</h3>
+                  <h3 className="ml-3 text-xl font-medium text-gray-900">Sobre o Criador</h3>
                 </div>
                 <div className="mt-4">
                   <p className="text-gray-600">
-                    Envie exemplos reais dos níveis DARE em ação, mostrando como diferentes abordagens de integração de IA impactam os resultados de design.
+                    Gui Gonzalez é um designer apaixonado por processos, que busca incorporar a IA de forma sadia no mercado de Design, para que um novo design surja junto com as mudanças de paradigma.
                   </p>
                   <div className="mt-6">
-                    <a href="https://github.com/guigonzalez/dare-framework/wiki/Case-Studies" className="inline-flex items-center text-blue-600 hover:text-blue-700">
-                      Enviar um caso de estudo
+                    <a href="https://br.linkedin.com/in/guigonzalez/pt" target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-blue-600 hover:text-blue-700">
+                      Conectar no LinkedIn
                       <svg className="ml-1 h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                         <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
                       </svg>
