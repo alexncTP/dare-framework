@@ -56,7 +56,7 @@ export default function Footer() {
                 Licença CC BY-SA 4.0
               </p>
             </div>
-            <a href="#contribute" className="inline-flex items-center text-primary hover:text-primary/80">
+            <a href="#diretrizes" className="inline-flex items-center text-primary hover:text-primary/80">
               <Heart className="h-4 w-4 mr-1" />
               <span>Como contribuir</span>
             </a>
