@@ -71,7 +71,7 @@ export default function Header() {
           {/* CTA e controles */}
           <div className="flex items-center space-x-3">
             <a 
-              href="https://github.com/dare-framework/dare" 
+              href="https://github.com/guigonzalez/dare-framework" 
               target="_blank" 
               rel="noopener noreferrer"
               aria-label="GitHub"
