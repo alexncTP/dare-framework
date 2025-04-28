@@ -389,9 +389,10 @@ export default function FrameworkSection() {
               </p>
             </div>
             
-            <div className="bg-white rounded-xl shadow-md p-6 sm:p-8 overflow-hidden">
-              <div className="min-w-[768px] overflow-x-auto pb-4">
-                <div className="relative">
+            {/* Desktop Evolution Framework */}
+            <div className={`bg-white rounded-xl shadow-md p-6 sm:p-8 overflow-hidden ${isMobile ? 'hidden' : 'block'}`}>
+              <div className="overflow-x-auto pb-4">
+                <div className="relative min-w-[768px]">
                   {/* Steps */}
                   <div className="relative flex items-center justify-between mb-16 px-3 py-3">
                     {levels.map((level, index) => (
@@ -479,6 +480,65 @@ export default function FrameworkSection() {
                         <span>Baixa</span>
                         <span>Alta</span>
                       </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            {/* Mobile Evolution Framework */}
+            <div className={`bg-white rounded-xl shadow-md p-4 ${isMobile ? 'block' : 'hidden'}`}>
+              <div className="space-y-6">
+                {/* Mobile Metrics */}
+                <div className="space-y-4">
+                  <div className="bg-gray-50 p-4 rounded-lg">
+                    <div className="flex items-center mb-2">
+                      <Brain className="h-4 w-4 text-green-600 mr-2" />
+                      <h4 className="font-bold text-gray-800 text-sm">Controle Humano</h4>
+                    </div>
+                    <div className="mt-2 h-4 bg-gray-200 rounded-full overflow-hidden">
+                      <div 
+                        style={{width: `${[100, 90, 75, 60, 40, 20][activeLevel]}%`}}
+                        className="h-full bg-gradient-to-r from-green-400 to-green-600 transition-all duration-700 ease-in-out" 
+                      />
+                    </div>
+                    <div className="mt-1 flex justify-between text-xs text-gray-500">
+                      <span>Baixo</span>
+                      <span>Alto</span>
+                    </div>
+                  </div>
+                  
+                  <div className="bg-gray-50 p-4 rounded-lg">
+                    <div className="flex items-center mb-2">
+                      <Zap className="h-4 w-4 text-blue-600 mr-2" />
+                      <h4 className="font-bold text-gray-800 text-sm">Velocidade</h4>
+                    </div>
+                    <div className="mt-2 h-4 bg-gray-200 rounded-full overflow-hidden">
+                      <div 
+                        style={{width: `${[16, 30, 50, 70, 85, 95][activeLevel]}%`}}
+                        className="h-full bg-gradient-to-r from-blue-400 to-blue-600 transition-all duration-700 ease-in-out" 
+                      />
+                    </div>
+                    <div className="mt-1 flex justify-between text-xs text-gray-500">
+                      <span>Baixa</span>
+                      <span>Alta</span>
+                    </div>
+                  </div>
+                  
+                  <div className="bg-gray-50 p-4 rounded-lg">
+                    <div className="flex items-center mb-2">
+                      <Cpu className="h-4 w-4 text-amber-600 mr-2" />
+                      <h4 className="font-bold text-gray-800 text-sm">Dependência de IA</h4>
+                    </div>
+                    <div className="mt-2 h-4 bg-gray-200 rounded-full overflow-hidden">
+                      <div 
+                        style={{width: `${[0, 15, 35, 60, 80, 95][activeLevel]}%`}}
+                        className="h-full bg-gradient-to-r from-amber-400 to-amber-600 transition-all duration-700 ease-in-out" 
+                      />
+                    </div>
+                    <div className="mt-1 flex justify-between text-xs text-gray-500">
+                      <span>Baixa</span>
+                      <span>Alta</span>
                     </div>
                   </div>
                 </div>
