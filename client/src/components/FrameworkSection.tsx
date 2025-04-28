@@ -4,9 +4,18 @@ import { useQuery } from '@tanstack/react-query';
 import type { FrameworkLevel } from '@shared/schema';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
+import { useIsMobile } from '@/hooks/use-mobile';
+import { 
+  Carousel, 
+  CarouselContent, 
+  CarouselItem, 
+  CarouselNext, 
+  CarouselPrevious 
+} from '@/components/ui/carousel';
 
 export default function FrameworkSection() {
   const [activeLevel, setActiveLevel] = useState(0);
+  const isMobile = useIsMobile();
   
   // References for metrics
   const humanControlBarRef = useRef<HTMLDivElement>(null);
@@ -122,8 +131,8 @@ export default function FrameworkSection() {
             </div>
           </div>
           
-          {/* Level Details */}
-          <div className="mt-10 bg-white rounded-xl shadow-md overflow-hidden relative">
+          {/* Level Details - Desktop View */}
+          <div className={`mt-10 bg-white rounded-xl shadow-md overflow-hidden relative ${isMobile ? 'hidden' : 'block'}`}>
             {levels.map((level, index) => (
               <div 
                 key={index} 
@@ -275,6 +284,97 @@ export default function FrameworkSection() {
                 </div>
               </div>
             ))}
+          </div>
+          
+          {/* Level Details - Mobile Carousel View */}
+          <div className={`mt-10 ${isMobile ? 'block' : 'hidden'}`}>
+            <div className="bg-white rounded-xl shadow-md overflow-hidden">
+              {/* Navegação simplificada para mobile */}
+              <div className="flex justify-between p-4 border-b">
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => navigateLevel('prev')} 
+                  disabled={activeLevel === 0}
+                  className="flex items-center gap-1"
+                >
+                  <ChevronLeft className="h-4 w-4" />
+                  <span>Anterior</span>
+                </Button>
+                
+                <span className="flex items-center text-sm text-gray-500 font-medium">
+                  Nível {activeLevel + 1} de {levels.length}
+                </span>
+                
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => navigateLevel('next')}
+                  disabled={activeLevel === levels.length - 1}
+                  className="flex items-center gap-1"
+                >
+                  <span>Próximo</span>
+                  <ChevronRight className="h-4 w-4" />
+                </Button>
+              </div>
+              
+              {/* Conteúdo do nível atual */}
+              {levels.map((level, index) => (
+                <div 
+                  key={index} 
+                  className={`${activeLevel === index ? 'block' : 'hidden'}`}
+                >
+                  <div className="p-4">
+                    <div className="bg-gradient-to-br from-primary to-blue-700 text-white p-6 rounded-lg relative overflow-hidden mb-4">
+                      <Badge variant="outline" className="bg-white/10 text-white border-white/20 mb-2">
+                        Nível {level.id}
+                      </Badge>
+                      
+                      <h3 className="text-xl font-bold">{level.name}</h3>
+                      <p className="mt-2 text-blue-100 italic">{level.tagline}</p>
+                    </div>
+                    
+                    <div className="prose max-w-none">
+                      <h4 className="text-md font-medium text-primary mb-2">Descrição</h4>
+                      <p className="text-gray-700 mb-4">{level.description}</p>
+                      
+                      <div className="bg-green-50 p-4 rounded-lg border border-green-100 mb-4">
+                        <h5 className="font-medium text-green-800 mb-2">Prós</h5>
+                        <ul className="space-y-1">
+                          {Array.isArray(level.pros) && level.pros.map((pro: string, proIndex: number) => (
+                            <li key={proIndex} className="flex items-start text-gray-700 text-sm">
+                              <CheckIcon className="h-4 w-4 text-green-500 mr-2 flex-shrink-0 mt-0.5" />
+                              <span>{pro}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                      
+                      <div className="bg-red-50 p-4 rounded-lg border border-red-100 mb-4">
+                        <h5 className="font-medium text-red-800 mb-2">Contras</h5>
+                        <ul className="space-y-1">
+                          {Array.isArray(level.cons) && level.cons.map((con: string, conIndex: number) => (
+                            <li key={conIndex} className="flex items-start text-gray-700 text-sm">
+                              <svg className="h-4 w-4 text-red-500 mr-2 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                              </svg>
+                              <span>{con}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                      
+                      <div className="bg-amber-50 p-4 rounded-lg border border-amber-100">
+                        <h5 className="font-medium text-amber-800 mb-2">Riscos</h5>
+                        <div className="text-gray-700 text-sm">
+                          {level.risks}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
           
           {/* Framework Visual */}
