@@ -111,8 +111,8 @@ export default function FrameworkSection() {
             </p>
           </div>
           
-          {/* Interactive Level Selector */}
-          <div className="mt-10 bg-white rounded-xl shadow-md p-4 sm:p-6">
+          {/* Interactive Level Selector - Desktop Only */}
+          <div className={`mt-10 bg-white rounded-xl shadow-md p-4 sm:p-6 ${isMobile ? 'hidden' : 'block'}`}>
             <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-4">
               {levels.map((level, index) => (
                 <button
