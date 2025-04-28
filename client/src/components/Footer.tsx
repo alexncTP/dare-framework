@@ -15,15 +15,16 @@ export default function Footer() {
         </svg>
       </div>
       
-      {/* Main footer content */}
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+      {/* Simplified footer content */}
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-10 relative z-10">
+        <div className="flex flex-col md:flex-row justify-between items-center">
           {/* Brand section */}
-          <div>
+          <div className="mb-8 md:mb-0">
             <div className="flex items-center">
               <div className="p-2 bg-white/10 rounded-lg">
-                <svg className="h-9 w-9 text-white" viewBox="0 0 40 40" fill="currentColor">
-                  <path d="M20 3C10.6 3 3 10.6 3 20s7.6 17 17 17 17-7.6 17-17S29.4 3 20 3zm8 21h-8v8h-4v-8H8v-4h8v-8h4v8h8v4z"></path>
+                <svg className="h-8 w-8 text-white" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12 2L4 6V18L12 22L20 18V6L12 2Z" stroke="currentColor" strokeWidth="2" strokeLinejoin="round"/>
+                  <path d="M12 6V11M12 16V11M12 11H16M12 11H8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
               </div>
               <div className="ml-3">
@@ -31,97 +32,40 @@ export default function Footer() {
                 <p className="text-xs text-gray-400">Design AI Reliable Engagement</p>
               </div>
             </div>
-            <p className="mt-6 text-gray-300 leading-relaxed">
-              Um framework colaborativo para integração de IA em processos de design de forma responsável e eficaz.
-            </p>
-            <div className="mt-6 flex space-x-5">
-              <a href="https://github.com/dare-framework/dare" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition">
+            <div className="mt-4 flex space-x-4">
+              <a href="https://github.com/guigonzalez/dare-framework" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition">
                 <Github className="h-5 w-5" />
                 <span className="sr-only">GitHub</span>
               </a>
-              <a href="#" className="text-gray-400 hover:text-white transition">
-                <BookOpen className="h-5 w-5" />
-                <span className="sr-only">Documentation</span>
-              </a>
-              <a href="#" className="text-gray-400 hover:text-white transition">
-                <FileText className="h-5 w-5" />
-                <span className="sr-only">Blog</span>
+              <a href="https://br.linkedin.com/in/guigonzalez/pt" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="h-5 w-5">
+                  <path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"></path>
+                </svg>
+                <span className="sr-only">LinkedIn</span>
               </a>
             </div>
           </div>
           
-          {/* Resources section */}
-          <div>
-            <h3 className="text-lg font-semibold text-white mb-6 flex items-center">
-              <Briefcase className="h-5 w-5 mr-2 text-primary/80" />
-              <span>Recursos</span>
-            </h3>
-            <ul className="space-y-4">
-              <li>
-                <a href="#" className="text-gray-300 hover:text-white transition flex items-center">
-                  <span className="w-1.5 h-1.5 bg-primary/60 rounded-full mr-2"></span>
-                  Documentação
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-gray-300 hover:text-white transition flex items-center">
-                  <span className="w-1.5 h-1.5 bg-primary/60 rounded-full mr-2"></span>
-                  Estudos de Caso
-                </a>
-              </li>
-              <li>
-                <a href="#framework" className="text-gray-300 hover:text-white transition flex items-center">
-                  <span className="w-1.5 h-1.5 bg-primary/60 rounded-full mr-2"></span>
-                  Diretório de Ferramentas
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-gray-300 hover:text-white transition flex items-center">
-                  <span className="w-1.5 h-1.5 bg-primary/60 rounded-full mr-2"></span>
-                  Artigos de Pesquisa
-                </a>
-              </li>
-            </ul>
-          </div>
-          
-          {/* Legal section */}
-          <div>
-            <h3 className="text-lg font-semibold text-white mb-6 flex items-center">
-              <Code className="h-5 w-5 mr-2 text-primary/80" />
-              <span>Licenciamento</span>
-            </h3>
-            <div className="p-4 bg-white/5 rounded-lg mb-4">
-              <div className="flex items-start">
-                <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer" className="mr-3 flex-shrink-0">
-                  <img src="https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-sa.svg" alt="Creative Commons BY-SA License" className="h-8" />
-                </a>
-                <p className="text-sm text-gray-300">
-                  DARE Framework é licenciado sob uma <a href="https://creativecommons.org/licenses/by-sa/4.0/" className="text-primary hover:text-primary/80 underline" target="_blank" rel="noopener noreferrer">Licença Creative Commons Attribution-ShareAlike 4.0 Internacional</a>.
-                </p>
-              </div>
-            </div>
-            <div className="mt-6">
-              <p className="text-gray-300 text-sm">
-                Este é um projeto de código aberto. Contribuições são bem-vindas!
+          {/* Legal section simplified */}
+          <div className="text-center md:text-right">
+            <div className="flex items-center justify-center md:justify-end mb-4">
+              <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer" className="mr-2 flex-shrink-0">
+                <img src="https://mirrors.creativecommons.org/presskit/buttons/80x15/svg/by-sa.svg" alt="Creative Commons BY-SA License" className="h-6" />
+              </a>
+              <p className="text-sm text-gray-300">
+                Licença CC BY-SA 4.0
               </p>
-              <a href="#contribute" className="inline-flex items-center mt-2 text-primary hover:text-primary/80">
-                <Heart className="h-4 w-4 mr-1" />
-                <span>Como contribuir</span>
-              </a>
             </div>
+            <a href="#contribute" className="inline-flex items-center text-primary hover:text-primary/80">
+              <Heart className="h-4 w-4 mr-1" />
+              <span>Como contribuir</span>
+            </a>
           </div>
         </div>
         
         {/* Bottom bar */}
-        <div className="mt-12 pt-8 border-t border-gray-700 flex flex-col sm:flex-row justify-between items-center text-gray-400 text-sm">
-          <p>© {new Date().getFullYear()} DARE Framework. Todos os direitos reservados.</p>
-          <div className="mt-4 sm:mt-0">
-            <ul className="flex space-x-6">
-              <li><a href="#" className="hover:text-white transition">Termos</a></li>
-              <li><a href="#" className="hover:text-white transition">Privacidade</a></li>
-              <li><a href="#" className="hover:text-white transition">Contato</a></li>
-            </ul>
-          </div>
+        <div className="mt-8 pt-6 border-t border-gray-700 flex flex-col sm:flex-row justify-between items-center text-gray-400 text-sm">
+          <p>© {new Date().getFullYear()} DARE Framework | <a href="https://br.linkedin.com/in/guigonzalez/pt" target="_blank" rel="noopener noreferrer" className="hover:text-white">Gui Gonzalez</a></p>
         </div>
       </div>
     </footer>

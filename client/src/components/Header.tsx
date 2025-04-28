@@ -45,6 +45,12 @@ export default function Header() {
           {/* Logo e menu principal */}
           <div className="flex items-center">
             <a href="/" className="flex-shrink-0 flex items-center group">
+              <div className={`p-1.5 mr-2 rounded-lg ${scrolled ? 'bg-primary/10' : 'bg-white/10'}`}>
+                <svg className={`h-6 w-6 ${scrolled ? 'text-primary' : 'text-white'}`} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12 2L4 6V18L12 22L20 18V6L12 2Z" stroke="currentColor" strokeWidth="2" strokeLinejoin="round"/>
+                  <path d="M12 6V11M12 16V11M12 11H16M12 11H8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </div>
               <span className={`text-lg font-bold ${scrolled ? 'text-gray-900' : 'text-white'}`}>
                 DARE Framework
               </span>
