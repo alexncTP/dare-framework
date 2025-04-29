@@ -64,37 +64,37 @@
     "subtitle": "Colabore com o DARE",
     "description": "O Framework DARE é um projeto aberto e impulsionado pela comunidade. Há várias formas de contribuir para seu desenvolvimento contínuo.",
     "cards": {
-      "improvements": {
-        "title": "Propor Melhorias",
+      "suggest": {
+        "title": "Sugerir Mudanças",
         "description": "Proponha modificações para níveis existentes do framework, descrições ou exemplos através de issues ou pull requests no GitHub.",
-        "cta": "Abrir uma issue"
+        "link": "Abrir uma issue"
       },
       "creator": {
         "title": "Sobre o Criador",
         "description": "Gui Gonzalez é um designer apaixonado por processos, que busca incorporar a IA de forma saudável no mercado de Design, para que um novo design surja junto com as mudanças de paradigma.",
-        "cta": "Conectar no LinkedIn"
+        "link": "Conectar no LinkedIn"
       },
       "translate": {
         "title": "Traduzir",
         "description": "Ajude a tornar o DARE acessível a designers em todo o mundo contribuindo com traduções do framework para diferentes idiomas.",
-        "cta": "Ver diretrizes"
+        "link": "Ver diretrizes"
       }
     },
     "guidelines": {
       "title": "Diretrizes de Contribuição",
-      "license": "O Framework DARE está disponível sob a Licença Creative Commons BY-SA, permitindo compartilhamento e adaptação livres com atribuição adequada.",
-      "steps": {
-        "title": "Para contribuir:",
-        "list": [
-          "Faça um fork do repositório no GitHub",
-          "Crie um branch para sua contribuição",
-          "Faça suas alterações seguindo nossos padrões de código e documentação",
-          "Envie um pull request com uma descrição clara das mudanças",
-          "Participe do processo de revisão"
-        ]
-      },
-      "conduct": "Todos os colaboradores devem seguir nosso Código de Conduta, que promove um ambiente inclusivo e acolhedor.",
-      "cta": "Ver no GitHub"
+      "license": "O Framework DARE está disponível sob a {{licenseLink}}.",
+      "licenseText": "Licença Creative Commons BY-SA",
+      "stepsTitle": "Para contribuir:",
+      "steps": [
+        "Faça um fork do repositório no GitHub",
+        "Crie um branch para sua contribuição",
+        "Faça suas alterações seguindo nossos padrões de código e documentação",
+        "Envie um pull request com uma descrição clara das mudanças",
+        "Participe do processo de revisão"
+      ],
+      "conduct": "Todos os colaboradores devem seguir nosso {{codeOfConductLink}}, que promove um ambiente inclusivo e acolhedor.",
+      "conductText": "Código de Conduta",
+      "viewGithub": "Ver no GitHub"
     }
   },
   "footer": {

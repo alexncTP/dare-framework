@@ -112,9 +112,11 @@ export default function ContributeSection() {
                 
                 <h4>{t('contribute.guidelines.stepsTitle')}</h4>
                 <ol>
-                  {t('contribute.guidelines.steps', { returnObjects: true }).map((step: string, index: number) => (
-                    <li key={index}>{step}</li>
-                  ))}
+                  <li>{t('contribute.guidelines.steps.0')}</li>
+                  <li>{t('contribute.guidelines.steps.1')}</li>
+                  <li>{t('contribute.guidelines.steps.2')}</li>
+                  <li>{t('contribute.guidelines.steps.3')}</li>
+                  <li>{t('contribute.guidelines.steps.4')}</li>
                 </ol>
                 
                 <p>
