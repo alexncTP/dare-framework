@@ -5,7 +5,6 @@ import type { FrameworkLevel } from '@shared/schema';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { useIsMobile } from '@/hooks/use-mobile';
-import { useTranslation } from 'react-i18next';
 import { 
   Carousel, 
   CarouselContent, 
@@ -14,187 +13,47 @@ import {
   CarouselPrevious 
 } from '@/components/ui/carousel';
 
-// Helper components for better organization
-const LevelBadge = ({ levelId, className = '' }: { levelId: number, className?: string }) => {
-  const { t } = useTranslation();
-  return (
-    <Badge variant="outline" className={`bg-white/10 text-white border-white/20 ${className}`}>
-      {t('framework.level')} {levelId}
-    </Badge>
-  );
-};
-
-const ProsSection = ({ pros }: { pros: string[] }) => {
-  const { t } = useTranslation();
-  if (!Array.isArray(pros) || pros.length === 0) return null;
-  
-  return (
-    <div className="bg-green-50 p-4 sm:p-5 rounded-lg border border-green-100">
-      <div className="flex items-center text-green-700 mb-3">
-        <CheckIcon className="h-5 w-5 mr-2" />
-        <h4 className="font-medium text-green-800">{t('framework.pros')}</h4>
-      </div>
-      <ul className="mt-2 space-y-2">
-        {pros.map((pro, index) => (
-          <li key={index} className="flex items-start text-gray-700">
-            <CheckIcon className="h-5 w-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" />
-            <span>{pro}</span>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-};
-
-const ConsSection = ({ cons }: { cons: string[] }) => {
-  const { t } = useTranslation();
-  if (!Array.isArray(cons) || cons.length === 0) return null;
-  
-  return (
-    <div className="bg-red-50 p-4 sm:p-5 rounded-lg border border-red-100">
-      <div className="flex items-center text-red-700 mb-3">
-        <svg className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
-        </svg>
-        <h4 className="font-medium text-red-800">{t('framework.cons')}</h4>
-      </div>
-      <ul className="mt-2 space-y-2">
-        {cons.map((con, index) => (
-          <li key={index} className="flex items-start text-gray-700">
-            <svg className="h-5 w-5 text-red-500 mr-2 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-            <span>{con}</span>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-};
-
-const RisksSection = ({ risks }: { risks: string }) => {
-  const { t } = useTranslation();
-  if (!risks) return null;
-  
-  return (
-    <div className="bg-amber-50 p-4 sm:p-5 rounded-lg border border-amber-100">
-      <div className="flex items-center text-amber-700 mb-3">
-        <AlertTriangleIcon className="h-5 w-5 mr-2" />
-        <h4 className="font-medium text-amber-800">{t('framework.risks')}</h4>
-      </div>
-      <div className="text-gray-700">
-        {risks}
-      </div>
-    </div>
-  );
-};
-
-const ToolsSection = ({ tools }: { tools?: string[] }) => {
-  const { t } = useTranslation();
-  if (!Array.isArray(tools) || tools.length === 0) return null;
-  
-  return (
-    <div className="mt-8">
-      <div className="flex items-center mb-3">
-        <Wrench className="h-5 w-5 mr-2 text-blue-200" />
-        <h4 className="font-semibold text-lg">{t('framework.tools')}</h4>
-      </div>
-      <div className="flex flex-wrap gap-2">
-        {tools.map((tool, index) => (
-          <span 
-            key={index} 
-            className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-white/20 text-white hover:bg-white/30 transition-colors"
-          >
-            {tool}
-          </span>
-        ))}
-      </div>
-    </div>
-  );
-};
-
-const MetricBar = ({ 
-  label, 
-  value, 
-  icon, 
-  colorFrom, 
-  colorTo,
-  isMobile = false
-}: { 
-  label: string, 
-  value: number, 
-  icon: React.ReactNode,
-  colorFrom: string,
-  colorTo: string,
-  isMobile?: boolean
-}) => {
-  const { t } = useTranslation();
-  
-  return (
-    <div className={`bg-gray-50 p-${isMobile ? '4' : '5'} rounded-lg`}>
-      <div className="flex items-center mb-2 sm:mb-3">
-        {icon}
-        <h4 className={`font-bold text-gray-800 ${isMobile ? 'text-sm' : ''}`}>{label}</h4>
-      </div>
-      <div className={`mt-2 h-${isMobile ? '4' : '6'} bg-gray-200 rounded-full overflow-hidden`}>
-        <div 
-          style={{width: `${value}%`}}
-          className={`h-full bg-gradient-to-r from-${colorFrom} to-${colorTo} transition-all duration-700 ease-in-out`} 
-        />
-      </div>
-      <div className={`mt-${isMobile ? '1' : '2'} flex justify-between text-xs text-gray-500`}>
-        <span>{t('framework.metrics.low')}</span>
-        <span>{t('framework.metrics.high')}</span>
-      </div>
-    </div>
-  );
-};
-
 export default function FrameworkSection() {
   const [activeLevel, setActiveLevel] = useState(0);
   const isMobile = useIsMobile();
-  const { t } = useTranslation();
   
   // References for metrics
+  const humanControlBarRef = useRef<HTMLDivElement>(null);
+  const speedBarRef = useRef<HTMLDivElement>(null);
+  const aiDependencyBarRef = useRef<HTMLDivElement>(null);
   const progressBarRef = useRef<HTMLDivElement>(null);
   
-  // Get current language
-  const { i18n } = useTranslation();
-  const currentLanguage = i18n.language;
-  
-  // Fetch framework levels from the API with language
+  // Fetch framework levels from the API
   const { data: frameworkLevels = [], isLoading, error } = useQuery<FrameworkLevel[]>({
-    queryKey: ['/api/framework-levels', currentLanguage],
-    queryFn: async () => {
-      const response = await fetch(`/api/framework-levels?lang=${currentLanguage}`);
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-      return response.json();
-    }
+    queryKey: ['/api/framework-levels'],
   });
   
   // Ensure the proper type safety
   const levels = Array.isArray(frameworkLevels) ? frameworkLevels : [];
   
-  // Metrics data
-  const humanControlValues = [100, 90, 75, 60, 40, 20];
-  const speedValues = [16, 30, 50, 70, 85, 95];
-  const aiDependencyValues = [0, 15, 35, 60, 80, 95];
-  
   // Update framework visuals when active level changes
   useEffect(() => {
-    if (progressBarRef.current && levels.length > 0) {
-      // Calculate progress percentage
-      const progressPercentage = Math.min(100, Math.max(0, (activeLevel / Math.max(1, levels.length - 1)) * 100));
-      progressBarRef.current.style.width = `${progressPercentage}%`;
+    if (
+      humanControlBarRef.current && 
+      speedBarRef.current && 
+      aiDependencyBarRef.current &&
+      progressBarRef.current
+    ) {
+      const humanControlValues = [100, 90, 75, 60, 40, 20];
+      const speedValues = [16, 30, 50, 70, 85, 95];
+      const aiDependencyValues = [0, 15, 35, 60, 80, 95];
+      
+      humanControlBarRef.current.style.width = `${humanControlValues[activeLevel]}%`;
+      speedBarRef.current.style.width = `${speedValues[activeLevel]}%`;
+      aiDependencyBarRef.current.style.width = `${aiDependencyValues[activeLevel]}%`;
+      progressBarRef.current.style.width = `${activeLevel * 20}%`;
     }
-  }, [activeLevel, levels.length]);
-
-  const handleLevelChange = (index: number) => {
-    setActiveLevel(index);
-  };
+  }, [activeLevel]);
   
+  const handleLevelChange = (levelIndex: number) => {
+    setActiveLevel(levelIndex);
+  };
+
   const navigateLevel = (direction: 'next' | 'prev') => {
     if (direction === 'next' && activeLevel < levels.length - 1) {
       setActiveLevel(activeLevel + 1);
@@ -210,8 +69,8 @@ export default function FrameworkSection() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="gradient-text">{t('framework.title')}</h2>
-              <p className="mt-4 text-lg text-gray-600">{t('framework.loading')}</p>
+              <h2 className="gradient-text">Níveis do Framework DARE</h2>
+              <p className="mt-4 text-lg text-gray-600">Carregando os níveis do framework...</p>
             </div>
             <div className="py-20 flex justify-center">
               <div className="w-10 h-10 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
@@ -229,8 +88,8 @@ export default function FrameworkSection() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="gradient-text">{t('framework.title')}</h2>
-              <p className="mt-4 text-lg text-red-600">{t('framework.error')}</p>
+              <h2 className="gradient-text">Níveis do Framework DARE</h2>
+              <p className="mt-4 text-lg text-red-600">Erro ao carregar os níveis do framework.</p>
             </div>
           </div>
         </div>
@@ -242,18 +101,17 @@ export default function FrameworkSection() {
     <section id="framework" className="py-16 sm:py-24 bg-gray-50">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          {/* Section Header */}
           <div className="text-center mb-12">
             <div className="inline-flex items-center justify-center px-4 py-1 mb-3 border border-primary/20 rounded-full bg-primary/5 text-primary text-sm font-medium">
-              {t('framework.subtitle')}
+              6 níveis de adoção de IA
             </div>
-            <h2 className="gradient-text">{t('framework.title')}</h2>
+            <h2 className="gradient-text">Níveis do Framework DARE</h2>
             <p className="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">
-              {t('framework.description')}
+              Seis níveis progressivos de integração de IA no design, de abordagens totalmente manuais à automação avançada — cada um com seus casos de uso apropriados.
             </p>
           </div>
           
-          {/* Desktop Level Selector */}
+          {/* Interactive Level Selector - Desktop Only */}
           <div className={`mt-10 bg-white rounded-xl shadow-md p-4 sm:p-6 ${isMobile ? 'hidden' : 'block'}`}>
             <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-4">
               {levels.map((level, index) => (
@@ -265,22 +123,20 @@ export default function FrameworkSection() {
                       ? 'text-white bg-primary shadow-md hover:bg-primary/90'
                       : 'text-gray-700 bg-gray-100 hover:bg-gray-200'
                   }`}
-                  aria-label={`${t('framework.level')} ${index}: ${level.shortName}`}
                 >
-                  <span className="block text-xs opacity-75 mb-1">{t('framework.level')} {index}</span>
+                  <span className="block text-xs opacity-75 mb-1">Nível {index}</span>
                   <span className="block">{level.shortName}</span>
                 </button>
               ))}
             </div>
           </div>
           
-          {/* Desktop Level Details */}
+          {/* Level Details - Desktop View */}
           <div className={`mt-10 bg-white rounded-xl shadow-md overflow-hidden relative ${isMobile ? 'hidden' : 'block'}`}>
             {levels.map((level, index) => (
               <div 
                 key={index} 
                 className={`transition-opacity duration-300 ${activeLevel === index ? 'block opacity-100' : 'hidden opacity-0'}`}
-                aria-hidden={activeLevel !== index}
               >
                 {/* Navigation Buttons */}
                 <div className="absolute top-1/2 left-0 transform -translate-y-1/2 z-10">
@@ -290,7 +146,6 @@ export default function FrameworkSection() {
                     onClick={() => navigateLevel('prev')}
                     disabled={activeLevel === 0}
                     className="ml-2 bg-white/80 shadow-sm hover:bg-white"
-                    aria-label={t('framework.navigation.prev')}
                   >
                     <ChevronLeft className="h-6 w-6" />
                   </Button>
@@ -302,41 +157,57 @@ export default function FrameworkSection() {
                     onClick={() => navigateLevel('next')}
                     disabled={activeLevel === levels.length - 1}
                     className="mr-2 bg-white/80 shadow-sm hover:bg-white"
-                    aria-label={t('framework.navigation.next')}
                   >
                     <ChevronRight className="h-6 w-6" />
                   </Button>
                 </div>
                 
-                {/* Grid Layout */}
                 <div className="grid grid-cols-1 lg:grid-cols-3">
-                  {/* Left Info Panel */}
                   <div className="bg-gradient-to-br from-primary to-blue-700 text-white p-8 relative overflow-hidden">
                     {/* Decorative pattern */}
                     <div className="absolute inset-0 opacity-10">
                       <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
                         <defs>
-                          <pattern id={`grid-pattern-level-${index}`} width="40" height="40" patternUnits="userSpaceOnUse">
+                          <pattern id="grid-pattern-level" width="40" height="40" patternUnits="userSpaceOnUse">
                             <path d="M0 20h40M20 0v40" stroke="white" strokeWidth="0.5" fill="none" />
                           </pattern>
                         </defs>
-                        <rect width="100%" height="100%" fill={`url(#grid-pattern-level-${index})`} />
+                        <rect width="100%" height="100%" fill="url(#grid-pattern-level)" />
                       </svg>
                     </div>
                     
                     <div className="relative">
-                      <LevelBadge levelId={level.id} className="mb-4" />
+                      <Badge variant="outline" className="bg-white/10 text-white border-white/20 mb-4">
+                        Nível {level.id}
+                      </Badge>
                       
                       <h3 className="text-2xl font-bold">{level.name}</h3>
-                      <p className="mt-3 text-blue-100 italic text-lg" aria-label={t('framework.levelData.quote')}>"{level.tagline}"</p>
+                      <p className="mt-3 text-blue-100 italic text-lg">"{level.tagline}"</p>
                       
-                      <ToolsSection tools={level.tools} />
+                      {Array.isArray(level.tools) && level.tools.length > 0 && (
+                        <div className="mt-8">
+                          <div className="flex items-center mb-3">
+                            <Wrench className="h-5 w-5 mr-2 text-blue-200" />
+                            <h4 className="font-semibold text-lg">Ferramentas</h4>
+                          </div>
+                          <div className="flex flex-wrap gap-2">
+                            {level.tools.map((tool: string, toolIndex: number) => (
+                              <span 
+                                key={toolIndex} 
+                                className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-white/20 text-white hover:bg-white/30 transition-colors"
+                              >
+                                {tool}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+                      )}
                       
                       {Array.isArray(level.appropriateUses) && level.appropriateUses.length > 0 && (
                         <div className="mt-8">
                           <div className="flex items-center mb-3">
                             <CheckIcon className="h-5 w-5 mr-2 text-blue-200" />
-                            <h4 className="font-semibold text-lg">{t('framework.appropriateUses')}</h4>
+                            <h4 className="font-semibold text-lg">Usos Apropriados</h4>
                           </div>
                           <ul className="space-y-2 text-blue-50">
                             {level.appropriateUses.map((use: string, useIndex: number) => (
@@ -353,24 +224,60 @@ export default function FrameworkSection() {
                     </div>
                   </div>
                   
-                  {/* Right Content Panel */}
                   <div className="p-8 lg:col-span-2">
                     <div className="prose max-w-none">
                       <div className="flex items-center gap-2 mb-4">
                         <div className="p-2 bg-primary/10 rounded-md">
                           <Brain className="h-5 w-5 text-primary" />
                         </div>
-                        <span className="text-sm font-medium text-primary">{t('framework.description_label')}</span>
+                        <span className="text-sm font-medium text-primary">Descrição</span>
                       </div>
                       <p className="text-gray-700 text-lg">{level.description}</p>
                       
                       <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <ProsSection pros={level.pros} />
-                        <ConsSection cons={level.cons} />
+                        <div className="bg-green-50 p-5 rounded-lg border border-green-100">
+                          <div className="flex items-center text-green-700 mb-3">
+                            <CheckIcon className="h-5 w-5 mr-2" />
+                            <h4 className="font-medium text-green-800">Prós</h4>
+                          </div>
+                          <ul className="mt-2 space-y-2">
+                            {Array.isArray(level.pros) && level.pros.map((pro: string, proIndex: number) => (
+                              <li key={proIndex} className="flex items-start text-gray-700">
+                                <CheckIcon className="h-5 w-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" />
+                                <span>{pro}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                        
+                        <div className="bg-red-50 p-5 rounded-lg border border-red-100">
+                          <div className="flex items-center text-red-700 mb-3">
+                            <svg className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                            <h4 className="font-medium text-red-800">Contras</h4>
+                          </div>
+                          <ul className="mt-2 space-y-2">
+                            {Array.isArray(level.cons) && level.cons.map((con: string, conIndex: number) => (
+                              <li key={conIndex} className="flex items-start text-gray-700">
+                                <svg className="h-5 w-5 text-red-500 mr-2 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                                </svg>
+                                <span>{con}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
                       </div>
                       
-                      <div className="mt-8">
-                        <RisksSection risks={level.risks} />
+                      <div className="mt-8 bg-amber-50 p-5 rounded-lg border border-amber-100">
+                        <div className="flex items-center text-amber-700 mb-3">
+                          <AlertTriangleIcon className="h-5 w-5 mr-2" />
+                          <h4 className="font-medium text-amber-800">Riscos</h4>
+                        </div>
+                        <div className="text-gray-700">
+                          {level.risks}
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -379,10 +286,10 @@ export default function FrameworkSection() {
             ))}
           </div>
           
-          {/* Mobile Carousel View */}
+          {/* Level Details - Mobile Carousel View */}
           <div className={`mt-10 ${isMobile ? 'block' : 'hidden'}`}>
             <div className="bg-white rounded-xl shadow-md overflow-hidden">
-              {/* Mobile Navigation */}
+              {/* Navegação simplificada para mobile */}
               <div className="flex justify-between p-4 border-b">
                 <Button
                   variant="outline"
@@ -392,11 +299,11 @@ export default function FrameworkSection() {
                   className="flex items-center gap-1"
                 >
                   <ChevronLeft className="h-4 w-4" />
-                  <span>{t('framework.navigation.prev')}</span>
+                  <span>Anterior</span>
                 </Button>
                 
                 <span className="flex items-center text-sm text-gray-500 font-medium">
-                  {t('framework.navigation.level')} {activeLevel + 1} {t('framework.navigation.of')} {levels.length}
+                  Nível {activeLevel + 1} de {levels.length}
                 </span>
                 
                 <Button
@@ -406,35 +313,33 @@ export default function FrameworkSection() {
                   disabled={activeLevel === levels.length - 1}
                   className="flex items-center gap-1"
                 >
-                  <span>{t('framework.navigation.next')}</span>
+                  <span>Próximo</span>
                   <ChevronRight className="h-4 w-4" />
                 </Button>
               </div>
               
-              {/* Mobile Level Content */}
+              {/* Conteúdo do nível atual */}
               {levels.map((level, index) => (
                 <div 
                   key={index} 
                   className={`${activeLevel === index ? 'block' : 'hidden'}`}
-                  aria-hidden={activeLevel !== index}
                 >
                   <div className="p-4">
-                    {/* Header Card */}
                     <div className="bg-gradient-to-br from-primary to-blue-700 text-white p-6 rounded-lg relative overflow-hidden mb-4">
-                      <LevelBadge levelId={level.id} className="mb-2" />
+                      <Badge variant="outline" className="bg-white/10 text-white border-white/20 mb-2">
+                        Nível {level.id}
+                      </Badge>
+                      
                       <h3 className="text-xl font-bold">{level.name}</h3>
-                      <p className="mt-2 text-blue-100 italic" aria-label={t('framework.levelData.quote')}>"{level.tagline}"</p>
+                      <p className="mt-2 text-blue-100 italic">{level.tagline}</p>
                     </div>
                     
-                    {/* Content */}
-                    <div className="space-y-4">
-                      <div>
-                        <h4 className="text-md font-medium text-primary mb-2">{t('framework.description_label')}</h4>
-                        <p className="text-gray-700 mb-4">{level.description}</p>
-                      </div>
+                    <div className="prose max-w-none">
+                      <h4 className="text-md font-medium text-primary mb-2">Descrição</h4>
+                      <p className="text-gray-700 mb-4">{level.description}</p>
                       
-                      <div className="bg-green-50 p-4 rounded-lg border border-green-100">
-                        <h5 className="font-medium text-green-800 mb-2">{t('framework.pros')}</h5>
+                      <div className="bg-green-50 p-4 rounded-lg border border-green-100 mb-4">
+                        <h5 className="font-medium text-green-800 mb-2">Prós</h5>
                         <ul className="space-y-1">
                           {Array.isArray(level.pros) && level.pros.map((pro: string, proIndex: number) => (
                             <li key={proIndex} className="flex items-start text-gray-700 text-sm">
@@ -445,8 +350,8 @@ export default function FrameworkSection() {
                         </ul>
                       </div>
                       
-                      <div className="bg-red-50 p-4 rounded-lg border border-red-100">
-                        <h5 className="font-medium text-red-800 mb-2">{t('framework.cons')}</h5>
+                      <div className="bg-red-50 p-4 rounded-lg border border-red-100 mb-4">
+                        <h5 className="font-medium text-red-800 mb-2">Contras</h5>
                         <ul className="space-y-1">
                           {Array.isArray(level.cons) && level.cons.map((con: string, conIndex: number) => (
                             <li key={conIndex} className="flex items-start text-gray-700 text-sm">
@@ -460,7 +365,7 @@ export default function FrameworkSection() {
                       </div>
                       
                       <div className="bg-amber-50 p-4 rounded-lg border border-amber-100">
-                        <h5 className="font-medium text-amber-800 mb-2">{t('framework.risks')}</h5>
+                        <h5 className="font-medium text-amber-800 mb-2">Riscos</h5>
                         <div className="text-gray-700 text-sm">
                           {level.risks}
                         </div>
@@ -472,15 +377,15 @@ export default function FrameworkSection() {
             </div>
           </div>
           
-          {/* Framework Metrics Visualization */}
+          {/* Framework Visual */}
           <div className="mt-16">
             <div className="text-center mb-8">
               <div className="inline-flex items-center justify-center px-4 py-1 mb-3 border border-primary/20 rounded-full bg-primary/5 text-primary text-sm font-medium">
-                {t('framework.metrics.subtitle')}
+                Métricas evolutivas
               </div>
-              <h3 className="text-2xl font-bold text-gray-900">{t('framework.metrics.title')}</h3>
+              <h3 className="text-2xl font-bold text-gray-900">Evolução do Framework</h3>
               <p className="mt-3 text-gray-600 max-w-2xl mx-auto">
-                {t('framework.metrics.description')}
+                A integração progressiva de IA nos processos de design e seus impactos nas métricas principais
               </p>
             </div>
             
@@ -488,7 +393,7 @@ export default function FrameworkSection() {
             <div className={`bg-white rounded-xl shadow-md p-6 sm:p-8 overflow-hidden ${isMobile ? 'hidden' : 'block'}`}>
               <div className="overflow-x-auto pb-4">
                 <div className="relative min-w-[768px]">
-                  {/* Level Steps */}
+                  {/* Steps */}
                   <div className="relative flex items-center justify-between mb-16 px-3 py-3">
                     {levels.map((level, index) => (
                       <div 
@@ -526,56 +431,54 @@ export default function FrameworkSection() {
                     </div>
                   </div>
                   
-                  {/* Metrics Grid */}
+                  {/* Metrics */}
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                     <div className="bg-gray-50 p-5 rounded-lg">
                       <div className="flex items-center mb-3">
                         <Brain className="h-5 w-5 text-green-600 mr-2" />
-                        <h4 className="font-bold text-gray-800">{t('framework.metrics.humanControl')}</h4>
+                        <h4 className="font-bold text-gray-800">Controle Humano</h4>
                       </div>
                       <div className="mt-2 h-6 bg-gray-200 rounded-full overflow-hidden">
                         <div 
-                          style={{width: `${humanControlValues[activeLevel] || 100}%`}}
-                          className="h-full bg-gradient-to-r from-green-400 to-green-600 transition-all duration-700 ease-in-out" 
+                          ref={humanControlBarRef}
+                          className="h-full bg-gradient-to-r from-green-400 to-green-600 transition-all duration-700 ease-in-out w-[100%]" 
                         />
                       </div>
                       <div className="mt-2 flex justify-between text-xs text-gray-500">
-                        <span>{t('framework.metrics.low')}</span>
-                        <span>{t('framework.metrics.high')}</span>
+                        <span>Baixo</span>
+                        <span>Alto</span>
                       </div>
                     </div>
-                    
                     <div className="bg-gray-50 p-5 rounded-lg">
                       <div className="flex items-center mb-3">
                         <Zap className="h-5 w-5 text-blue-600 mr-2" />
-                        <h4 className="font-bold text-gray-800">{t('framework.metrics.speed')}</h4>
+                        <h4 className="font-bold text-gray-800">Velocidade</h4>
                       </div>
                       <div className="mt-2 h-6 bg-gray-200 rounded-full overflow-hidden">
                         <div 
-                          style={{width: `${speedValues[activeLevel] || 16}%`}}
-                          className="h-full bg-gradient-to-r from-blue-400 to-blue-600 transition-all duration-700 ease-in-out" 
+                          ref={speedBarRef}
+                          className="h-full bg-gradient-to-r from-blue-400 to-blue-600 transition-all duration-700 ease-in-out w-[16%]" 
                         />
                       </div>
                       <div className="mt-2 flex justify-between text-xs text-gray-500">
-                        <span>{t('framework.metrics.lowF')}</span>
-                        <span>{t('framework.metrics.highF')}</span>
+                        <span>Baixa</span>
+                        <span>Alta</span>
                       </div>
                     </div>
-                    
                     <div className="bg-gray-50 p-5 rounded-lg">
                       <div className="flex items-center mb-3">
                         <Cpu className="h-5 w-5 text-amber-600 mr-2" />
-                        <h4 className="font-bold text-gray-800">{t('framework.metrics.aiDependency')}</h4>
+                        <h4 className="font-bold text-gray-800">Dependência de IA</h4>
                       </div>
                       <div className="mt-2 h-6 bg-gray-200 rounded-full overflow-hidden">
                         <div 
-                          style={{width: `${aiDependencyValues[activeLevel] || 0}%`}}
-                          className="h-full bg-gradient-to-r from-amber-400 to-amber-600 transition-all duration-700 ease-in-out" 
+                          ref={aiDependencyBarRef}
+                          className="h-full bg-gradient-to-r from-amber-400 to-amber-600 transition-all duration-700 ease-in-out w-[0%]" 
                         />
                       </div>
                       <div className="mt-2 flex justify-between text-xs text-gray-500">
-                        <span>{t('framework.metrics.lowF')}</span>
-                        <span>{t('framework.metrics.highF')}</span>
+                        <span>Baixa</span>
+                        <span>Alta</span>
                       </div>
                     </div>
                   </div>
@@ -583,57 +486,60 @@ export default function FrameworkSection() {
               </div>
             </div>
             
-            {/* Mobile Metrics */}
+            {/* Mobile Evolution Framework */}
             <div className={`bg-white rounded-xl shadow-md p-4 ${isMobile ? 'block' : 'hidden'}`}>
-              <div className="space-y-4">
-                <div className="bg-gray-50 p-4 rounded-lg">
-                  <div className="flex items-center mb-2">
-                    <Brain className="h-4 w-4 text-green-600 mr-2" />
-                    <h4 className="font-bold text-gray-800 text-sm">{t('framework.metrics.humanControl')}</h4>
+              <div className="space-y-6">
+                {/* Mobile Metrics */}
+                <div className="space-y-4">
+                  <div className="bg-gray-50 p-4 rounded-lg">
+                    <div className="flex items-center mb-2">
+                      <Brain className="h-4 w-4 text-green-600 mr-2" />
+                      <h4 className="font-bold text-gray-800 text-sm">Controle Humano</h4>
+                    </div>
+                    <div className="mt-2 h-4 bg-gray-200 rounded-full overflow-hidden">
+                      <div 
+                        style={{width: `${[100, 90, 75, 60, 40, 20][activeLevel]}%`}}
+                        className="h-full bg-gradient-to-r from-green-400 to-green-600 transition-all duration-700 ease-in-out" 
+                      />
+                    </div>
+                    <div className="mt-1 flex justify-between text-xs text-gray-500">
+                      <span>Baixo</span>
+                      <span>Alto</span>
+                    </div>
                   </div>
-                  <div className="mt-2 h-4 bg-gray-200 rounded-full overflow-hidden">
-                    <div 
-                      style={{width: `${humanControlValues[activeLevel] || 100}%`}}
-                      className="h-full bg-gradient-to-r from-green-400 to-green-600 transition-all duration-700 ease-in-out" 
-                    />
+                  
+                  <div className="bg-gray-50 p-4 rounded-lg">
+                    <div className="flex items-center mb-2">
+                      <Zap className="h-4 w-4 text-blue-600 mr-2" />
+                      <h4 className="font-bold text-gray-800 text-sm">Velocidade</h4>
+                    </div>
+                    <div className="mt-2 h-4 bg-gray-200 rounded-full overflow-hidden">
+                      <div 
+                        style={{width: `${[16, 30, 50, 70, 85, 95][activeLevel]}%`}}
+                        className="h-full bg-gradient-to-r from-blue-400 to-blue-600 transition-all duration-700 ease-in-out" 
+                      />
+                    </div>
+                    <div className="mt-1 flex justify-between text-xs text-gray-500">
+                      <span>Baixa</span>
+                      <span>Alta</span>
+                    </div>
                   </div>
-                  <div className="mt-1 flex justify-between text-xs text-gray-500">
-                    <span>{t('framework.metrics.low')}</span>
-                    <span>{t('framework.metrics.high')}</span>
-                  </div>
-                </div>
-                
-                <div className="bg-gray-50 p-4 rounded-lg">
-                  <div className="flex items-center mb-2">
-                    <Zap className="h-4 w-4 text-blue-600 mr-2" />
-                    <h4 className="font-bold text-gray-800 text-sm">{t('framework.metrics.speed')}</h4>
-                  </div>
-                  <div className="mt-2 h-4 bg-gray-200 rounded-full overflow-hidden">
-                    <div 
-                      style={{width: `${speedValues[activeLevel] || 16}%`}}
-                      className="h-full bg-gradient-to-r from-blue-400 to-blue-600 transition-all duration-700 ease-in-out" 
-                    />
-                  </div>
-                  <div className="mt-1 flex justify-between text-xs text-gray-500">
-                    <span>{t('framework.metrics.lowF')}</span>
-                    <span>{t('framework.metrics.highF')}</span>
-                  </div>
-                </div>
-                
-                <div className="bg-gray-50 p-4 rounded-lg">
-                  <div className="flex items-center mb-2">
-                    <Cpu className="h-4 w-4 text-amber-600 mr-2" />
-                    <h4 className="font-bold text-gray-800 text-sm">{t('framework.metrics.aiDependency')}</h4>
-                  </div>
-                  <div className="mt-2 h-4 bg-gray-200 rounded-full overflow-hidden">
-                    <div 
-                      style={{width: `${aiDependencyValues[activeLevel] || 0}%`}}
-                      className="h-full bg-gradient-to-r from-amber-400 to-amber-600 transition-all duration-700 ease-in-out" 
-                    />
-                  </div>
-                  <div className="mt-1 flex justify-between text-xs text-gray-500">
-                    <span>{t('framework.metrics.lowF')}</span>
-                    <span>{t('framework.metrics.highF')}</span>
+                  
+                  <div className="bg-gray-50 p-4 rounded-lg">
+                    <div className="flex items-center mb-2">
+                      <Cpu className="h-4 w-4 text-amber-600 mr-2" />
+                      <h4 className="font-bold text-gray-800 text-sm">Dependência de IA</h4>
+                    </div>
+                    <div className="mt-2 h-4 bg-gray-200 rounded-full overflow-hidden">
+                      <div 
+                        style={{width: `${[0, 15, 35, 60, 80, 95][activeLevel]}%`}}
+                        className="h-full bg-gradient-to-r from-amber-400 to-amber-600 transition-all duration-700 ease-in-out" 
+                      />
+                    </div>
+                    <div className="mt-1 flex justify-between text-xs text-gray-500">
+                      <span>Baixa</span>
+                      <span>Alta</span>
+                    </div>
                   </div>
                 </div>
               </div>
