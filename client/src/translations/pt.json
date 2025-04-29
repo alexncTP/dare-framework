@@ -1,4 +1,8 @@
 {
+  "language": {
+    "pt": "Português",
+    "en": "Inglês"
+  },
   "nav": {
     "about": "Sobre",
     "framework": "Framework",
@@ -7,74 +11,68 @@
   },
   "hero": {
     "title": "DARE Framework",
-    "subtitle": "Design AI Reliable Engagement",
-    "description": "Um framework colaborativo para integração de IA em processos de design de forma responsável e eficaz.",
-    "cta": "Conheça os níveis"
+    "subtitle": "Design AI Reliable Engagement Framework",
+    "description": "Um framework para adoção estratégica e confiável de IA no design de interface, UX, motion e branding.",
+    "cta": "Explorar Framework"
   },
   "about": {
-    "title": "Sobre o DARE",
-    "description": "O DARE Framework estabelece seis níveis de adoção de IA em design, orientando equipes sobre como integrar ferramentas de inteligência artificial de forma ética e produtiva."
+    "title": "Sobre o Framework",
+    "description": "O DARE Framework (Design AI Reliable Engagement Framework) estabelece níveis de adoção de IA no design (0-5), promovendo o uso confiável e estratégico da inteligência artificial em processos de UI, UX, motion e branding. Nossa missão é promover o uso ético e eficiente de IA no design, equilibrando inovação com controle humano.",
+    "createdBy": "Criado por",
+    "license": "Licenciado sob Creative Commons BY-SA"
   },
   "framework": {
-    "title": "Os Níveis do Framework",
-    "description": "Seis níveis progressivos de integração de IA no design, de abordagens totalmente manuais à automação avançada — cada um com seus casos de uso apropriados."
-  },
-  "level": {
-    "title": "Nível",
+    "title": "Framework de Níveis",
+    "description": "Explore os diferentes níveis de adoção de IA no design, desde o processo totalmente manual até o completamente automatizado.",
+    "levelTitle": "Nível",
     "tools": "Ferramentas",
-    "uses": "Usos Apropriados",
-    "description": "Descrição",
-    "pros": "Prós",
-    "cons": "Contras",
-    "risks": "Riscos"
-  },
-  "metrics": {
-    "title": "Métricas evolutivas",
-    "heading": "Evolução do Framework",
-    "description": "A integração progressiva de IA nos processos de design e seus impactos nas métricas principais",
-    "humanControl": "Controle Humano",
-    "speed": "Velocidade",
-    "aiDependency": "Dependência de IA",
-    "low": "Baixo",
-    "high": "Alto"
+    "pros": "Vantagens",
+    "cons": "Desvantagens",
+    "risks": "Riscos",
+    "appropriateUses": "Usos Apropriados"
   },
   "manifesto": {
-    "title": "Manifesto",
-    "subtitle": "Nossos princípios",
-    "cta": "Apoiar o manifesto"
+    "title": "Manifesto DARE",
+    "subtitle": "Nossos princípios fundamentais para o engajamento confiável com IA no design",
+    "principles": [
+      {
+        "title": "Design centrado no humano",
+        "description": "A IA deve ampliar as capacidades humanas, não substituí-las. O controle final e as decisões éticas permanecem com os designers."
+      },
+      {
+        "title": "Responsabilidade e transparência",
+        "description": "Designers devem entender e comunicar claramente como e onde a IA foi utilizada no processo criativo."
+      },
+      {
+        "title": "Entendimento de limites",
+        "description": "Cada nível do framework tem seus usos apropriados. Nem todo projeto deve maximizar a automação."
+      },
+      {
+        "title": "Ética e inclusão",
+        "description": "A IA deve ser usada para criar designs mais inclusivos, acessíveis e eticamente responsáveis."
+      },
+      {
+        "title": "Aprendizado contínuo",
+        "description": "Designers devem constantemente desenvolver suas habilidades para trabalhar eficientemente com IA."
+      }
+    ]
   },
   "contribute": {
-    "title": "Contribua",
-    "subtitle": "Ajude a melhorar o framework",
-    "github": "Abrir uma issue",
-    "creatorTitle": "Sobre o Criador",
-    "creatorDesc": "Gui Gonzalez é um designer apaixonado por processos, que busca incorporar a IA de forma sadia no mercado de Design, para que um novo design surja junto com as mudanças de paradigma.",
-    "linkedin": "Conectar no LinkedIn",
-    "translateTitle": "Traduzir",
-    "translateDesc": "Ajude a tornar o DARE acessível a designers em todo o mundo contribuindo com traduções do framework para diferentes idiomas.",
-    "viewGuidelines": "Ver diretrizes"
-  },
-  "guidelines": {
-    "title": "Diretrizes de Contribuição",
-    "license": "O Framework DARE é disponibilizado sob a Licença Creative Commons BY-SA, permitindo compartilhamento livre e adaptação com a devida atribuição.",
-    "howToTitle": "Para contribuir:",
-    "step1": "Faça um fork do repositório no GitHub",
-    "step2": "Crie um branch para sua contribuição",
-    "step3": "Faça suas alterações seguindo nossos padrões de código e documentação",
-    "step4": "Envie um pull request com uma descrição clara das alterações",
-    "step5": "Participe do processo de revisão",
-    "codeOfConduct": "Todos os colaboradores devem seguir nosso Código de Conduta, que promove um ambiente inclusivo e acolhedor.",
-    "viewOnGithub": "Ver no GitHub"
+    "title": "Contribua para o Framework",
+    "description": "Este é um framework de código aberto em evolução. Sua contribuição é bem-vinda para aprimorar e expandir esta iniciativa.",
+    "howTo": "Como contribuir",
+    "guidelines": [
+      "Proponha novos níveis ou refine os existentes",
+      "Adicione exemplos e casos de uso",
+      "Compartilhe ferramentas e metodologias",
+      "Traduza o framework para outros idiomas",
+      "Reporte problemas ou sugestões de melhoria"
+    ],
+    "ctaButton": "Contribuir no GitHub"
   },
   "footer": {
-    "description": "Um framework colaborativo para integração de IA em processos de design de forma responsável e eficaz.",
-    "license": "Licença CC BY-SA 4.0",
-    "contribute": "Como contribuir",
-    "copyright": "DARE Framework",
-    "creator": "Gui Gonzalez"
-  },
-  "language": {
-    "pt": "Português",
-    "en": "English"
+    "copyright": "© 2024 DARE Framework",
+    "license": "Creative Commons BY-SA",
+    "viewOn": "Ver no GitHub"
   }
 }
