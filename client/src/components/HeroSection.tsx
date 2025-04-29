@@ -1,6 +1,8 @@
 import { Button } from "@/components/ui/button";
+import { useTranslation } from "react-i18next";
 
 export default function HeroSection() {
+  const { t, i18n } = useTranslation();
   return (
     <section className="relative bg-gradient-to-br from-primary/90 via-primary to-blue-700 overflow-hidden">
       {/* Background pattern */}
@@ -30,15 +32,14 @@ export default function HeroSection() {
             </div>
 
             <h1 className="text-white mb-6">
-              <span className="block mb-2">Design AI Reliable</span>
+              <span className="block mb-2">{t('hero.title')}</span>
               <span className="block mb-2 pb-2.5 bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent">
-                Engagement Framework
+                Framework
               </span>
             </h1>
             
             <p className="mt-6 text-xl text-blue-100 max-w-2xl mx-auto">
-              Um framework colaborativo para adoção estratégica de IA em processos de design—
-              equilibrando inovação com criatividade humana.
+              {t('hero.description')}
             </p>
             
             <div className="mt-12 flex items-center justify-center">
@@ -49,7 +50,7 @@ export default function HeroSection() {
                 asChild
               >
                 <a href="#framework">
-                  Explorar Framework
+                  {t('hero.cta')}
                 </a>
               </Button>
             </div>
@@ -57,15 +58,25 @@ export default function HeroSection() {
             <div className="mt-10 flex justify-center items-center space-x-8">
               <div className="flex flex-col items-center">
                 <div className="text-xl font-bold text-white">6</div>
-                <div className="text-xs text-blue-100">Níveis</div>
+                <div className="text-xs text-blue-100">
+                  {t('framework.level')}s
+                </div>
               </div>
               <div className="flex flex-col items-center">
-                <div className="text-xl font-bold text-white">Aberto</div>
-                <div className="text-xs text-blue-100">Comunidade</div>
+                <div className="text-xl font-bold text-white">
+                  {t('framework.metrics.low') === 'Low' ? 'Open' : 'Aberto'}
+                </div>
+                <div className="text-xs text-blue-100">
+                  {t('framework.metrics.low') === 'Low' ? 'Community' : 'Comunidade'}
+                </div>
               </div>
               <div className="flex flex-col items-center">
-                <div className="text-xl font-bold text-white">Confiável</div>
-                <div className="text-xs text-blue-100">Engajamento</div>
+                <div className="text-xl font-bold text-white">
+                  {t('framework.metrics.low') === 'Low' ? 'Reliable' : 'Confiável'}
+                </div>
+                <div className="text-xs text-blue-100">
+                  {t('framework.metrics.low') === 'Low' ? 'Engagement' : 'Engajamento'}
+                </div>
               </div>
             </div>
           </div>
