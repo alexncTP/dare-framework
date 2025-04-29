@@ -18,7 +18,7 @@ const killExistingProcesses = () => {
 const startStaticServer = () => {
   console.log('Iniciando o servidor estático...');
   
-  const server = spawn('node', ['start-static.js'], {
+  const server = spawn('node', ['scripts/start-static.js'], {
     stdio: 'inherit',
     shell: true
   });

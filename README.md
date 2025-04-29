@@ -35,10 +35,10 @@ Para executar esta versão:
 
 ```bash
 # Usando o script Node.js incluído
-node start-static.js
+node scripts/start-static.js
 
 # OU navegue até a pasta static e use qualquer servidor HTTP
-cd static && python -m http.server 3000
+cd static && python -m http.server 5000
 ```
 
 Veja mais detalhes em [static/README.md](static/README.md).

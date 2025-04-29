@@ -9,8 +9,8 @@ Para executar o site estático localmente, você pode usar qualquer servidor de 
 ### Usando Node.js
 
 1. Navegue até a pasta raiz do projeto
-2. Execute: `node start-static.js`
-3. Acesse o site em: http://localhost:3000
+2. Execute: `node scripts/start-static.js`
+3. Acesse o site em: http://localhost:5000
 
 ### Usando Python
 
