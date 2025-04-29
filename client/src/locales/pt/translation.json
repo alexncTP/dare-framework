@@ -36,8 +36,8 @@
       "aiDependency": "Dependência de IA",
       "low": "Baixo",
       "high": "Alto",
-      "lowfem": "Baixa",
-      "highfem": "Alta"
+      "lowF": "Baixa",
+      "highF": "Alta"
     },
     "navigation": {
       "prev": "Anterior",
