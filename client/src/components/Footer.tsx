@@ -1,6 +1,8 @@
 import { Github, BookOpen, FileText, Briefcase, Code, Heart } from 'lucide-react';
+import { useTranslation } from "react-i18next";
 
 export default function Footer() {
+  const { t } = useTranslation();
   return (
     <footer className="bg-gradient-to-br from-gray-900 to-gray-800 text-white mt-auto relative overflow-hidden">
       {/* Background patterns */}
@@ -53,19 +55,19 @@ export default function Footer() {
                 <img src="https://mirrors.creativecommons.org/presskit/buttons/80x15/svg/by-sa.svg" alt="Creative Commons BY-SA License" className="h-6" />
               </a>
               <p className="text-sm text-gray-300">
-                Licença CC BY-SA 4.0
+                {t('footer.license')}
               </p>
             </div>
-            <a href="#diretrizes" className="inline-flex items-center text-primary hover:text-primary/80">
+            <a href="#contribute" className="inline-flex items-center text-primary hover:text-primary/80">
               <Heart className="h-4 w-4 mr-1" />
-              <span>Como contribuir</span>
+              <span>{t('footer.contribute')}</span>
             </a>
           </div>
         </div>
         
         {/* Bottom bar */}
         <div className="mt-8 pt-6 border-t border-gray-700 flex flex-col sm:flex-row justify-between items-center text-gray-400 text-sm">
-          <p>© {new Date().getFullYear()} DARE Framework | <a href="https://br.linkedin.com/in/guigonzalez/pt" target="_blank" rel="noopener noreferrer" className="hover:text-white">Gui Gonzalez</a></p>
+          <p>© {new Date().getFullYear()} {t('footer.copyright')}</p>
         </div>
       </div>
     </footer>
