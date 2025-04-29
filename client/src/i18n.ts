@@ -4,11 +4,15 @@ import LanguageDetector from 'i18next-browser-languagedetector';
 
 // Importar os arquivos de tradução
 import translationEN from './locales/en/translation.json';
+import translationPT from './locales/pt/translation.json';
 
 // Configurar recursos
 const resources = {
   en: {
     translation: translationEN
+  },
+  pt: {
+    translation: translationPT
   }
 };
 
