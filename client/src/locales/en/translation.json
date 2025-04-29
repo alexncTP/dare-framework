@@ -64,37 +64,37 @@
     "subtitle": "Collaborate with DARE",
     "description": "The DARE Framework is a community-driven, open project. There are several ways to contribute to its ongoing development.",
     "cards": {
-      "improvements": {
-        "title": "Propose Improvements",
+      "suggest": {
+        "title": "Suggest Changes",
         "description": "Propose modifications to existing framework levels, descriptions, or examples through GitHub issues or pull requests.",
-        "cta": "Open an issue"
+        "link": "Open an issue"
       },
       "creator": {
         "title": "About the Creator",
         "description": "Gui Gonzalez is a designer passionate about processes, who seeks to incorporate AI in a healthy way in the Design market, so that a new design emerges along with paradigm shifts.",
-        "cta": "Connect on LinkedIn"
+        "link": "Connect on LinkedIn"
       },
       "translate": {
         "title": "Translate",
         "description": "Help make DARE accessible to designers worldwide by contributing translations of the framework into different languages.",
-        "cta": "See guidelines"
+        "link": "See guidelines"
       }
     },
     "guidelines": {
       "title": "Contribution Guidelines",
-      "license": "The DARE Framework is made available under the Creative Commons BY-SA License, allowing free sharing and adaptation with proper attribution.",
-      "steps": {
-        "title": "To contribute:",
-        "list": [
-          "Fork the repository on GitHub",
-          "Create a branch for your contribution",
-          "Make your changes following our code and documentation standards",
-          "Submit a pull request with a clear description of the changes",
-          "Participate in the review process"
-        ]
-      },
-      "conduct": "All contributors must follow our Code of Conduct, which promotes an inclusive and welcoming environment.",
-      "cta": "View on GitHub"
+      "license": "The DARE Framework is made available under the {{licenseLink}}.",
+      "licenseText": "Creative Commons BY-SA License",
+      "stepsTitle": "To contribute:",
+      "steps": [
+        "Fork the repository on GitHub",
+        "Create a branch for your contribution",
+        "Make your changes following our code and documentation standards",
+        "Submit a pull request with a clear description of the changes",
+        "Participate in the review process"
+      ],
+      "conduct": "All contributors must follow our {{codeOfConductLink}}, which promotes an inclusive and welcoming environment.",
+      "conductText": "Code of Conduct",
+      "viewGithub": "View on GitHub"
     }
   },
   "footer": {

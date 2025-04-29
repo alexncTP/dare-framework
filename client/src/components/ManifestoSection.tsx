@@ -15,11 +15,21 @@ export default function ManifestoSection() {
             <h3>{t('manifesto.principles.title')}</h3>
             
             <ul>
-              {(t('manifesto.principles.list', { returnObjects: true }) as string[]).map((principle: string, index: number) => (
-                <li key={index} className="mb-4">
-                  <strong>{principle}</strong>
-                </li>
-              ))}
+              <li className="mb-4">
+                <strong>{t('manifesto.principles.list.0')}</strong>
+              </li>
+              <li className="mb-4">
+                <strong>{t('manifesto.principles.list.1')}</strong>
+              </li>
+              <li className="mb-4">
+                <strong>{t('manifesto.principles.list.2')}</strong>
+              </li>
+              <li className="mb-4">
+                <strong>{t('manifesto.principles.list.3')}</strong>
+              </li>
+              <li className="mb-4">
+                <strong>{t('manifesto.principles.list.4')}</strong>
+              </li>
             </ul>
           </div>
         </div>
