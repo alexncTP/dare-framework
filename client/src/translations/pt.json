@@ -13,7 +13,12 @@
     "title": "DARE Framework",
     "subtitle": "Design AI Reliable Engagement Framework",
     "description": "Um framework para adoção estratégica e confiável de IA no design de interface, UX, motion e branding.",
-    "cta": "Explorar Framework"
+    "cta": "Explorar Framework",
+    "stats": {
+      "open": "Aberto",
+      "reliable": "Confiável",
+      "levels": "Níveis"
+    }
   },
   "about": {
     "title": "Sobre o Framework",

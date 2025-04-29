@@ -58,14 +58,14 @@ export default function HeroSection() {
             <div className="mt-10 flex justify-center items-center space-x-8">
               <div className="flex flex-col items-center">
                 <div className="text-xl font-bold text-white">6</div>
-                <div className="text-xs text-blue-100">{t('framework.levelTitle')}s</div>
+                <div className="text-xs text-blue-100">{t('hero.stats.levels')}</div>
               </div>
               <div className="flex flex-col items-center">
-                <div className="text-xl font-bold text-white">{t('contribute.title').split(' ')[0]}</div>
+                <div className="text-xl font-bold text-white">{t('hero.stats.open')}</div>
                 <div className="text-xs text-blue-100">{t('nav.contribute')}</div>
               </div>
               <div className="flex flex-col items-center">
-                <div className="text-xl font-bold text-white">{t('manifesto.principles.0.title').split(' ')[0]}</div>
+                <div className="text-xl font-bold text-white">{t('hero.stats.reliable')}</div>
                 <div className="text-xs text-blue-100">{t('manifesto.title')}</div>
               </div>
             </div>
