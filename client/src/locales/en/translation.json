@@ -74,6 +74,10 @@
       "next": "Next",
       "of": "of",
       "level": "Level"
+    },
+    "levelData": {
+      "namePrefix": "Level",
+      "quote": "Quote"
     }
   },
   "manifesto": {

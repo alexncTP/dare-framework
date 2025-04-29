@@ -74,6 +74,10 @@
       "next": "Próximo",
       "of": "de",
       "level": "Nível"
+    },
+    "levelData": {
+      "namePrefix": "Nível",
+      "quote": "Citação"
     }
   },
   "manifesto": {
