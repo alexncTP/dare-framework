@@ -2,20 +2,17 @@ import { useState, useEffect } from "react";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Github } from "lucide-react";
-import { useLanguage } from "../hooks/use-language";
-import LanguageSelector from "./LanguageSelector";
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const { t } = useLanguage();
   
   // Configuração de navegação
   const navItems = [
-    { href: "#about", label: t('nav.about') },
-    { href: "#framework", label: t('nav.framework') },
-    { href: "#manifesto", label: t('nav.manifesto') },
-    { href: "#contribute", label: t('nav.contribute') }
+    { href: "#about", label: "Sobre" },
+    { href: "#framework", label: "Framework" },
+    { href: "#manifesto", label: "Manifesto" },
+    { href: "#contribute", label: "Contribuir" }
   ];
   
   // Handle scroll effect
@@ -79,14 +76,6 @@ export default function Header() {
           
           {/* CTA e controles */}
           <div className="flex items-center space-x-3">
-            <div className={`hidden md:block mr-2 ${
-              scrolled 
-                ? 'text-gray-600' 
-                : 'text-white'
-            }`}>
-              <LanguageSelector />
-            </div>
-            
             <a 
               href="https://github.com/guigonzalez/dare-framework" 
               target="_blank" 
@@ -147,13 +136,6 @@ export default function Header() {
               {item.label}
             </a>
           ))}
-          
-          {/* Language selector para mobile */}
-          <div className={`mt-4 pt-4 border-t ${scrolled ? 'border-gray-200' : 'border-gray-700'}`}>
-            <div className={`px-4 ${scrolled ? 'text-gray-700' : 'text-white'}`}>
-              <LanguageSelector />
-            </div>
-          </div>
         </div>
       </div>
     </header>

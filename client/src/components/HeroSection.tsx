@@ -1,8 +1,6 @@
 import { Button } from "@/components/ui/button";
-import { useLanguage } from "../hooks/use-language";
 
 export default function HeroSection() {
-  const { t } = useLanguage();
   return (
     <section className="relative bg-gradient-to-br from-primary/90 via-primary to-blue-700 overflow-hidden">
       {/* Background pattern */}
@@ -32,14 +30,15 @@ export default function HeroSection() {
             </div>
 
             <h1 className="text-white mb-6">
-              <span className="block mb-2">{t('hero.title')}</span>
+              <span className="block mb-2">Design AI Reliable</span>
               <span className="block mb-2 pb-2.5 bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent">
-                {t('hero.subtitle')}
+                Engagement Framework
               </span>
             </h1>
             
             <p className="mt-6 text-xl text-blue-100 max-w-2xl mx-auto">
-              {t('hero.description')}
+              Um framework colaborativo para adoção estratégica de IA em processos de design—
+              equilibrando inovação com criatividade humana.
             </p>
             
             <div className="mt-12 flex items-center justify-center">
@@ -50,7 +49,7 @@ export default function HeroSection() {
                 asChild
               >
                 <a href="#framework">
-                  {t('hero.cta')}
+                  Explorar Framework
                 </a>
               </Button>
             </div>
@@ -58,15 +57,15 @@ export default function HeroSection() {
             <div className="mt-10 flex justify-center items-center space-x-8">
               <div className="flex flex-col items-center">
                 <div className="text-xl font-bold text-white">6</div>
-                <div className="text-xs text-blue-100">{t('hero.stats.levels')}</div>
+                <div className="text-xs text-blue-100">Níveis</div>
               </div>
               <div className="flex flex-col items-center">
-                <div className="text-xl font-bold text-white">{t('hero.stats.open')}</div>
-                <div className="text-xs text-blue-100">{t('nav.contribute')}</div>
+                <div className="text-xl font-bold text-white">Aberto</div>
+                <div className="text-xs text-blue-100">Comunidade</div>
               </div>
               <div className="flex flex-col items-center">
-                <div className="text-xl font-bold text-white">{t('hero.stats.reliable')}</div>
-                <div className="text-xs text-blue-100">{t('manifesto.title')}</div>
+                <div className="text-xl font-bold text-white">Confiável</div>
+                <div className="text-xs text-blue-100">Engajamento</div>
               </div>
             </div>
           </div>

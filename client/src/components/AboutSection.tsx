@@ -1,20 +1,17 @@
 import { ArrowRightIcon, UsersIcon, BrainIcon, EyeIcon, LightbulbIcon } from "lucide-react";
-import { useLanguage } from "../hooks/use-language";
 
 export default function AboutSection() {
-  const { t } = useLanguage();
-  
   return (
     <section id="about" className="py-16 sm:py-24 bg-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
             <div className="inline-flex items-center justify-center px-4 py-1 mb-3 border border-primary/20 rounded-full bg-primary/5 text-primary text-sm font-medium">
-              {t('about.title')}
+              O que é o DARE Framework?
             </div>
-            <h2 className="gradient-text">{t('about.title')}</h2>
+            <h2 className="gradient-text">Sobre o DARE Framework</h2>
             <p className="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">
-              {t('about.description')}
+              O Design AI Reliable Engagement (DARE) Framework oferece a designers, agências e organizações uma abordagem estruturada para adoção de inteligência artificial em fluxos de trabalho de design—de UI e UX até motion e branding.
             </p>
           </div>
           

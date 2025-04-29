@@ -7,7 +7,6 @@ import NotFound from "@/pages/not-found";
 import HomePage from "@/pages/HomePage";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { LanguageProvider } from "./hooks/use-language";
 
 function Router() {
   return (
@@ -21,16 +20,14 @@ function Router() {
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <LanguageProvider>
-        <TooltipProvider>
-          <Toaster />
-          <div className="flex flex-col min-h-screen">
-            <Header />
-            <Router />
-            <Footer />
-          </div>
-        </TooltipProvider>
-      </LanguageProvider>
+      <TooltipProvider>
+        <Toaster />
+        <div className="flex flex-col min-h-screen">
+          <Header />
+          <Router />
+          <Footer />
+        </div>
+      </TooltipProvider>
     </QueryClientProvider>
   );
 }
