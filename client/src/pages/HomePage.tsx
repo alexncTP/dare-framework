@@ -1,6 +1,6 @@
 import AboutSection from "@/components/AboutSection";
 import ContributeSection from "@/components/ContributeSection";
-import FrameworkSection from "@/components/FrameworkSection";
+import FrameworkSectionSimple from "@/components/FrameworkSectionSimple";
 import HeroSection from "@/components/HeroSection";
 import ManifestoSection from "@/components/ManifestoSection";
 
@@ -9,7 +9,7 @@ export default function HomePage() {
     <main className="flex-grow">
       <HeroSection />
       <AboutSection />
-      <FrameworkSection />
+      <FrameworkSectionSimple />
       <ManifestoSection />
       <ContributeSection />
     </main>
