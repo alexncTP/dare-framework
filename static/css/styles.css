@@ -1,0 +1,136 @@
+/* DARE Framework Custom Styles */
+
+:root {
+  --primary: #1E40AF;
+  --primary-hover: #1a365d;
+  --primary-light: #4299e1;
+  --primary-dark: #1e3a8a;
+  --text-main: #1a202c;
+  --text-secondary: #4a5568;
+  --background-light: #f7fafc;
+  --background-dark: #1a202c;
+}
+
+/* Base Styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.6;
+  color: var(--text-main);
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+.text-primary {
+  color: var(--primary);
+}
+
+.bg-primary {
+  background-color: var(--primary);
+}
+
+/* Enhancement Classes */
+.bg-primary\/10 {
+  background-color: rgba(30, 64, 175, 0.1);
+}
+
+.bg-primary\/5 {
+  background-color: rgba(30, 64, 175, 0.05);
+}
+
+.border-primary\/20 {
+  border-color: rgba(30, 64, 175, 0.2);
+}
+
+.from-primary {
+  --tw-gradient-from: var(--primary);
+}
+
+.to-blue-700 {
+  --tw-gradient-to: #2563eb;
+}
+
+/* Component Styles */
+.prose a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.prose a:hover {
+  text-decoration: underline;
+}
+
+.prose p {
+  margin-bottom: 1rem;
+}
+
+.prose h4 {
+  font-size: 1.25rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+/* Framework Level Cards */
+.level-card {
+  transition: all 0.3s ease;
+  transform-origin: center;
+}
+
+.level-card.active {
+  transform: scale(1.02);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.level-btn:hover {
+  transform: translateY(-2px);
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-in;
+}
+
+/* Mobile Menu */
+@media (max-width: 768px) {
+  .mobile-menu-open {
+    max-height: 300px;
+    opacity: 1;
+  }
+}
+
+/* Focus Styles */
+a:focus, button:focus {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
