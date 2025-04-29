@@ -2,17 +2,20 @@ import { useState, useEffect } from "react";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Github } from "lucide-react";
+import { useTranslation } from "react-i18next";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { t, i18n } = useTranslation();
   
-  // Configuração de navegação
+  // Configuração de navegação com traduções
   const navItems = [
-    { href: "#about", label: "Sobre" },
-    { href: "#framework", label: "Framework" },
-    { href: "#manifesto", label: "Manifesto" },
-    { href: "#contribute", label: "Contribuir" }
+    { href: "#about", label: t('header.about') },
+    { href: "#framework", label: t('header.framework') },
+    { href: "#manifesto", label: t('header.manifesto') },
+    { href: "#contribute", label: t('header.contribute') }
   ];
   
   // Handle scroll effect
@@ -76,6 +79,11 @@ export default function Header() {
           
           {/* CTA e controles */}
           <div className="flex items-center space-x-3">
+            {/* Language Switcher */}
+            <div className={scrolled ? 'text-gray-600' : 'text-white'}>
+              <LanguageSwitcher />
+            </div>
+            
             <a 
               href="https://github.com/guigonzalez/dare-framework" 
               target="_blank" 
@@ -136,6 +144,37 @@ export default function Header() {
               {item.label}
             </a>
           ))}
+          
+          {/* Language switcher in mobile menu */}
+          <div className="mt-2 pt-2 border-t border-gray-200 dark:border-gray-700">
+            <div className="px-4 py-2 text-sm font-medium text-gray-500">
+              {t('language.label')}
+            </div>
+            <div className="flex flex-col px-2">
+              <button
+                onClick={() => {
+                  i18n.changeLanguage('pt');
+                  setIsMobileMenuOpen(false);
+                }}
+                className={`text-left px-4 py-2 rounded-md text-sm ${
+                  i18n.language === 'pt' ? 'bg-primary/10 text-primary' : 'text-gray-700 dark:text-gray-300'
+                }`}
+              >
+                {t('language.pt')}
+              </button>
+              <button
+                onClick={() => {
+                  i18n.changeLanguage('en');
+                  setIsMobileMenuOpen(false);
+                }}
+                className={`text-left px-4 py-2 rounded-md text-sm ${
+                  i18n.language === 'en' ? 'bg-primary/10 text-primary' : 'text-gray-700 dark:text-gray-300'
+                }`}
+              >
+                {t('language.en')}
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </header>
