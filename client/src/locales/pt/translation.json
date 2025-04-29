@@ -27,6 +27,8 @@
     "pros": "Prós",
     "cons": "Contras",
     "risks": "Riscos",
+    "loading": "Carregando níveis do framework...",
+    "error": "Ocorreu um erro ao carregar os níveis do framework. Por favor, tente novamente mais tarde.",
     "metrics": {
       "title": "Métricas evolutivas",
       "subtitle": "Evolução do Framework",

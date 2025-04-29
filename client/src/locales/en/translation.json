@@ -27,6 +27,8 @@
     "pros": "Pros",
     "cons": "Cons",
     "risks": "Risks",
+    "loading": "Loading framework levels...",
+    "error": "An error occurred while loading the framework levels. Please try again later.",
     "metrics": {
       "title": "Evolutionary metrics",
       "subtitle": "Framework Evolution",
