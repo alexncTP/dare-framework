@@ -7,6 +7,7 @@ import NotFound from "@/pages/not-found";
 import HomePage from "@/pages/HomePage";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { LanguageProvider } from "./hooks/use-language";
 
 function Router() {
   return (

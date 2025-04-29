@@ -1,0 +1,80 @@
+{
+  "nav": {
+    "about": "About",
+    "framework": "Framework",
+    "manifesto": "Manifesto",
+    "contribute": "Contribute"
+  },
+  "hero": {
+    "title": "DARE Framework",
+    "subtitle": "Design AI Reliable Engagement",
+    "description": "A collaborative framework for responsible and effective AI integration in design processes.",
+    "cta": "Explore the levels"
+  },
+  "about": {
+    "title": "About DARE",
+    "description": "The DARE Framework establishes six levels of AI adoption in design, guiding teams on how to integrate artificial intelligence tools ethically and productively."
+  },
+  "framework": {
+    "title": "Framework Levels",
+    "description": "Six progressive levels of AI integration in design, from fully manual approaches to advanced automation — each with its appropriate use cases."
+  },
+  "level": {
+    "title": "Level",
+    "tools": "Tools",
+    "uses": "Appropriate Uses",
+    "description": "Description",
+    "pros": "Pros",
+    "cons": "Cons",
+    "risks": "Risks"
+  },
+  "metrics": {
+    "title": "Evolutionary metrics",
+    "heading": "Framework Evolution",
+    "description": "The progressive integration of AI in design processes and its impacts on key metrics",
+    "humanControl": "Human Control",
+    "speed": "Speed",
+    "aiDependency": "AI Dependency",
+    "low": "Low",
+    "high": "High"
+  },
+  "manifesto": {
+    "title": "Manifesto",
+    "subtitle": "Our principles",
+    "cta": "Support the manifesto"
+  },
+  "contribute": {
+    "title": "Contribute",
+    "subtitle": "Help improve the framework",
+    "github": "Open an issue",
+    "creatorTitle": "About the Creator",
+    "creatorDesc": "Gui Gonzalez is a designer passionate about processes, who seeks to incorporate AI in a healthy way in the Design market, so that a new design emerges along with paradigm shifts.",
+    "linkedin": "Connect on LinkedIn",
+    "translateTitle": "Translate",
+    "translateDesc": "Help make DARE accessible to designers around the world by contributing translations of the framework to different languages.",
+    "viewGuidelines": "View guidelines"
+  },
+  "guidelines": {
+    "title": "Contribution Guidelines",
+    "license": "The DARE Framework is released under the Creative Commons BY-SA License, allowing free sharing and adaptation with proper attribution.",
+    "howToTitle": "To contribute:",
+    "step1": "Fork the GitHub repository",
+    "step2": "Create a branch for your contribution",
+    "step3": "Make your changes following our code and documentation standards",
+    "step4": "Submit a pull request with a clear description of the changes",
+    "step5": "Participate in the review process",
+    "codeOfConduct": "All contributors must follow our Code of Conduct, which promotes an inclusive and welcoming environment.",
+    "viewOnGithub": "View on GitHub"
+  },
+  "footer": {
+    "description": "A collaborative framework for responsible and effective AI integration in design processes.",
+    "license": "CC BY-SA 4.0 License",
+    "contribute": "How to contribute",
+    "copyright": "DARE Framework",
+    "creator": "Gui Gonzalez"
+  },
+  "language": {
+    "pt": "Português",
+    "en": "English"
+  }
+}
