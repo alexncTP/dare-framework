@@ -1,6 +1,8 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
+import * as fs from 'fs';
+import * as path from 'path';
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // API routes for framework levels
@@ -17,8 +19,6 @@ export async function registerRoutes(app: Express): Promise<Server> {
       
       // Load translated data
       try {
-        const fs = require('fs');
-        const path = require('path');
         const translationPath = path.join(__dirname, translationFile);
         const translatedData = JSON.parse(fs.readFileSync(translationPath, 'utf8'));
         
