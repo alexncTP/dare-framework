@@ -1,7 +1,11 @@
 // Simple HTTP server for testing the static site
-const http = require('http');
-const fs = require('fs');
-const path = require('path');
+import http from 'http';
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const PORT = 3000;
 
@@ -22,8 +26,8 @@ const server = http.createServer((req, res) => {
   
   // Handle homepage request
   let filePath = req.url === '/' 
-    ? './index.html' 
-    : '.' + req.url;
+    ? path.join(__dirname, 'index.html') 
+    : path.join(__dirname, req.url);
   
   const extname = path.extname(filePath);
   const contentType = MIME_TYPES[extname] || 'application/octet-stream';
@@ -32,7 +36,7 @@ const server = http.createServer((req, res) => {
     if (err) {
       if (err.code === 'ENOENT') {
         // Page not found
-        fs.readFile('./404.html', (err, content) => {
+        fs.readFile(path.join(__dirname, '404.html'), (err, content) => {
           if (err) {
             // If no 404 page, send a basic 404 message
             res.writeHead(404, { 'Content-Type': 'text/html' });
