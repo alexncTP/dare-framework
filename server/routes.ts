@@ -6,8 +6,31 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // API routes for framework levels
   app.get("/api/framework-levels", async (req, res) => {
     try {
-      const levels = await storage.getAllFrameworkLevels();
-      res.json(levels);
+      // Get language from query parameter, default to 'en'
+      const lang = (req.query.lang as string) || 'en';
+      
+      // Choose appropriate translation file based on language
+      let translationFile = './translations/frameworks.en.json';
+      if (lang === 'pt') {
+        translationFile = './translations/frameworks.pt.json';
+      }
+      
+      // Load translated data
+      try {
+        const fs = require('fs');
+        const path = require('path');
+        const translationPath = path.join(__dirname, translationFile);
+        const translatedData = JSON.parse(fs.readFileSync(translationPath, 'utf8'));
+        
+        // Return translated data
+        res.json(translatedData.levels);
+      } catch (translationError) {
+        console.error("Translation file error:", translationError);
+        
+        // Fallback to database if translation files fail
+        const levels = await storage.getAllFrameworkLevels();
+        res.json(levels);
+      }
     } catch (error) {
       res.status(500).json({ message: "Failed to fetch framework levels", error: (error as Error).message });
     }

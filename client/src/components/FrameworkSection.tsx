@@ -25,9 +25,20 @@ export default function FrameworkSection() {
   const aiDependencyBarRef = useRef<HTMLDivElement>(null);
   const progressBarRef = useRef<HTMLDivElement>(null);
   
-  // Fetch framework levels from the API
+  // Get current language
+  const { i18n } = useTranslation();
+  const currentLanguage = i18n.language;
+  
+  // Fetch framework levels from the API with language
   const { data: frameworkLevels = [], isLoading, error } = useQuery<FrameworkLevel[]>({
-    queryKey: ['/api/framework-levels'],
+    queryKey: ['/api/framework-levels', currentLanguage],
+    queryFn: async () => {
+      const response = await fetch(`/api/framework-levels?lang=${currentLanguage}`);
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    }
   });
   
   // Ensure the proper type safety
