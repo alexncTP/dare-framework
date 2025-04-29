@@ -301,11 +301,11 @@ export default function FrameworkSection() {
                   className="flex items-center gap-1"
                 >
                   <ChevronLeft className="h-4 w-4" />
-                  <span>Anterior</span>
+                  <span>{t('framework.navigation.prev')}</span>
                 </Button>
                 
                 <span className="flex items-center text-sm text-gray-500 font-medium">
-                  Nível {activeLevel + 1} de {levels.length}
+                  {t('framework.navigation.level')} {activeLevel + 1} {t('framework.navigation.of')} {levels.length}
                 </span>
                 
                 <Button
@@ -315,7 +315,7 @@ export default function FrameworkSection() {
                   disabled={activeLevel === levels.length - 1}
                   className="flex items-center gap-1"
                 >
-                  <span>Próximo</span>
+                  <span>{t('framework.navigation.next')}</span>
                   <ChevronRight className="h-4 w-4" />
                 </Button>
               </div>
@@ -329,7 +329,7 @@ export default function FrameworkSection() {
                   <div className="p-4">
                     <div className="bg-gradient-to-br from-primary to-blue-700 text-white p-6 rounded-lg relative overflow-hidden mb-4">
                       <Badge variant="outline" className="bg-white/10 text-white border-white/20 mb-2">
-                        Nível {level.id}
+                        {t('framework.navigation.level')} {level.id}
                       </Badge>
                       
                       <h3 className="text-xl font-bold">{level.name}</h3>
@@ -341,7 +341,7 @@ export default function FrameworkSection() {
                       <p className="text-gray-700 mb-4">{level.description}</p>
                       
                       <div className="bg-green-50 p-4 rounded-lg border border-green-100 mb-4">
-                        <h5 className="font-medium text-green-800 mb-2">Prós</h5>
+                        <h5 className="font-medium text-green-800 mb-2">{t('framework.pros')}</h5>
                         <ul className="space-y-1">
                           {Array.isArray(level.pros) && level.pros.map((pro: string, proIndex: number) => (
                             <li key={proIndex} className="flex items-start text-gray-700 text-sm">
@@ -353,7 +353,7 @@ export default function FrameworkSection() {
                       </div>
                       
                       <div className="bg-red-50 p-4 rounded-lg border border-red-100 mb-4">
-                        <h5 className="font-medium text-red-800 mb-2">Contras</h5>
+                        <h5 className="font-medium text-red-800 mb-2">{t('framework.cons')}</h5>
                         <ul className="space-y-1">
                           {Array.isArray(level.cons) && level.cons.map((con: string, conIndex: number) => (
                             <li key={conIndex} className="flex items-start text-gray-700 text-sm">
@@ -367,7 +367,7 @@ export default function FrameworkSection() {
                       </div>
                       
                       <div className="bg-amber-50 p-4 rounded-lg border border-amber-100">
-                        <h5 className="font-medium text-amber-800 mb-2">Riscos</h5>
+                        <h5 className="font-medium text-amber-800 mb-2">{t('framework.risks')}</h5>
                         <div className="text-gray-700 text-sm">
                           {level.risks}
                         </div>

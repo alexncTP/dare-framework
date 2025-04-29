@@ -72,7 +72,8 @@
     "navigation": {
       "prev": "Anterior",
       "next": "Próximo",
-      "of": "de"
+      "of": "de",
+      "level": "Nível"
     }
   },
   "manifesto": {
