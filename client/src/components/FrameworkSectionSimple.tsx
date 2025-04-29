@@ -150,7 +150,7 @@ export default function FrameworkSectionSimple() {
                 <div className="mt-4">
                   <h4 className="text-lg font-medium mb-2">{t('framework.tools')}</h4>
                   <div className="flex flex-wrap gap-2">
-                    {level.tools.map((tool, toolIndex) => (
+                    {(level.tools as string[]).map((tool, toolIndex) => (
                       <span 
                         key={toolIndex}
                         className="px-3 py-1 text-sm bg-white/20 rounded-full"
@@ -180,7 +180,7 @@ export default function FrameworkSectionSimple() {
                   </h5>
                   
                   <ul className="space-y-2">
-                    {Array.isArray(level.pros) && level.pros.map((pro, proIndex) => (
+                    {Array.isArray(level.pros) && (level.pros as string[]).map((pro, proIndex) => (
                       <li key={proIndex} className="flex items-start text-gray-700">
                         <CheckIcon className="w-4 h-4 text-green-500 mr-2 mt-1 flex-shrink-0" />
                         <span>{pro}</span>
@@ -199,7 +199,7 @@ export default function FrameworkSectionSimple() {
                   </h5>
                   
                   <ul className="space-y-2">
-                    {Array.isArray(level.cons) && level.cons.map((con, conIndex) => (
+                    {Array.isArray(level.cons) && (level.cons as string[]).map((con, conIndex) => (
                       <li key={conIndex} className="flex items-start text-gray-700">
                         <svg className="w-4 h-4 text-red-500 mr-2 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
