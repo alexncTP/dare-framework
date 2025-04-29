@@ -26,8 +26,8 @@ const server = http.createServer((req, res) => {
   
   // Handle homepage request
   let filePath = req.url === '/' 
-    ? path.join(__dirname, 'static', 'index.html') 
-    : path.join(__dirname, 'static', req.url);
+    ? path.join(process.cwd(), 'static', 'index.html') 
+    : path.join(process.cwd(), 'static', req.url);
   
   const extname = path.extname(filePath);
   const contentType = MIME_TYPES[extname] || 'application/octet-stream';
@@ -36,7 +36,7 @@ const server = http.createServer((req, res) => {
     if (err) {
       if (err.code === 'ENOENT') {
         // Page not found
-        fs.readFile(path.join(__dirname, 'static', '404.html'), (err, content) => {
+        fs.readFile(path.join(process.cwd(), 'static', '404.html'), (err, content) => {
           if (err) {
             // If no 404 page, send a basic 404 message
             res.writeHead(404, { 'Content-Type': 'text/html' });

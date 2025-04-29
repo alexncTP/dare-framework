@@ -7,7 +7,7 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const PORT = 3000;
+const PORT = 5000;
 
 const MIME_TYPES = {
   '.html': 'text/html',
@@ -59,7 +59,7 @@ const server = http.createServer((req, res) => {
   });
 });
 
-server.listen(PORT, () => {
-  console.log(`Server running at http://localhost:${PORT}/`);
-  console.log(`Press Ctrl+C to stop the server`);
+server.listen(PORT, '0.0.0.0', () => {
+  console.log(`Servidor estático rodando em http://localhost:${PORT}/`);
+  console.log(`Pressione Ctrl+C para encerrar o servidor`);
 });

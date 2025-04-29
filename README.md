@@ -1,68 +1,60 @@
-# DARE Framework
+# DARE Framework - Versão Estática
 
-Framework de integração entre Design e IA - Design AI Reliable Engagement
+Esta é a versão estática do DARE Framework (Design AI Reliable Engagement), um framework para adoção de IA em processos de design, desenvolvido por Gui Gonzalez.
 
-## Sobre o Projeto
+## Como executar localmente
 
-O DARE Framework é uma estrutura para ajudar designers e equipes a navegarem pela integração da IA em seus processos de design, definindo níveis claros de engajamento e uso apropriado. Desenvolvido por Gui Gonzalez, o framework estabelece seis níveis progressivos de adoção de IA em processos de design (0-5), promovendo o uso confiável e estratégico de inteligência artificial em UI, UX, motion e processos de branding.
+Para executar o site estático localmente, você pode usar qualquer servidor de arquivos estáticos. Alguns exemplos:
 
-## Duas Versões Disponíveis
+### Usando Node.js
 
-Este repositório contém duas versões do site DARE Framework:
+1. Navegue até a pasta raiz do projeto
+2. Execute: `node scripts/start-static.js`
+3. Acesse o site em: http://localhost:5000
 
-### 1. Versão React/Node.js (Completa)
+### Usando Python
 
-Uma aplicação web completa construída com:
-- Frontend: React, TypeScript, TailwindCSS e shadcn/ui
-- Backend: Express.js e PostgreSQL
-- Internacionalização com suporte a português e inglês
-
-Para executar esta versão:
+Se você tem Python instalado, pode usar:
 
 ```bash
-# Instalar dependências
-npm install
+# Python 3
+python -m http.server 3000 -d static
 
-# Iniciar servidor de desenvolvimento
-npm run dev
+# Python 2
+cd static && python -m SimpleHTTPServer 3000
 ```
 
-### 2. Versão HTML Estática (Simplificada)
+### Usando serve (Node.js)
 
-Uma versão estática do site usando apenas HTML, CSS e JavaScript vanilla, sem necessidade de Node.js para execução. Esta versão é ideal para hospedagem simples e econômica.
-
-Para executar esta versão:
+Você pode instalar o pacote `serve` globalmente:
 
 ```bash
-# Usando o script Node.js incluído
-node scripts/start-static.js
-
-# OU navegue até a pasta static e use qualquer servidor HTTP
-cd static && python -m http.server 5000
+npm install -g serve
+serve -s static
 ```
 
-Veja mais detalhes em [static/README.md](static/README.md).
+## Estrutura de arquivos
 
-## Níveis do Framework
+```
+static/
+├── data/            # Dados estáticos (níveis do framework)
+├── css/             # Estilos
+├── js/              # JavaScript
+├── assets/          # Recursos (imagens, ícones, etc.)
+├── index.html       # Página principal
+└── 404.html         # Página de erro 404
+```
 
-O DARE Framework define seis níveis de integração da IA no design:
+## Hospedagem
 
-0. **Manual Total** - Nenhuma IA. Só cérebro, mão e suor.
-1. **IA Assistiva** - A IA te ajuda, mas não cria.
-2. **IA como Acelerador Visual** - Você cria, a IA preenche.
-3. **IA como Copiloto** - Você lidera, a IA propõe.
-4. **Co-criação Modular** - A IA monta, você direciona.
-5. **Automação Guiada por Prompt** - Você descreve, a IA entrega.
+Este site estático pode ser hospedado em diversos serviços:
 
-## Contribuindo
-
-O Framework DARE é de código aberto e orientado pela comunidade. Contribuições são bem-vindas via GitHub:
-
-1. Faça um fork do repositório
-2. Crie um branch para sua contribuição
-3. Envie um pull request com uma descrição clara das alterações
-
-Veja o [Código de Conduta](https://github.com/guigonzalez/dare-framework/blob/main/CODE_OF_CONDUCT.md) para mais informações.
+- GitHub Pages
+- Netlify
+- Vercel
+- Amazon S3
+- Firebase Hosting
+- Qualquer serviço de hospedagem de arquivos estáticos
 
 ## Licença
 
@@ -70,4 +62,4 @@ O DARE Framework é disponibilizado sob a [Licença Creative Commons BY-SA](http
 
 ---
 
-© DARE Framework | Desenvolvido por [Gui Gonzalez](https://br.linkedin.com/in/guigonzalez/pt)
+© DARE Framework | Desenvolvido por Gui Gonzalez
