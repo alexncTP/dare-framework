@@ -5,6 +5,7 @@ import type { FrameworkLevel } from '@shared/schema';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { useIsMobile } from '@/hooks/use-mobile';
+import { useTranslation } from 'react-i18next';
 import { 
   Carousel, 
   CarouselContent, 
@@ -16,6 +17,7 @@ import {
 export default function FrameworkSection() {
   const [activeLevel, setActiveLevel] = useState(0);
   const isMobile = useIsMobile();
+  const { t } = useTranslation();
   
   // References for metrics
   const humanControlBarRef = useRef<HTMLDivElement>(null);
@@ -69,8 +71,8 @@ export default function FrameworkSection() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="gradient-text">Níveis do Framework DARE</h2>
-              <p className="mt-4 text-lg text-gray-600">Carregando os níveis do framework...</p>
+              <h2 className="gradient-text">{t('framework.title')}</h2>
+              <p className="mt-4 text-lg text-gray-600">{t('framework.loading')}</p>
             </div>
             <div className="py-20 flex justify-center">
               <div className="w-10 h-10 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
@@ -88,8 +90,8 @@ export default function FrameworkSection() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="gradient-text">Níveis do Framework DARE</h2>
-              <p className="mt-4 text-lg text-red-600">Erro ao carregar os níveis do framework.</p>
+              <h2 className="gradient-text">{t('framework.title')}</h2>
+              <p className="mt-4 text-lg text-red-600">{t('framework.error')}</p>
             </div>
           </div>
         </div>
@@ -103,11 +105,11 @@ export default function FrameworkSection() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <div className="inline-flex items-center justify-center px-4 py-1 mb-3 border border-primary/20 rounded-full bg-primary/5 text-primary text-sm font-medium">
-              6 níveis de adoção de IA
+              {t('framework.subtitle')}
             </div>
-            <h2 className="gradient-text">Níveis do Framework DARE</h2>
+            <h2 className="gradient-text">{t('framework.title')}</h2>
             <p className="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">
-              Seis níveis progressivos de integração de IA no design, de abordagens totalmente manuais à automação avançada — cada um com seus casos de uso apropriados.
+              {t('framework.description')}
             </p>
           </div>
           
@@ -124,7 +126,7 @@ export default function FrameworkSection() {
                       : 'text-gray-700 bg-gray-100 hover:bg-gray-200'
                   }`}
                 >
-                  <span className="block text-xs opacity-75 mb-1">Nível {index}</span>
+                  <span className="block text-xs opacity-75 mb-1">{t('framework.level')} {index}</span>
                   <span className="block">{level.shortName}</span>
                 </button>
               ))}
@@ -178,7 +180,7 @@ export default function FrameworkSection() {
                     
                     <div className="relative">
                       <Badge variant="outline" className="bg-white/10 text-white border-white/20 mb-4">
-                        Nível {level.id}
+                        {t('framework.level')} {level.id}
                       </Badge>
                       
                       <h3 className="text-2xl font-bold">{level.name}</h3>
@@ -188,7 +190,7 @@ export default function FrameworkSection() {
                         <div className="mt-8">
                           <div className="flex items-center mb-3">
                             <Wrench className="h-5 w-5 mr-2 text-blue-200" />
-                            <h4 className="font-semibold text-lg">Ferramentas</h4>
+                            <h4 className="font-semibold text-lg">{t('framework.tools')}</h4>
                           </div>
                           <div className="flex flex-wrap gap-2">
                             {level.tools.map((tool: string, toolIndex: number) => (
@@ -207,7 +209,7 @@ export default function FrameworkSection() {
                         <div className="mt-8">
                           <div className="flex items-center mb-3">
                             <CheckIcon className="h-5 w-5 mr-2 text-blue-200" />
-                            <h4 className="font-semibold text-lg">Usos Apropriados</h4>
+                            <h4 className="font-semibold text-lg">{t('framework.appropriateUses')}</h4>
                           </div>
                           <ul className="space-y-2 text-blue-50">
                             {level.appropriateUses.map((use: string, useIndex: number) => (
@@ -230,7 +232,7 @@ export default function FrameworkSection() {
                         <div className="p-2 bg-primary/10 rounded-md">
                           <Brain className="h-5 w-5 text-primary" />
                         </div>
-                        <span className="text-sm font-medium text-primary">Descrição</span>
+                        <span className="text-sm font-medium text-primary">{t('framework.description_label')}</span>
                       </div>
                       <p className="text-gray-700 text-lg">{level.description}</p>
                       
