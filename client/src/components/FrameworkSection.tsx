@@ -184,7 +184,7 @@ export default function FrameworkSection() {
                       </Badge>
                       
                       <h3 className="text-2xl font-bold">{level.name}</h3>
-                      <p className="mt-3 text-blue-100 italic text-lg">"{level.tagline}"</p>
+                      <p className="mt-3 text-blue-100 italic text-lg" aria-label={t('framework.levelData.quote')}>"{level.tagline}"</p>
                       
                       {Array.isArray(level.tools) && level.tools.length > 0 && (
                         <div className="mt-8">
@@ -333,7 +333,7 @@ export default function FrameworkSection() {
                       </Badge>
                       
                       <h3 className="text-xl font-bold">{level.name}</h3>
-                      <p className="mt-2 text-blue-100 italic">{level.tagline}</p>
+                      <p className="mt-2 text-blue-100 italic" aria-label={t('framework.levelData.quote')}>"{level.tagline}"</p>
                     </div>
                     
                     <div className="prose max-w-none">
