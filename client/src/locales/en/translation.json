@@ -14,7 +14,35 @@
   "about": {
     "title": "About DARE",
     "subtitle": "A structured approach",
-    "description": "The DARE Framework establishes progressive levels of AI engagement in design processes, from fully manual approaches to advanced automation integration."
+    "description": "The DARE Framework establishes progressive levels of AI engagement in design processes, from fully manual approaches to advanced automation integration.",
+    "cards": {
+      "community": {
+        "title": "Community-Driven",
+        "description": "Inspired by models like Creative Commons, the DARE Framework is open for public contribution and adaptation, creating a living system that evolves with AI technology.",
+        "link": "Learn how to contribute"
+      },
+      "human": {
+        "title": "Human-Centered",
+        "description": "DARE emphasizes that AI should enhance—not replace—human creativity, establishing guidelines that preserve the integrity of design work while leveraging the advantages of AI.",
+        "link": "Read our manifesto"
+      },
+      "transparency": {
+        "title": "Transparency",
+        "description": "The framework provides clear guidelines on disclosing AI use in design work, helping to establish ethical standards and build trust with clients and users.",
+        "link": "Understand the levels"
+      },
+      "practical": {
+        "title": "Practical",
+        "description": "Each framework level includes specific tools, processes, and considerations, making it immediately applicable to real-world design challenges.",
+        "link": "Explore the tools"
+      }
+    },
+    "footer": {
+      "badge": "A framework for all adoption levels",
+      "title": "From Fully Manual to AI-Guided Automation",
+      "description": "The DARE Framework organizes AI adoption into a spectrum of six distinct levels, helping design teams navigate artificial intelligence integration in a controlled and ethical manner.",
+      "button": "Explore Framework Levels"
+    }
   },
   "framework": {
     "title": "The Framework",

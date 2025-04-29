@@ -24,12 +24,12 @@ export default function AboutSection() {
                 <div className="p-3 bg-primary/10 rounded-full w-fit mb-4">
                   <UsersIcon className="h-6 w-6 text-primary" />
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900">Orientado pela Comunidade</h3>
+                <h3 className="text-xl font-semibold text-gray-900">{t('about.cards.community.title')}</h3>
                 <p className="mt-2 text-gray-600">
-                  Inspirado em modelos como Creative Commons, o DARE Framework é aberto para contribuição pública e adaptação, criando um sistema vivo que evolui com a tecnologia de IA.
+                  {t('about.cards.community.description')}
                 </p>
                 <a href="#contribute" className="mt-4 inline-flex items-center text-primary hover:text-primary/90">
-                  <span>Saiba como contribuir</span>
+                  <span>{t('about.cards.community.link')}</span>
                   <ArrowRightIcon className="ml-1 h-4 w-4" />
                 </a>
               </div>
@@ -41,12 +41,12 @@ export default function AboutSection() {
                 <div className="p-3 bg-primary/10 rounded-full w-fit mb-4">
                   <BrainIcon className="h-6 w-6 text-primary" />
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900">Centrado no Humano</h3>
+                <h3 className="text-xl font-semibold text-gray-900">{t('about.cards.human.title')}</h3>
                 <p className="mt-2 text-gray-600">
-                  O DARE enfatiza que a IA deve aprimorar—não substituir—a criatividade humana, estabelecendo diretrizes que preservam a integridade do trabalho de design enquanto aproveitam as vantagens da IA.
+                  {t('about.cards.human.description')}
                 </p>
                 <a href="#manifesto" className="mt-4 inline-flex items-center text-primary hover:text-primary/90">
-                  <span>Leia nosso manifesto</span>
+                  <span>{t('about.cards.human.link')}</span>
                   <ArrowRightIcon className="ml-1 h-4 w-4" />
                 </a>
               </div>
@@ -58,12 +58,12 @@ export default function AboutSection() {
                 <div className="p-3 bg-primary/10 rounded-full w-fit mb-4">
                   <EyeIcon className="h-6 w-6 text-primary" />
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900">Transparência</h3>
+                <h3 className="text-xl font-semibold text-gray-900">{t('about.cards.transparency.title')}</h3>
                 <p className="mt-2 text-gray-600">
-                  O framework fornece diretrizes claras sobre divulgação do uso de IA no trabalho de design, ajudando a estabelecer padrões éticos e construir confiança com clientes e usuários.
+                  {t('about.cards.transparency.description')}
                 </p>
                 <a href="#framework" className="mt-4 inline-flex items-center text-primary hover:text-primary/90">
-                  <span>Entenda os níveis</span>
+                  <span>{t('about.cards.transparency.link')}</span>
                   <ArrowRightIcon className="ml-1 h-4 w-4" />
                 </a>
               </div>
@@ -75,12 +75,12 @@ export default function AboutSection() {
                 <div className="p-3 bg-primary/10 rounded-full w-fit mb-4">
                   <LightbulbIcon className="h-6 w-6 text-primary" />
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900">Prático</h3>
+                <h3 className="text-xl font-semibold text-gray-900">{t('about.cards.practical.title')}</h3>
                 <p className="mt-2 text-gray-600">
-                  Cada nível do framework inclui ferramentas, processos e considerações específicas, tornando-o imediatamente aplicável aos desafios de design do mundo real.
+                  {t('about.cards.practical.description')}
                 </p>
                 <a href="#framework" className="mt-4 inline-flex items-center text-primary hover:text-primary/90">
-                  <span>Explore as ferramentas</span>
+                  <span>{t('about.cards.practical.link')}</span>
                   <ArrowRightIcon className="ml-1 h-4 w-4" />
                 </a>
               </div>
@@ -89,11 +89,11 @@ export default function AboutSection() {
           
           <div className="mt-16 text-center">
             <div className="inline-block py-1 px-3 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
-              Um framework para todos os níveis de adoção
+              {t('about.footer.badge')}
             </div>
-            <h3 className="text-2xl font-bold text-gray-900">Do Totalmente Manual à Automação Guiada por IA</h3>
+            <h3 className="text-2xl font-bold text-gray-900">{t('about.footer.title')}</h3>
             <p className="mt-4 text-gray-600 max-w-3xl mx-auto">
-              O DARE Framework organiza a adoção de IA em um espectro de seis níveis distintos, ajudando equipes de design a navegar na integração da inteligência artificial de maneira controlada e ética.
+              {t('about.footer.description')}
             </p>
             
             <div className="mt-8 inline-flex shadow-sm overflow-hidden rounded-lg">
@@ -101,7 +101,7 @@ export default function AboutSection() {
                 href="#framework" 
                 className="px-6 py-3 bg-primary text-white font-medium hover:bg-primary/90 transition-colors"
               >
-                Explorar os Níveis do Framework
+                {t('about.footer.button')}
               </a>
             </div>
           </div>

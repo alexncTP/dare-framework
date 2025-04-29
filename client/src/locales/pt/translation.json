@@ -14,7 +14,35 @@
   "about": {
     "title": "Sobre o DARE",
     "subtitle": "Uma abordagem estruturada",
-    "description": "O Framework DARE estabelece níveis progressivos de engajamento com IA em processos de design, desde abordagens totalmente manuais até integração avançada de automação."
+    "description": "O Framework DARE estabelece níveis progressivos de engajamento com IA em processos de design, desde abordagens totalmente manuais até integração avançada de automação.",
+    "cards": {
+      "community": {
+        "title": "Orientado pela Comunidade",
+        "description": "Inspirado em modelos como Creative Commons, o DARE Framework é aberto para contribuição pública e adaptação, criando um sistema vivo que evolui com a tecnologia de IA.",
+        "link": "Saiba como contribuir"
+      },
+      "human": {
+        "title": "Centrado no Humano",
+        "description": "O DARE enfatiza que a IA deve aprimorar—não substituir—a criatividade humana, estabelecendo diretrizes que preservam a integridade do trabalho de design enquanto aproveitam as vantagens da IA.",
+        "link": "Leia nosso manifesto"
+      },
+      "transparency": {
+        "title": "Transparência",
+        "description": "O framework fornece diretrizes claras sobre divulgação do uso de IA no trabalho de design, ajudando a estabelecer padrões éticos e construir confiança com clientes e usuários.",
+        "link": "Entenda os níveis"
+      },
+      "practical": {
+        "title": "Prático",
+        "description": "Cada nível do framework inclui ferramentas, processos e considerações específicas, tornando-o imediatamente aplicável aos desafios de design do mundo real.",
+        "link": "Explore as ferramentas"
+      }
+    },
+    "footer": {
+      "badge": "Um framework para todos os níveis de adoção",
+      "title": "Do Totalmente Manual à Automação Guiada por IA",
+      "description": "O DARE Framework organiza a adoção de IA em um espectro de seis níveis distintos, ajudando equipes de design a navegar na integração da inteligência artificial de maneira controlada e ética.",
+      "button": "Explorar os Níveis do Framework"
+    }
   },
   "framework": {
     "title": "O Framework",
