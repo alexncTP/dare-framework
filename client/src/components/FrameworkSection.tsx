@@ -447,8 +447,8 @@ export default function FrameworkSection() {
                         />
                       </div>
                       <div className="mt-2 flex justify-between text-xs text-gray-500">
-                        <span>Baixo</span>
-                        <span>Alto</span>
+                        <span>{t('framework.metrics.low')}</span>
+                        <span>{t('framework.metrics.high')}</span>
                       </div>
                     </div>
                     <div className="bg-gray-50 p-5 rounded-lg">
@@ -463,8 +463,8 @@ export default function FrameworkSection() {
                         />
                       </div>
                       <div className="mt-2 flex justify-between text-xs text-gray-500">
-                        <span>Baixa</span>
-                        <span>Alta</span>
+                        <span>{t('framework.metrics.lowF')}</span>
+                        <span>{t('framework.metrics.highF')}</span>
                       </div>
                     </div>
                     <div className="bg-gray-50 p-5 rounded-lg">
@@ -479,8 +479,8 @@ export default function FrameworkSection() {
                         />
                       </div>
                       <div className="mt-2 flex justify-between text-xs text-gray-500">
-                        <span>Baixa</span>
-                        <span>Alta</span>
+                        <span>{t('framework.metrics.lowF')}</span>
+                        <span>{t('framework.metrics.highF')}</span>
                       </div>
                     </div>
                   </div>
@@ -505,8 +505,8 @@ export default function FrameworkSection() {
                       />
                     </div>
                     <div className="mt-1 flex justify-between text-xs text-gray-500">
-                      <span>Baixo</span>
-                      <span>Alto</span>
+                      <span>{t('framework.metrics.low')}</span>
+                      <span>{t('framework.metrics.high')}</span>
                     </div>
                   </div>
                   
@@ -522,15 +522,15 @@ export default function FrameworkSection() {
                       />
                     </div>
                     <div className="mt-1 flex justify-between text-xs text-gray-500">
-                      <span>Baixa</span>
-                      <span>Alta</span>
+                      <span>{t('framework.metrics.lowF')}</span>
+                      <span>{t('framework.metrics.highF')}</span>
                     </div>
                   </div>
                   
                   <div className="bg-gray-50 p-4 rounded-lg">
                     <div className="flex items-center mb-2">
                       <Cpu className="h-4 w-4 text-amber-600 mr-2" />
-                      <h4 className="font-bold text-gray-800 text-sm">Dependência de IA</h4>
+                      <h4 className="font-bold text-gray-800 text-sm">{t('framework.metrics.aiDependency')}</h4>
                     </div>
                     <div className="mt-2 h-4 bg-gray-200 rounded-full overflow-hidden">
                       <div 
@@ -539,8 +539,8 @@ export default function FrameworkSection() {
                       />
                     </div>
                     <div className="mt-1 flex justify-between text-xs text-gray-500">
-                      <span>Baixa</span>
-                      <span>Alta</span>
+                      <span>{t('framework.metrics.lowF')}</span>
+                      <span>{t('framework.metrics.highF')}</span>
                     </div>
                   </div>
                 </div>
