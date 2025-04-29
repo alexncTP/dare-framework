@@ -240,7 +240,7 @@ export default function FrameworkSection() {
                         <div className="bg-green-50 p-5 rounded-lg border border-green-100">
                           <div className="flex items-center text-green-700 mb-3">
                             <CheckIcon className="h-5 w-5 mr-2" />
-                            <h4 className="font-medium text-green-800">Prós</h4>
+                            <h4 className="font-medium text-green-800">{t('framework.pros')}</h4>
                           </div>
                           <ul className="mt-2 space-y-2">
                             {Array.isArray(level.pros) && level.pros.map((pro: string, proIndex: number) => (
@@ -257,7 +257,7 @@ export default function FrameworkSection() {
                             <svg className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
                             </svg>
-                            <h4 className="font-medium text-red-800">Contras</h4>
+                            <h4 className="font-medium text-red-800">{t('framework.cons')}</h4>
                           </div>
                           <ul className="mt-2 space-y-2">
                             {Array.isArray(level.cons) && level.cons.map((con: string, conIndex: number) => (
@@ -275,7 +275,7 @@ export default function FrameworkSection() {
                       <div className="mt-8 bg-amber-50 p-5 rounded-lg border border-amber-100">
                         <div className="flex items-center text-amber-700 mb-3">
                           <AlertTriangleIcon className="h-5 w-5 mr-2" />
-                          <h4 className="font-medium text-amber-800">Riscos</h4>
+                          <h4 className="font-medium text-amber-800">{t('framework.risks')}</h4>
                         </div>
                         <div className="text-gray-700">
                           {level.risks}
@@ -337,7 +337,7 @@ export default function FrameworkSection() {
                     </div>
                     
                     <div className="prose max-w-none">
-                      <h4 className="text-md font-medium text-primary mb-2">Descrição</h4>
+                      <h4 className="text-md font-medium text-primary mb-2">{t('framework.description_label')}</h4>
                       <p className="text-gray-700 mb-4">{level.description}</p>
                       
                       <div className="bg-green-50 p-4 rounded-lg border border-green-100 mb-4">
@@ -383,11 +383,11 @@ export default function FrameworkSection() {
           <div className="mt-16">
             <div className="text-center mb-8">
               <div className="inline-flex items-center justify-center px-4 py-1 mb-3 border border-primary/20 rounded-full bg-primary/5 text-primary text-sm font-medium">
-                Métricas evolutivas
+                {t('framework.metrics.subtitle')}
               </div>
-              <h3 className="text-2xl font-bold text-gray-900">Evolução do Framework</h3>
+              <h3 className="text-2xl font-bold text-gray-900">{t('framework.metrics.title')}</h3>
               <p className="mt-3 text-gray-600 max-w-2xl mx-auto">
-                A integração progressiva de IA nos processos de design e seus impactos nas métricas principais
+                {t('framework.metrics.description')}
               </p>
             </div>
             
@@ -438,7 +438,7 @@ export default function FrameworkSection() {
                     <div className="bg-gray-50 p-5 rounded-lg">
                       <div className="flex items-center mb-3">
                         <Brain className="h-5 w-5 text-green-600 mr-2" />
-                        <h4 className="font-bold text-gray-800">Controle Humano</h4>
+                        <h4 className="font-bold text-gray-800">{t('framework.metrics.humanControl')}</h4>
                       </div>
                       <div className="mt-2 h-6 bg-gray-200 rounded-full overflow-hidden">
                         <div 
@@ -454,7 +454,7 @@ export default function FrameworkSection() {
                     <div className="bg-gray-50 p-5 rounded-lg">
                       <div className="flex items-center mb-3">
                         <Zap className="h-5 w-5 text-blue-600 mr-2" />
-                        <h4 className="font-bold text-gray-800">Velocidade</h4>
+                        <h4 className="font-bold text-gray-800">{t('framework.metrics.speed')}</h4>
                       </div>
                       <div className="mt-2 h-6 bg-gray-200 rounded-full overflow-hidden">
                         <div 
@@ -470,7 +470,7 @@ export default function FrameworkSection() {
                     <div className="bg-gray-50 p-5 rounded-lg">
                       <div className="flex items-center mb-3">
                         <Cpu className="h-5 w-5 text-amber-600 mr-2" />
-                        <h4 className="font-bold text-gray-800">Dependência de IA</h4>
+                        <h4 className="font-bold text-gray-800">{t('framework.metrics.aiDependency')}</h4>
                       </div>
                       <div className="mt-2 h-6 bg-gray-200 rounded-full overflow-hidden">
                         <div 
@@ -496,7 +496,7 @@ export default function FrameworkSection() {
                   <div className="bg-gray-50 p-4 rounded-lg">
                     <div className="flex items-center mb-2">
                       <Brain className="h-4 w-4 text-green-600 mr-2" />
-                      <h4 className="font-bold text-gray-800 text-sm">Controle Humano</h4>
+                      <h4 className="font-bold text-gray-800 text-sm">{t('framework.metrics.humanControl')}</h4>
                     </div>
                     <div className="mt-2 h-4 bg-gray-200 rounded-full overflow-hidden">
                       <div 
@@ -513,7 +513,7 @@ export default function FrameworkSection() {
                   <div className="bg-gray-50 p-4 rounded-lg">
                     <div className="flex items-center mb-2">
                       <Zap className="h-4 w-4 text-blue-600 mr-2" />
-                      <h4 className="font-bold text-gray-800 text-sm">Velocidade</h4>
+                      <h4 className="font-bold text-gray-800 text-sm">{t('framework.metrics.speed')}</h4>
                     </div>
                     <div className="mt-2 h-4 bg-gray-200 rounded-full overflow-hidden">
                       <div 
