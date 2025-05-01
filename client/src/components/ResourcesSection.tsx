@@ -58,28 +58,39 @@ export default function ResourcesSection() {
   // Função para renderizar cards de cada nível
   const renderLevelCard = (level: number, title: string, tools: string[], compact = false) => {
     return (
-      <Card key={level} className="overflow-hidden hover:shadow-lg transition-shadow snap-center shrink-0 w-[300px] mx-0">
+      <Card key={level} className="overflow-hidden hover:shadow-lg transition-all snap-center shrink-0 w-[280px] md:w-[300px] transform hover:-translate-y-1 hover:scale-[1.02] duration-300 border border-gray-100 hover:border-blue-200">
         <CardContent className={`p-0 ${compact ? 'h-full' : ''}`}>
-          <div className="p-5 bg-gradient-to-r from-blue-600 to-blue-700 text-white">
-            <h3 className="font-bold text-lg mb-1">Nível {level}</h3>
-            <p className="text-white/90">{title}</p>
+          <div className="p-5 bg-gradient-to-r from-blue-600 to-blue-700 text-white relative">
+            <div className="absolute top-0 right-0 bg-blue-800 text-white text-xs px-2 py-1 rounded-bl-md">
+              Nível {level}
+            </div>
+            <h3 className="font-bold text-lg mb-1 mt-4">{title}</h3>
+            <p className="text-white/90 text-sm">
+              {level === 0 && "Trabalho totalmente manual"}
+              {level === 1 && "IA para organizar e auxiliar"}
+              {level === 2 && "IA para inspiração visual"}
+              {level === 3 && "IA acelera seu processo"}
+              {level === 4 && "Parceria criativa com IA"}
+              {level === 5 && "Automação com supervisão"}
+            </p>
           </div>
           <div className="p-5">
-            <ul className="space-y-2 mb-4">
+            <ul className="space-y-2 mb-6">
               {tools.map((tool, index) => (
                 <li key={index} className="flex items-start">
-                  <span className="text-blue-600 mr-2">•</span>
-                  <span>{tool}</span>
+                  <span className="text-blue-600 mr-2 flex-shrink-0">•</span>
+                  <span className="text-sm">{tool}</span>
                 </li>
               ))}
             </ul>
             <div className="mt-auto">
               <Button 
                 variant="outline" 
-                className="text-blue-600 border-blue-600 hover:bg-blue-50 hover:text-blue-700 w-full"
+                className="text-blue-600 border-blue-600 hover:bg-blue-50 hover:text-blue-700 w-full group transition-colors"
                 onClick={() => openModal(level)}
               >
-                Saiba mais
+                <span>Saiba mais</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="ml-1 group-hover:translate-x-1 transition-transform"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
               </Button>
             </div>
           </div>
@@ -112,126 +123,174 @@ export default function ResourcesSection() {
           </p>
         </div>
 
-        <div className="max-w-6xl mx-0">
-          <div className="text-sm text-gray-500 mb-2 flex items-center">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-1"><path d="M9 18l6-6-6-6"/></svg>
-            Deslize para ver mais níveis
+        <div className="max-w-6xl mx-auto px-4 md:px-0">
+          <div className="text-sm text-gray-500 mb-2 flex items-center justify-between">
+            <div className="flex items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-1 text-blue-600"><path d="M9 18l6-6-6-6"/></svg>
+              <span>Deslize para ver mais níveis</span>
+            </div>
+            <div className="flex space-x-1">
+              <span className="inline-block w-2 h-2 rounded-full bg-blue-600"></span>
+              <span className="inline-block w-2 h-2 rounded-full bg-gray-300"></span>
+              <span className="inline-block w-2 h-2 rounded-full bg-gray-300"></span>
+              <span className="inline-block w-2 h-2 rounded-full bg-gray-300"></span>
+            </div>
           </div>
           <Tabs defaultValue="all" className="w-full" onValueChange={setActiveTab}>
-            <TabsList className="flex overflow-x-auto pb-2 mb-8 space-x-2 snap-x">
-              <TabsTrigger value="all" className="data-[state=active]:bg-blue-600 data-[state=active]:text-white snap-center shrink-0">
+            <TabsList className="flex overflow-x-auto pb-2 mb-6 space-x-2 snap-x scrollbar-thin scrollbar-thumb-blue-500 scrollbar-track-blue-100">
+              <TabsTrigger value="all" className="data-[state=active]:bg-blue-600 data-[state=active]:text-white data-[state=active]:shadow-md snap-center shrink-0 min-w-[100px]">
                 Todos os Níveis
               </TabsTrigger>
-              <TabsTrigger value="basic" className="data-[state=active]:bg-blue-600 data-[state=active]:text-white snap-center shrink-0">
+              <TabsTrigger value="basic" className="data-[state=active]:bg-blue-600 data-[state=active]:text-white data-[state=active]:shadow-md snap-center shrink-0 min-w-[100px]">
                 Básico (0-1)
               </TabsTrigger>
-              <TabsTrigger value="intermediate" className="data-[state=active]:bg-blue-600 data-[state=active]:text-white snap-center shrink-0">
+              <TabsTrigger value="intermediate" className="data-[state=active]:bg-blue-600 data-[state=active]:text-white data-[state=active]:shadow-md snap-center shrink-0 min-w-[140px]">
                 Intermediário (2-3)
               </TabsTrigger>
-              <TabsTrigger value="advanced" className="data-[state=active]:bg-blue-600 data-[state=active]:text-white snap-center shrink-0">
+              <TabsTrigger value="advanced" className="data-[state=active]:bg-blue-600 data-[state=active]:text-white data-[state=active]:shadow-md snap-center shrink-0 min-w-[100px]">
                 Avançado (4-5)
               </TabsTrigger>
             </TabsList>
 
             <TabsContent value="all" className="mt-2">
-              <div className="flex overflow-x-auto pb-4 space-x-6 snap-x">
-                {renderLevelCard(0, "Manual Total", [
-                  "Caneta e papel para esboços iniciais",
-                  "Figma ou Adobe XD para wireframes simples e protótipos básicos",
-                  "Processos analógicos de design, sem automação de IA"
-                ], true)}
-                
-                {renderLevelCard(1, "Assistência Básica", [
-                  "ChatGPT para organização de pesquisas, resumos e insights",
-                  "Notion AI para documentação e organização de informações de projetos",
-                  "Miro AI Assist para construção de mapas mentais e brainstorming"
-                ], true)}
-                
-                {renderLevelCard(2, "Auxílio Pontual", [
-                  "Midjourney para geração de imagens de alta qualidade e moodboards",
-                  "DALL-E para criação de assets visuais personalizados",
-                  "Leonardo.ai para geração de texturas, padrões e ilustrações",
-                  "GPT-Image 1 para geração de imagens realistas baseadas em prompts textuais",
-                  "Ideogram para criar imagens detalhadas e inovadoras a partir de descrições"
-                ], true)}
-                
-                {renderLevelCard(3, "Design Acelerado", [
-                  "Figma AI para autocompletar layouts, sugestões de design e organização de componentes",
-                  "Adobe Firefly para edição rápida e criação de imagens e gráficos",
-                  "Framer AI para prototipagem rápida e design interativo",
-                  "Sora para automação de fluxos de trabalho de design e colaboração em tempo real",
-                  "Lovable para otimizar a experiência de design colaborativo"
-                ], true)}
-                
-                {renderLevelCard(4, "Co-criação", [
-                  "Galileo AI para geração automática de UI, criando layouts interativos",
-                  "Uizard para transformação de rascunhos e wireframes em protótipos de alta fidelidade",
-                  "Diagram para ideação visual, geração de ideias e conceitos gráficos",
-                  "v0 (Vercel) para criação de sistemas de design escaláveis",
-                  "Replit para gerar código funcional, para pequenos MVPs que necessitem de uma leve integração com banco de dados, porém exige um pouco de conhecimento técnico"
-                ], true)}
-                
-                {renderLevelCard(5, "Automação de Componentes", [
-                  "Builder.io para criação de componentes React automatizados e dinâmicos",
-                  "Anima para conversão de design para código (HTML, CSS, React)",
-                  "Locofy.ai para gerar código a partir de designs e layouts de UI",
-                  "Bolt para criação de MVPs rápidos e automação de design para código"
-                ], true)}
+              <div className="relative snap-x-container">
+                <div className="absolute left-0 top-1/2 -translate-y-1/2 flex items-center justify-center h-8 w-8 bg-white/80 border border-gray-200 rounded-full z-10 shadow-sm backdrop-blur-sm cursor-pointer hover:bg-white hover:scale-110 transition-transform">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-blue-600"><path d="m15 18-6-6 6-6"/></svg>
+                </div>
+
+                <div className="flex overflow-x-auto pb-6 pt-2 space-x-6 snap-x px-4 rounded">
+                  {renderLevelCard(0, "Manual Total", [
+                    "Caneta e papel para esboços iniciais",
+                    "Figma ou Adobe XD para wireframes simples e protótipos básicos",
+                    "Processos analógicos de design, sem automação de IA"
+                  ], true)}
+                  
+                  {renderLevelCard(1, "Assistência Básica", [
+                    "ChatGPT para organização de pesquisas, resumos e insights",
+                    "Notion AI para documentação e organização de informações de projetos",
+                    "Miro AI Assist para construção de mapas mentais e brainstorming"
+                  ], true)}
+                  
+                  {renderLevelCard(2, "Auxílio Pontual", [
+                    "Midjourney para geração de imagens de alta qualidade e moodboards",
+                    "DALL-E para criação de assets visuais personalizados",
+                    "Leonardo.ai para geração de texturas, padrões e ilustrações",
+                    "GPT-Image 1 para geração de imagens realistas baseadas em prompts textuais",
+                    "Ideogram para criar imagens detalhadas e inovadoras a partir de descrições"
+                  ], true)}
+                  
+                  {renderLevelCard(3, "Design Acelerado", [
+                    "Figma AI para autocompletar layouts, sugestões de design e organização de componentes",
+                    "Adobe Firefly para edição rápida e criação de imagens e gráficos",
+                    "Framer AI para prototipagem rápida e design interativo",
+                    "Sora para automação de fluxos de trabalho de design e colaboração em tempo real",
+                    "Lovable para otimizar a experiência de design colaborativo"
+                  ], true)}
+                  
+                  {renderLevelCard(4, "Co-criação", [
+                    "Galileo AI para geração automática de UI, criando layouts interativos",
+                    "Uizard para transformação de rascunhos e wireframes em protótipos de alta fidelidade",
+                    "Diagram para ideação visual, geração de ideias e conceitos gráficos",
+                    "v0 (Vercel) para criação de sistemas de design escaláveis",
+                    "Replit para gerar código funcional, para pequenos MVPs que necessitem de uma leve integração com banco de dados, porém exige um pouco de conhecimento técnico"
+                  ], true)}
+                  
+                  {renderLevelCard(5, "Automação de Componentes", [
+                    "Builder.io para criação de componentes React automatizados e dinâmicos",
+                    "Anima para conversão de design para código (HTML, CSS, React)",
+                    "Locofy.ai para gerar código a partir de designs e layouts de UI",
+                    "Bolt para criação de MVPs rápidos e automação de design para código"
+                  ], true)}
+                </div>
+
+                <div className="absolute right-0 top-1/2 -translate-y-1/2 flex items-center justify-center h-8 w-8 bg-white/80 border border-gray-200 rounded-full z-10 shadow-sm backdrop-blur-sm cursor-pointer hover:bg-white">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-blue-600"><path d="m9 18 6-6-6-6"/></svg>
+                </div>
               </div>
             </TabsContent>
 
             <TabsContent value="basic" className="mt-2">
-              <div className="flex overflow-x-auto pb-4 space-x-6 snap-x">
-                {renderLevelCard(0, "Manual Total", [
-                  "Caneta e papel para esboços iniciais",
-                  "Figma ou Adobe XD para wireframes simples e protótipos básicos",
-                  "Processos analógicos de design, sem automação de IA"
-                ])}
+              <div className="relative">
+                <div className="absolute left-0 top-1/2 -translate-y-1/2 flex items-center justify-center h-8 w-8 bg-white/80 border border-gray-200 rounded-full z-10 shadow-sm backdrop-blur-sm cursor-pointer hover:bg-white">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-blue-600"><path d="m15 18-6-6 6-6"/></svg>
+                </div>
                 
-                {renderLevelCard(1, "Assistência Básica", [
-                  "ChatGPT para organização de pesquisas, resumos e insights",
-                  "Notion AI para documentação e organização de informações de projetos",
-                  "Miro AI Assist para construção de mapas mentais e brainstorming"
-                ])}
+                <div className="flex overflow-x-auto pb-6 pt-2 space-x-6 snap-x px-4 scrollbar-thin scrollbar-thumb-blue-500 scrollbar-track-gray-100 rounded">
+                  {renderLevelCard(0, "Manual Total", [
+                    "Caneta e papel para esboços iniciais",
+                    "Figma ou Adobe XD para wireframes simples e protótipos básicos",
+                    "Processos analógicos de design, sem automação de IA"
+                  ])}
+                  
+                  {renderLevelCard(1, "Assistência Básica", [
+                    "ChatGPT para organização de pesquisas, resumos e insights",
+                    "Notion AI para documentação e organização de informações de projetos",
+                    "Miro AI Assist para construção de mapas mentais e brainstorming"
+                  ])}
+                </div>
+                
+                <div className="absolute right-0 top-1/2 -translate-y-1/2 flex items-center justify-center h-8 w-8 bg-white/80 border border-gray-200 rounded-full z-10 shadow-sm backdrop-blur-sm cursor-pointer hover:bg-white">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-blue-600"><path d="m9 18 6-6-6-6"/></svg>
+                </div>
               </div>
             </TabsContent>
 
             <TabsContent value="intermediate" className="mt-2">
-              <div className="flex overflow-x-auto pb-4 space-x-6 snap-x">
-                {renderLevelCard(2, "Auxílio Pontual", [
-                  "Midjourney para geração de imagens de alta qualidade e moodboards",
-                  "DALL-E para criação de assets visuais personalizados",
-                  "Leonardo.ai para geração de texturas, padrões e ilustrações",
-                  "GPT-Image 1 para geração de imagens realistas baseadas em prompts textuais",
-                  "Ideogram para criar imagens detalhadas e inovadoras a partir de descrições"
-                ])}
+              <div className="relative">
+                <div className="absolute left-0 top-1/2 -translate-y-1/2 flex items-center justify-center h-8 w-8 bg-white/80 border border-gray-200 rounded-full z-10 shadow-sm backdrop-blur-sm cursor-pointer hover:bg-white">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-blue-600"><path d="m15 18-6-6 6-6"/></svg>
+                </div>
                 
-                {renderLevelCard(3, "Design Acelerado", [
-                  "Figma AI para autocompletar layouts, sugestões de design e organização de componentes",
-                  "Adobe Firefly para edição rápida e criação de imagens e gráficos",
-                  "Framer AI para prototipagem rápida e design interativo",
-                  "Sora para automação de fluxos de trabalho de design e colaboração em tempo real",
-                  "Lovable para otimizar a experiência de design colaborativo"
-                ])}
+                <div className="flex overflow-x-auto pb-6 pt-2 space-x-6 snap-x px-4 scrollbar-thin scrollbar-thumb-blue-500 scrollbar-track-gray-100 rounded">
+                  {renderLevelCard(2, "Auxílio Pontual", [
+                    "Midjourney para geração de imagens de alta qualidade e moodboards",
+                    "DALL-E para criação de assets visuais personalizados",
+                    "Leonardo.ai para geração de texturas, padrões e ilustrações",
+                    "GPT-Image 1 para geração de imagens realistas baseadas em prompts textuais",
+                    "Ideogram para criar imagens detalhadas e inovadoras a partir de descrições"
+                  ])}
+                  
+                  {renderLevelCard(3, "Design Acelerado", [
+                    "Figma AI para autocompletar layouts, sugestões de design e organização de componentes",
+                    "Adobe Firefly para edição rápida e criação de imagens e gráficos",
+                    "Framer AI para prototipagem rápida e design interativo",
+                    "Sora para automação de fluxos de trabalho de design e colaboração em tempo real",
+                    "Lovable para otimizar a experiência de design colaborativo"
+                  ])}
+                </div>
+                
+                <div className="absolute right-0 top-1/2 -translate-y-1/2 flex items-center justify-center h-8 w-8 bg-white/80 border border-gray-200 rounded-full z-10 shadow-sm backdrop-blur-sm cursor-pointer hover:bg-white">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-blue-600"><path d="m9 18 6-6-6-6"/></svg>
+                </div>
               </div>
             </TabsContent>
 
             <TabsContent value="advanced" className="mt-2">
-              <div className="flex overflow-x-auto pb-4 space-x-6 snap-x">
-                {renderLevelCard(4, "Co-criação", [
-                  "Galileo AI para geração automática de UI, criando layouts interativos",
-                  "Uizard para transformação de rascunhos e wireframes em protótipos de alta fidelidade",
-                  "Diagram para ideação visual, geração de ideias e conceitos gráficos",
-                  "v0 (Vercel) para criação de sistemas de design escaláveis",
-                  "Replit para gerar código funcional, para pequenos MVPs que necessitem de uma leve integração com banco de dados, porém exige um pouco de conhecimento técnico"
-                ])}
+              <div className="relative">
+                <div className="absolute left-0 top-1/2 -translate-y-1/2 flex items-center justify-center h-8 w-8 bg-white/80 border border-gray-200 rounded-full z-10 shadow-sm backdrop-blur-sm cursor-pointer hover:bg-white">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-blue-600"><path d="m15 18-6-6 6-6"/></svg>
+                </div>
                 
-                {renderLevelCard(5, "Automação de Componentes", [
-                  "Builder.io para criação de componentes React automatizados e dinâmicos",
-                  "Anima para conversão de design para código (HTML, CSS, React)",
-                  "Locofy.ai para gerar código a partir de designs e layouts de UI",
-                  "Bolt para criação de MVPs rápidos e automação de design para código"
-                ])}
+                <div className="flex overflow-x-auto pb-6 pt-2 space-x-6 snap-x px-4 scrollbar-thin scrollbar-thumb-blue-500 scrollbar-track-gray-100 rounded">
+                  {renderLevelCard(4, "Co-criação", [
+                    "Galileo AI para geração automática de UI, criando layouts interativos",
+                    "Uizard para transformação de rascunhos e wireframes em protótipos de alta fidelidade",
+                    "Diagram para ideação visual, geração de ideias e conceitos gráficos",
+                    "v0 (Vercel) para criação de sistemas de design escaláveis",
+                    "Replit para gerar código funcional, para pequenos MVPs que necessitem de uma leve integração com banco de dados, porém exige um pouco de conhecimento técnico"
+                  ])}
+                  
+                  {renderLevelCard(5, "Automação de Componentes", [
+                    "Builder.io para criação de componentes React automatizados e dinâmicos",
+                    "Anima para conversão de design para código (HTML, CSS, React)",
+                    "Locofy.ai para gerar código a partir de designs e layouts de UI",
+                    "Bolt para criação de MVPs rápidos e automação de design para código"
+                  ])}
+                </div>
+                
+                <div className="absolute right-0 top-1/2 -translate-y-1/2 flex items-center justify-center h-8 w-8 bg-white/80 border border-gray-200 rounded-full z-10 shadow-sm backdrop-blur-sm cursor-pointer hover:bg-white">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-blue-600"><path d="m9 18 6-6-6-6"/></svg>
+                </div>
               </div>
             </TabsContent>
           </Tabs>

@@ -3,22 +3,59 @@
 @tailwind utilities;
 
 /* Personalização da barra de rolagem horizontal */
+.snap-x {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: #3b82f6 #f1f5f9;
+}
+
 .snap-x::-webkit-scrollbar {
-  height: 8px;
+  height: 6px;
+  display: block;
 }
 
 .snap-x::-webkit-scrollbar-track {
-  background: #f1f1f1;
-  border-radius: 4px;
+  background: #f1f5f9;
+  border-radius: 8px;
+  margin: 0 10px;
 }
 
 .snap-x::-webkit-scrollbar-thumb {
-  background: #888;
-  border-radius: 4px;
+  background: #3b82f6;
+  border-radius: 8px;
+  border: 1px solid #f1f5f9;
+  transition: all 0.3s ease;
 }
 
 .snap-x::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  background: #2563eb;
+}
+
+/* Gradiente nas bordas para indicar scroll */
+.snap-x-container {
+  position: relative;
+}
+
+.snap-x-container::before,
+.snap-x-container::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 40px;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.snap-x-container::before {
+  left: 0;
+  background: linear-gradient(to right, rgba(249, 250, 251, 1), rgba(249, 250, 251, 0));
+}
+
+.snap-x-container::after {
+  right: 0;
+  background: linear-gradient(to left, rgba(249, 250, 251, 1), rgba(249, 250, 251, 0));
 }
 
 :root {
