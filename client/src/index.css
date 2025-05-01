@@ -2,6 +2,25 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Personalização da barra de rolagem horizontal */
+.snap-x::-webkit-scrollbar {
+  height: 8px;
+}
+
+.snap-x::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.snap-x::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+.snap-x::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
 :root {
   --background: 0 0% 100%;
   --foreground: 222 47% 11%;

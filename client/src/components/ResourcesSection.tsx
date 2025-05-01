@@ -58,7 +58,7 @@ export default function ResourcesSection() {
   // Função para renderizar cards de cada nível
   const renderLevelCard = (level: number, title: string, tools: string[], compact = false) => {
     return (
-      <Card key={level} className="overflow-hidden hover:shadow-lg transition-shadow w-full max-w-[calc(33%-1rem)] min-w-[280px] mx-0">
+      <Card key={level} className="overflow-hidden hover:shadow-lg transition-shadow snap-center shrink-0 w-[300px] mx-0">
         <CardContent className={`p-0 ${compact ? 'h-full' : ''}`}>
           <div className="p-5 bg-gradient-to-r from-blue-600 to-blue-700 text-white">
             <h3 className="font-bold text-lg mb-1">Nível {level}</h3>
@@ -113,6 +113,10 @@ export default function ResourcesSection() {
         </div>
 
         <div className="max-w-6xl mx-0">
+          <div className="text-sm text-gray-500 mb-2 flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-1"><path d="M9 18l6-6-6-6"/></svg>
+            Deslize para ver mais níveis
+          </div>
           <Tabs defaultValue="all" className="w-full" onValueChange={setActiveTab}>
             <TabsList className="grid grid-cols-2 md:grid-cols-4 mb-8 gap-2">
               <TabsTrigger value="all" className="data-[state=active]:bg-blue-600 data-[state=active]:text-white">
@@ -130,7 +134,7 @@ export default function ResourcesSection() {
             </TabsList>
 
             <TabsContent value="all" className="mt-2">
-              <div className="flex flex-wrap justify-start gap-6">
+              <div className="flex overflow-x-auto pb-4 space-x-6 snap-x">
                 {renderLevelCard(0, "Manual Total", [
                   "Caneta e papel para esboços iniciais",
                   "Figma ou Adobe XD para wireframes simples e protótipos básicos",
@@ -177,7 +181,7 @@ export default function ResourcesSection() {
             </TabsContent>
 
             <TabsContent value="basic" className="mt-2">
-              <div className="flex flex-wrap justify-start gap-6">
+              <div className="flex overflow-x-auto pb-4 space-x-6 snap-x">
                 {renderLevelCard(0, "Manual Total", [
                   "Caneta e papel para esboços iniciais",
                   "Figma ou Adobe XD para wireframes simples e protótipos básicos",
@@ -193,7 +197,7 @@ export default function ResourcesSection() {
             </TabsContent>
 
             <TabsContent value="intermediate" className="mt-2">
-              <div className="flex flex-wrap justify-start gap-6">
+              <div className="flex overflow-x-auto pb-4 space-x-6 snap-x">
                 {renderLevelCard(2, "Auxílio Pontual", [
                   "Midjourney para geração de imagens de alta qualidade e moodboards",
                   "DALL-E para criação de assets visuais personalizados",
@@ -213,7 +217,7 @@ export default function ResourcesSection() {
             </TabsContent>
 
             <TabsContent value="advanced" className="mt-2">
-              <div className="flex flex-wrap justify-start gap-6">
+              <div className="flex overflow-x-auto pb-4 space-x-6 snap-x">
                 {renderLevelCard(4, "Co-criação", [
                   "Galileo AI para geração automática de UI, criando layouts interativos",
                   "Uizard para transformação de rascunhos e wireframes em protótipos de alta fidelidade",
