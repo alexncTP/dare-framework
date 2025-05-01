@@ -1,0 +1,48 @@
+Nível 0 – Manual Total
+
+Caneta e papel para esboços iniciais.
+Figma ou Adobe XD para wireframes simples e protótipos básicos.
+Processos analógicos de design, sem automação de IA.
+Saiba mais
+
+Nível 1 – Assistência Básica
+
+ChatGPT para organização de pesquisas, resumos e insights.
+Notion AI para documentação e organização de informações de projetos.
+Miro AI Assist para construção de mapas mentais e brainstorming.
+Saiba mais
+
+Nível 2 – Auxílio Pontual
+
+Midjourney para geração de imagens de alta qualidade e moodboards.
+DALL-E para criação de assets visuais personalizados.
+Leonardo.ai para geração de texturas, padrões e ilustrações.
+GPT-Image 1 para geração de imagens realistas baseadas em prompts textuais.
+Ideogram para criar imagens detalhadas e inovadoras a partir de descrições.
+Saiba mais
+
+Nível 3 – Design Acelerado
+
+Figma AI para autocompletar layouts, sugestões de design e organização de componentes.
+Adobe Firefly para edição rápida e criação de imagens e gráficos.
+Framer AI para prototipagem rápida e design interativo.
+Sora para automação de fluxos de trabalho de design e colaboração em tempo real.
+Lovable para otimizar a experiência de design colaborativo, com IA ajudando na análise de comportamento de usuários.
+Saiba mais
+
+Nível 4 – Co-criação
+
+Galileo AI para geração automática de UI, criando layouts interativos.
+Uizard para transformação de rascunhos e wireframes em protótipos de alta fidelidade.
+Diagram para ideação visual, geração de ideias e conceitos gráficos.
+v0 (Vercel) para criação de sistemas de design escaláveis e integração com IA, proporcionando uma prototipagem rápida e fluida.
+Replit para gerar código front-end automatizado, integrando IA ao processo de design e desenvolvimento.
+Saiba mais
+
+Nível 5 – Automação de Componentes
+
+Builder.io para criação de componentes React automatizados e dinâmicos.
+Anima para conversão de design para código (HTML, CSS, React).
+Locofy.ai para gerar código a partir de designs e layouts de UI.
+Bolt para criação de MVPs rápidos, com automação de design para código e integração de IA em fluxos de trabalho de desenvolvimento.
+Saiba mais

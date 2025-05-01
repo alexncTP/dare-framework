@@ -42,38 +42,45 @@ export default function ResourcesSection() {
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6">
                 {renderLevelCard(0, "Manual Total", [
                   "Caneta e papel para esboços iniciais",
-                  "InVision para wireframes simples",
-                  "Processos analógicos de design"
+                  "Figma ou Adobe XD para wireframes simples e protótipos básicos",
+                  "Processos analógicos de design, sem automação de IA"
                 ], true)}
                 
                 {renderLevelCard(1, "Assistência Básica", [
-                  "ChatGPT para organização de pesquisas",
-                  "Notion AI para documentação",
-                  "Miro AI Assist para mapas mentais"
+                  "ChatGPT para organização de pesquisas, resumos e insights",
+                  "Notion AI para documentação e organização de informações de projetos",
+                  "Miro AI Assist para construção de mapas mentais e brainstorming"
                 ], true)}
                 
                 {renderLevelCard(2, "Auxílio Pontual", [
-                  "Midjourney para geração de imagens",
-                  "DALL-E para criação de assets",
-                  "Leonardo.ai para texturas e padrões"
+                  "Midjourney para geração de imagens de alta qualidade e moodboards",
+                  "DALL-E para criação de assets visuais personalizados",
+                  "Leonardo.ai para geração de texturas, padrões e ilustrações",
+                  "GPT-Image 1 para geração de imagens realistas baseadas em prompts textuais",
+                  "Ideogram para criar imagens detalhadas e inovadoras a partir de descrições"
                 ], true)}
                 
                 {renderLevelCard(3, "Design Acelerado", [
-                  "Figma AI para autocompletar layouts",
-                  "Adobe Firefly para edição de imagens",
-                  "Framer AI para prototipagem rápida"
+                  "Figma AI para autocompletar layouts, sugestões de design e organização de componentes",
+                  "Adobe Firefly para edição rápida e criação de imagens e gráficos",
+                  "Framer AI para prototipagem rápida e design interativo",
+                  "Sora para automação de fluxos de trabalho de design e colaboração em tempo real",
+                  "Lovable para otimizar a experiência de design colaborativo"
                 ], true)}
                 
                 {renderLevelCard(4, "Co-criação", [
-                  "Galileo AI para geração de UI",
-                  "Uizard para transformação de rascunhos",
-                  "Diagram para ideação visual"
+                  "Galileo AI para geração automática de UI, criando layouts interativos",
+                  "Uizard para transformação de rascunhos e wireframes em protótipos de alta fidelidade",
+                  "Diagram para ideação visual, geração de ideias e conceitos gráficos",
+                  "v0 (Vercel) para criação de sistemas de design escaláveis",
+                  "Replit para gerar código front-end automatizado"
                 ], true)}
                 
                 {renderLevelCard(5, "Automação de Componentes", [
-                  "Builder.io para componentes React",
-                  "Anima para conversão de design para código",
-                  "Locofy.ai para geração de código"
+                  "Builder.io para criação de componentes React automatizados e dinâmicos",
+                  "Anima para conversão de design para código (HTML, CSS, React)",
+                  "Locofy.ai para gerar código a partir de designs e layouts de UI",
+                  "Bolt para criação de MVPs rápidos e automação de design para código"
                 ], true)}
               </div>
             </TabsContent>
@@ -82,14 +89,14 @@ export default function ResourcesSection() {
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
                 {renderLevelCard(0, "Manual Total", [
                   "Caneta e papel para esboços iniciais",
-                  "InVision para wireframes simples",
-                  "Processos analógicos de design"
+                  "Figma ou Adobe XD para wireframes simples e protótipos básicos",
+                  "Processos analógicos de design, sem automação de IA"
                 ])}
                 
                 {renderLevelCard(1, "Assistência Básica", [
-                  "ChatGPT para organização de pesquisas",
-                  "Notion AI para documentação",
-                  "Miro AI Assist para mapas mentais"
+                  "ChatGPT para organização de pesquisas, resumos e insights",
+                  "Notion AI para documentação e organização de informações de projetos",
+                  "Miro AI Assist para construção de mapas mentais e brainstorming"
                 ])}
               </div>
             </TabsContent>
@@ -97,15 +104,19 @@ export default function ResourcesSection() {
             <TabsContent value="intermediate" className="mt-2">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
                 {renderLevelCard(2, "Auxílio Pontual", [
-                  "Midjourney para geração de imagens",
-                  "DALL-E para criação de assets",
-                  "Leonardo.ai para texturas e padrões"
+                  "Midjourney para geração de imagens de alta qualidade e moodboards",
+                  "DALL-E para criação de assets visuais personalizados",
+                  "Leonardo.ai para geração de texturas, padrões e ilustrações",
+                  "GPT-Image 1 para geração de imagens realistas baseadas em prompts textuais",
+                  "Ideogram para criar imagens detalhadas e inovadoras a partir de descrições"
                 ])}
                 
                 {renderLevelCard(3, "Design Acelerado", [
-                  "Figma AI para autocompletar layouts",
-                  "Adobe Firefly para edição de imagens",
-                  "Framer AI para prototipagem rápida"
+                  "Figma AI para autocompletar layouts, sugestões de design e organização de componentes",
+                  "Adobe Firefly para edição rápida e criação de imagens e gráficos",
+                  "Framer AI para prototipagem rápida e design interativo",
+                  "Sora para automação de fluxos de trabalho de design e colaboração em tempo real",
+                  "Lovable para otimizar a experiência de design colaborativo"
                 ])}
               </div>
             </TabsContent>
@@ -113,15 +124,18 @@ export default function ResourcesSection() {
             <TabsContent value="advanced" className="mt-2">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {renderLevelCard(4, "Co-criação", [
-                  "Galileo AI para geração de UI",
-                  "Uizard para transformação de rascunhos",
-                  "Diagram para ideação visual"
+                  "Galileo AI para geração automática de UI, criando layouts interativos",
+                  "Uizard para transformação de rascunhos e wireframes em protótipos de alta fidelidade",
+                  "Diagram para ideação visual, geração de ideias e conceitos gráficos",
+                  "v0 (Vercel) para criação de sistemas de design escaláveis",
+                  "Replit para gerar código front-end automatizado"
                 ])}
                 
                 {renderLevelCard(5, "Automação de Componentes", [
-                  "Builder.io para componentes React",
-                  "Anima para conversão de design para código",
-                  "Locofy.ai para geração de código"
+                  "Builder.io para criação de componentes React automatizados e dinâmicos",
+                  "Anima para conversão de design para código (HTML, CSS, React)",
+                  "Locofy.ai para gerar código a partir de designs e layouts de UI",
+                  "Bolt para criação de MVPs rápidos e automação de design para código"
                 ])}
               </div>
             </TabsContent>
