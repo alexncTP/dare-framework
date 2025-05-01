@@ -25,7 +25,7 @@ export default function HeroSection() {
           <div className="max-w-3xl mx-auto text-center">
             <div className="inline-block mb-6 p-2 bg-white/10 backdrop-blur-sm rounded-full">
               <div className="px-4 py-1 rounded-full bg-white/20 text-sm font-medium text-white">
-                Open Source - AI Building
+                Open Source - AI Made
               </div>
             </div>
 
