@@ -1,0 +1,29 @@
+Nível 0 – Manual Total
+Modal 1: Saiba Mais - Nível 0 - Manual Total
+Conteúdo do Modal:
+No Nível 0, o design é realizado de maneira totalmente manual, sem o uso de IA. Essa fase é ideal para quando você precisa de total controle sobre cada aspecto do design, como esboços iniciais e wireframes simples. O uso de ferramentas tradicionais como Caneta e Papel ou plataformas como Figma e Adobe XD em sua versão manual são essenciais aqui. Este nível exige mais tempo e esforço, mas oferece um controle total sobre o produto final, sendo perfeito para projetos altamente customizados ou quando há necessidade de criar algo com alta precisão.
+
+Nível 1 – Assistência Básica
+Modal 2: Saiba Mais - Nível 1 - Assistência Básica
+Conteúdo do Modal:
+No Nível 1, a IA começa a atuar como assistente, ajudando com tarefas de organização e coleta de dados. Ferramentas como ChatGPT, Notion AI e Miro AI Assist ajudam a otimizar o processo de pesquisa, documentação e brainstorming. Neste nível, você mantém a responsabilidade criativa e o controle sobre as decisões, mas utiliza a IA para acelerar tarefas de suporte. Esse nível é ideal para quem está começando a explorar IA no design e quer aumentar a produtividade sem perder o controle sobre o processo criativo.
+
+Nível 2 – Auxílio Pontual
+Modal 3: Saiba Mais - Nível 2 - Auxílio Pontual
+Conteúdo do Modal:
+Nível 2 envolve a IA gerando partes específicas do trabalho, como imagens e elementos gráficos, para aliviar o designer de tarefas repetitivas. Ferramentas como Midjourney, DALL-E e Leonardo.ai podem ser usadas para gerar imagens, texturas e padrões personalizados que complementam o design. Neste nível, o designer ainda mantém o controle total do design, mas pode confiar em ferramentas de IA para acelerar a criação de ativos visuais e facilitar o processo de produção.
+
+Nível 3 – Design Acelerado
+Modal 4: Saiba Mais - Nível 3 - Design Acelerado
+Conteúdo do Modal:
+No Nível 3, a IA começa a atuar como um copiloto, sugerindo e completando partes do design em tempo real. Ferramentas como Figma AI, Adobe Firefly e Framer AI ajudam a acelerar o processo de prototipagem e criação de layouts. A IA faz sugestões de arranjos e até preenche partes do design com base nas informações fornecidas, permitindo que o designer se concentre mais na direção criativa e nas decisões de alto nível. Esse nível é ideal quando você precisa de rapidez, mas sem comprometer a qualidade do design.
+
+Nível 4 – Co-criação
+Modal 5: Saiba Mais - Nível 4 - Co-criação
+Conteúdo do Modal:
+O Nível 4 é onde a IA começa a assumir um papel mais ativo no processo de design. Ferramentas como Galileo AI, Uizard e Diagram geram interfaces completas ou transformam rascunhos em protótipos interativos de alta fidelidade. Aqui, o designer e a IA trabalham juntos na criação de um produto de design mais refinado. A IA gera propostas iniciais, e o designer faz ajustes finos para garantir que o produto final esteja alinhado com os objetivos do projeto. Esse nível é ideal para equipes que desejam acelerar a criação de protótipos e ideias, mantendo um alto grau de colaboração com a IA.
+
+Nível 5 – Automação de Componentes
+Modal 6: Saiba Mais - Nível 5 - Automação de Componentes
+Conteúdo do Modal:
+No Nível 5, a IA começa a gerar componentes completos e funcionais a partir de descrições ou designs. Ferramentas como Builder.io, Anima e Locofy.ai convertem designs em código front-end, gerando interfaces que podem ser diretamente integradas ao desenvolvimento. Este nível permite que os designers se concentrem mais no layout e na estrutura geral, enquanto a IA cuida da implementação dos detalhes técnicos. Ideal para projetos em que a eficiência e a velocidade de entrega são cruciais, especialmente para MVPs ou produtos em grande escala.

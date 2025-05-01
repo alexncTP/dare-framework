@@ -2,12 +2,103 @@ import React, { useState } from 'react';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import ResourceModal from './ResourceModal';
 
 export default function ResourcesSection() {
   const [activeTab, setActiveTab] = useState("all");
+  const [modalData, setModalData] = useState<{ isOpen: boolean; level: number; title: string; content: string }>({
+    isOpen: false,
+    level: 0,
+    title: "",
+    content: ""
+  });
+
+  // Conteúdo detalhado para cada nível
+  const levelDetails = {
+    0: {
+      title: "Manual Total",
+      content: "No Nível 0, o design é realizado de maneira totalmente manual, sem o uso de IA. Essa fase é ideal para quando você precisa de total controle sobre cada aspecto do design, como esboços iniciais e wireframes simples. O uso de ferramentas tradicionais como Caneta e Papel ou plataformas como Figma e Adobe XD em sua versão manual são essenciais aqui. Este nível exige mais tempo e esforço, mas oferece um controle total sobre o produto final, sendo perfeito para projetos altamente personalizados ou quando a criatividade humana precisa estar no centro do processo."
+    },
+    1: {
+      title: "Assistência Básica",
+      content: "No Nível 1, a IA começa a atuar como assistente, ajudando com tarefas de organização e coleta de dados. Ferramentas como ChatGPT, Notion AI e Miro AI Assist ajudam a otimizar o processo de pesquisa, documentação e brainstorming. Neste nível, você mantém a responsabilidade criativa e o controle sobre as decisões, mas utiliza a IA para acelerar tarefas de suporte. Esse nível é ideal para quem está começando a explorar IA no design e quer aumentar a produtividade sem perder o controle do processo criativo."
+    },
+    2: {
+      title: "Auxílio Pontual",
+      content: "Nível 2 envolve a IA gerando partes específicas do trabalho, como imagens e elementos gráficos, para aliviar o designer de tarefas repetitivas. Ferramentas como Midjourney, DALL-E e Leonardo.ai podem ser usadas para gerar imagens, texturas e padrões personalizados que complementam o design. Neste nível, o designer ainda mantém o controle total do design, mas pode confiar em ferramentas de IA para acelerar a criação de ativos visuais e facilitar o processo de produção."
+    },
+    3: {
+      title: "Design Acelerado",
+      content: "No Nível 3, a IA começa a atuar como um copiloto, sugerindo e completando partes do design em tempo real. Ferramentas como Figma AI, Adobe Firefly e Framer AI ajudam a acelerar o processo de prototipagem e criação de layouts. A IA faz sugestões de arranjos e até preenche partes do design com base nas informações fornecidas, permitindo que o designer se concentre mais na direção criativa e nas decisões de alto nível. Esse nível é ideal quando você precisa de rapidez, mas ainda quer manter um papel ativo no processo de design."
+    },
+    4: {
+      title: "Co-criação",
+      content: "O Nível 4 é onde a IA começa a assumir um papel mais ativo no processo de design. Ferramentas como Galileo AI, Uizard e Diagram geram interfaces completas ou transformam rascunhos em protótipos interativos de alta fidelidade. Aqui, o designer e a IA trabalham juntos na criação de um produto de design mais refinado. A IA gera propostas iniciais, e o designer faz ajustes finos para garantir que o produto final esteja alinhado com os objetivos do projeto. Esse nível é ideal para prototipagem rápida e exploração de várias alternativas de design em um curto período de tempo."
+    },
+    5: {
+      title: "Automação de Componentes",
+      content: "No Nível 5, a IA começa a gerar componentes completos e funcionais a partir de descrições ou designs. Ferramentas como Builder.io, Anima e Locofy.ai convertem designs em código front-end, gerando interfaces que podem ser diretamente integradas ao desenvolvimento. Este nível permite que os designers se concentrem mais no layout e na estrutura geral, enquanto a IA cuida da implementação dos detalhes técnicos. Ideal para projetos em que a eficiência e a velocidade de entrega são prioridades, e quando há necessidade de iterar rapidamente entre design e desenvolvimento."
+    }
+  };
+
+  const openModal = (level: number) => {
+    const details = levelDetails[level as keyof typeof levelDetails];
+    setModalData({
+      isOpen: true,
+      level,
+      title: details.title,
+      content: details.content
+    });
+  };
+
+  const closeModal = () => {
+    setModalData(prev => ({ ...prev, isOpen: false }));
+  };
+
+  // Função para renderizar cards de cada nível
+  const renderLevelCard = (level: number, title: string, tools: string[], compact = false) => {
+    return (
+      <Card key={level} className="overflow-hidden hover:shadow-lg transition-shadow">
+        <CardContent className={`p-0 ${compact ? 'h-full' : ''}`}>
+          <div className="p-5 bg-gradient-to-r from-blue-600 to-blue-700 text-white">
+            <h3 className="font-bold text-lg mb-1">Nível {level}</h3>
+            <p className="text-white/90">{title}</p>
+          </div>
+          <div className="p-5">
+            <ul className="space-y-2 mb-4">
+              {tools.map((tool, index) => (
+                <li key={index} className="flex items-start">
+                  <span className="text-blue-600 mr-2">•</span>
+                  <span>{tool}</span>
+                </li>
+              ))}
+            </ul>
+            <div className="mt-auto">
+              <Button 
+                variant="outline" 
+                className="text-blue-600 border-blue-600 hover:bg-blue-50 hover:text-blue-700 w-full"
+                onClick={() => openModal(level)}
+              >
+                Saiba mais
+              </Button>
+            </div>
+          </div>
+        </CardContent>
+      </Card>
+    );
+  };
 
   return (
     <section id="recursos" className="py-16 bg-gray-50">
+      {/* Modal para detalhes de cada nível */}
+      <ResourceModal 
+        isOpen={modalData.isOpen}
+        onClose={closeModal}
+        level={modalData.level}
+        title={modalData.title}
+        content={modalData.content}
+      />
+      
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
@@ -143,33 +234,5 @@ export default function ResourcesSection() {
         </div>
       </div>
     </section>
-  );
-}
-
-function renderLevelCard(level: number, title: string, tools: string[], compact = false) {
-  return (
-    <Card className="overflow-hidden hover:shadow-lg transition-shadow">
-      <CardContent className={`p-0 ${compact ? 'h-full' : ''}`}>
-        <div className="p-5 bg-gradient-to-r from-blue-600 to-blue-700 text-white">
-          <h3 className="font-bold text-lg mb-1">Nível {level}</h3>
-          <p className="text-white/90">{title}</p>
-        </div>
-        <div className="p-5">
-          <ul className="space-y-2 mb-4">
-            {tools.map((tool, index) => (
-              <li key={index} className="flex items-start">
-                <span className="text-blue-600 mr-2">•</span>
-                <span>{tool}</span>
-              </li>
-            ))}
-          </ul>
-          <div className="mt-auto">
-            <Button variant="outline" className="text-blue-600 border-blue-600 hover:bg-blue-50 hover:text-blue-700 w-full">
-              Saiba mais
-            </Button>
-          </div>
-        </div>
-      </CardContent>
-    </Card>
   );
 }
