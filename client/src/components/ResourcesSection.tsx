@@ -58,7 +58,7 @@ export default function ResourcesSection() {
   // Função para renderizar cards de cada nível
   const renderLevelCard = (level: number, title: string, tools: string[], compact = false) => {
     return (
-      <Card key={level} className="overflow-hidden hover:shadow-lg transition-shadow w-full max-w-[calc(33%-1rem)] min-w-[280px] mx-auto">
+      <Card key={level} className="overflow-hidden hover:shadow-lg transition-shadow w-full max-w-[calc(33%-1rem)] min-w-[280px] mx-0">
         <CardContent className={`p-0 ${compact ? 'h-full' : ''}`}>
           <div className="p-5 bg-gradient-to-r from-blue-600 to-blue-700 text-white">
             <h3 className="font-bold text-lg mb-1">Nível {level}</h3>
@@ -99,7 +99,7 @@ export default function ResourcesSection() {
         content={modalData.content}
       />
       
-      <div className="container mx-auto px-4">
+      <div className="container mx-0 px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             RECURSOS
@@ -112,7 +112,7 @@ export default function ResourcesSection() {
           </p>
         </div>
 
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-6xl mx-0">
           <Tabs defaultValue="all" className="w-full" onValueChange={setActiveTab}>
             <TabsList className="grid grid-cols-2 md:grid-cols-4 mb-8 gap-2">
               <TabsTrigger value="all" className="data-[state=active]:bg-blue-600 data-[state=active]:text-white">
