@@ -11,6 +11,8 @@ export default function Header() {
   const navItems = [
     { href: "#about", label: "Sobre" },
     { href: "#framework", label: "Framework" },
+    { href: "#recursos", label: "Recursos" },
+    { href: "#vantagens", label: "Vantagens" },
     { href: "#manifesto", label: "Manifesto" },
     { href: "#contribute", label: "Contribuir" }
   ];

@@ -1,0 +1,98 @@
+RECURSOS
+Ferramentas Recomendadas por Nível
+Explore as melhores ferramentas de IA para cada estágio do framework DARE
+
+Todos os Níveis
+Básico (0-2)
+Intermediário (3-5)
+Avançado (6-7)
+Nível 1
+Assistência Básica
+
+ChatGPT para organização de pesquisas
+Notion AI para documentação
+Miro AI Assist para mapas mentais
+Saiba mais
+Nível 2
+Auxílio Pontual
+
+Midjourney para geração de imagens
+DALL-E para criação de assets
+Leonardo.ai para texturas e padrões
+Saiba mais
+Nível 3
+Design Acelerado
+
+Figma AI para autocompletar layouts
+Adobe Firefly para edição de imagens
+Framer AI para prototipagem rápida
+Saiba mais
+Nível 4
+Co-criação
+
+Galileo AI para geração de UI
+Uizard para transformação de rascunhos
+Diagram para ideação visual
+Saiba mais
+Nível 5
+Automação de Componentes
+
+Builder.io para componentes React
+Anima para conversão de design para código
+Locofy.ai para geração de código
+Saiba mais
+Nível 6
+Orquestração Visual
+
+V0 by Vercel para geração de interfaces
+Wix ADI para sites completos
+Webflow AI para design de sistemas
+Saiba mais
+Nível 7
+Design Autônomo
+
+GPT-Engineer para aplicações completas
+AutoGPT para sistemas autônomos
+Devin para desenvolvimento end-to-end
+Saiba mais
+VANTAGENS
+Benefícios de Adotar o DARE
+Descubra como o framework DARE pode transformar seu processo de design
+
+Produtividade Aumentada
+
+Reduza o tempo gasto em tarefas repetitivas e aumente a velocidade de entrega de projetos de design.
+
++30%
+Aumento médio de produtividade
+Inovação Acelerada
+
+Explore mais variações e possibilidades criativas com a ajuda da IA, ampliando o horizonte de inovação.
+
+3x
+Mais ideias exploradas
+Controle Equilibrado
+
+Mantenha o equilíbrio entre automação e controle criativo, escolhendo o nível adequado para cada projeto.
+
+100%
+Controle sobre o processo
+Escalabilidade
+
+Adapte o uso de IA conforme a complexidade e escala dos projetos, desde pequenas tarefas até sistemas completos.
+
+5x
+Capacidade de escala
+Colaboração Aprimorada
+
+Facilite a colaboração entre designers, desenvolvedores e stakeholders com processos assistidos por IA.
+
+-40%
+Redução em revisões
+Aprendizado Contínuo
+
+Evolua gradualmente na adoção de IA, permitindo que a equipe aprenda e se adapte em seu próprio ritmo.
+
++25%
+Aumento em habilidades
+Explorar os Níveis do Framework

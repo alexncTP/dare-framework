@@ -63,8 +63,18 @@ export default function Footer() {
           </div>
         </div>
         
+        {/* Navigation Links */}
+        <div className="mt-8 pt-6 border-t border-gray-700 flex flex-wrap justify-center gap-x-8 gap-y-4 text-gray-400 text-sm">
+          <a href="#about" className="hover:text-white transition">Sobre</a>
+          <a href="#framework" className="hover:text-white transition">Framework</a>
+          <a href="#recursos" className="hover:text-white transition">Recursos</a>
+          <a href="#vantagens" className="hover:text-white transition">Vantagens</a>
+          <a href="#manifesto" className="hover:text-white transition">Manifesto</a>
+          <a href="#contribute" className="hover:text-white transition">Contribuir</a>
+        </div>
+
         {/* Bottom bar */}
-        <div className="mt-8 pt-6 border-t border-gray-700 flex flex-col sm:flex-row justify-between items-center text-gray-400 text-sm">
+        <div className="mt-6 pt-6 border-t border-gray-700 flex flex-col sm:flex-row justify-between items-center text-gray-400 text-sm">
           <p>© {new Date().getFullYear()} DARE Framework | <a href="https://br.linkedin.com/in/guigonzalez/pt" target="_blank" rel="noopener noreferrer" className="hover:text-white">Gui Gonzalez</a></p>
         </div>
       </div>
