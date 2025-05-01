@@ -58,7 +58,7 @@ export default function ResourcesSection() {
   // Função para renderizar cards de cada nível
   const renderLevelCard = (level: number, title: string, tools: string[], compact = false) => {
     return (
-      <Card key={level} className="overflow-hidden hover:shadow-lg transition-shadow">
+      <Card key={level} className="overflow-hidden hover:shadow-lg transition-shadow w-full max-w-[calc(33%-1rem)] min-w-[280px] mx-auto">
         <CardContent className={`p-0 ${compact ? 'h-full' : ''}`}>
           <div className="p-5 bg-gradient-to-r from-blue-600 to-blue-700 text-white">
             <h3 className="font-bold text-lg mb-1">Nível {level}</h3>
@@ -130,7 +130,7 @@ export default function ResourcesSection() {
             </TabsList>
 
             <TabsContent value="all" className="mt-2">
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6">
+              <div className="flex flex-wrap justify-center gap-6">
                 {renderLevelCard(0, "Manual Total", [
                   "Caneta e papel para esboços iniciais",
                   "Figma ou Adobe XD para wireframes simples e protótipos básicos",
@@ -177,7 +177,7 @@ export default function ResourcesSection() {
             </TabsContent>
 
             <TabsContent value="basic" className="mt-2">
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
+              <div className="flex flex-wrap justify-center gap-6">
                 {renderLevelCard(0, "Manual Total", [
                   "Caneta e papel para esboços iniciais",
                   "Figma ou Adobe XD para wireframes simples e protótipos básicos",
@@ -193,7 +193,7 @@ export default function ResourcesSection() {
             </TabsContent>
 
             <TabsContent value="intermediate" className="mt-2">
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
+              <div className="flex flex-wrap justify-center gap-6">
                 {renderLevelCard(2, "Auxílio Pontual", [
                   "Midjourney para geração de imagens de alta qualidade e moodboards",
                   "DALL-E para criação de assets visuais personalizados",
@@ -213,7 +213,7 @@ export default function ResourcesSection() {
             </TabsContent>
 
             <TabsContent value="advanced" className="mt-2">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="flex flex-wrap justify-center gap-6">
                 {renderLevelCard(4, "Co-criação", [
                   "Galileo AI para geração automática de UI, criando layouts interativos",
                   "Uizard para transformação de rascunhos e wireframes em protótipos de alta fidelidade",
