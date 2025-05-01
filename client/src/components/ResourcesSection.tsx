@@ -164,7 +164,7 @@ export default function ResourcesSection() {
                   "Uizard para transformação de rascunhos e wireframes em protótipos de alta fidelidade",
                   "Diagram para ideação visual, geração de ideias e conceitos gráficos",
                   "v0 (Vercel) para criação de sistemas de design escaláveis",
-                  "Replit para gerar código front-end automatizado"
+                  "Replit para gerar código funcional, para pequenos MVPs que necessitem de uma leve integração com banco de dados, porém exige um pouco de conhecimento técnico"
                 ], true)}
                 
                 {renderLevelCard(5, "Automação de Componentes", [
@@ -219,7 +219,7 @@ export default function ResourcesSection() {
                   "Uizard para transformação de rascunhos e wireframes em protótipos de alta fidelidade",
                   "Diagram para ideação visual, geração de ideias e conceitos gráficos",
                   "v0 (Vercel) para criação de sistemas de design escaláveis",
-                  "Replit para gerar código front-end automatizado"
+                  "Replit para gerar código funcional, para pequenos MVPs que necessitem de uma leve integração com banco de dados, porém exige um pouco de conhecimento técnico"
                 ])}
                 
                 {renderLevelCard(5, "Automação de Componentes", [
