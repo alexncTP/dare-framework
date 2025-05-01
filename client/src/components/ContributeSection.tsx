@@ -10,7 +10,7 @@ export default function ContributeSection() {
             </p>
           </div>
           
-          <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-12 grid gap-6 md:gap-8 sm:grid-cols-2 lg:mx-auto lg:max-w-4xl">
             <div className="bg-white rounded-lg shadow-md overflow-hidden">
               <div className="p-6">
                 <div className="flex items-center">
@@ -64,7 +64,7 @@ export default function ContributeSection() {
             </div>
           </div>
           
-          <div id="diretrizes" className="mt-12 bg-white rounded-lg shadow-md overflow-hidden">
+          <div id="diretrizes" className="mt-12 bg-white rounded-lg shadow-md overflow-hidden lg:mx-auto lg:max-w-4xl">
             <div className="p-8">
               <h3 className="text-2xl font-bold text-gray-900">Diretrizes de Contribuição</h3>
               <div className="mt-6 prose prose-blue max-w-none">
