@@ -58,41 +58,32 @@ export default function ResourcesSection() {
   // Função para renderizar cards de cada nível
   const renderLevelCard = (level: number, title: string, tools: string[], compact = false) => {
     return (
-      <Card key={level} className="overflow-hidden hover:shadow-lg transition-all snap-center shrink-0 w-[280px] md:w-[300px] transform hover:-translate-y-1 hover:scale-[1.02] duration-300 border border-gray-100 hover:border-blue-200">
+      <Card key={level} className="overflow-hidden snap-center shrink-0 w-[280px] md:w-[300px] border-gray-200 hover:shadow-md transition-all">
         <CardContent className={`p-0 ${compact ? 'h-full' : ''}`}>
-          <div className="p-5 bg-gradient-to-r from-blue-600 to-blue-700 text-white relative">
-            <div className="absolute top-0 right-0 bg-blue-800 text-white text-xs px-2 py-1 rounded-bl-md">
-              Nível {level}
+          <div className="p-4 bg-blue-600 text-white">
+            <div className="flex items-center justify-between mb-2">
+              <h3 className="font-bold text-lg">{title}</h3>
+              <span className="bg-white text-blue-600 text-xs px-2 py-1 rounded font-medium">
+                Nível {level}
+              </span>
             </div>
-            <h3 className="font-bold text-lg mb-1 mt-4">{title}</h3>
-            <p className="text-white/90 text-sm">
-              {level === 0 && "Trabalho totalmente manual"}
-              {level === 1 && "IA para organizar e auxiliar"}
-              {level === 2 && "IA para inspiração visual"}
-              {level === 3 && "IA acelera seu processo"}
-              {level === 4 && "Parceria criativa com IA"}
-              {level === 5 && "Automação com supervisão"}
-            </p>
           </div>
-          <div className="p-5">
-            <ul className="space-y-2 mb-6">
+          <div className="p-4">
+            <ul className="space-y-1 mb-4 text-sm text-gray-700">
               {tools.map((tool, index) => (
-                <li key={index} className="flex items-start">
-                  <span className="text-blue-600 mr-2 flex-shrink-0">•</span>
-                  <span className="text-sm">{tool}</span>
+                <li key={index} className="flex items-center">
+                  <span className="text-blue-500 mr-2">•</span>
+                  <span>{tool}</span>
                 </li>
               ))}
             </ul>
-            <div className="mt-auto">
-              <Button 
-                variant="outline" 
-                className="text-blue-600 border-blue-600 hover:bg-blue-50 hover:text-blue-700 w-full group transition-colors"
-                onClick={() => openModal(level)}
-              >
-                <span>Saiba mais</span>
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="ml-1 group-hover:translate-x-1 transition-transform"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-              </Button>
-            </div>
+            <Button 
+              variant="outline" 
+              className="w-full text-sm font-medium"
+              onClick={() => openModal(level)}
+            >
+              Saiba mais
+            </Button>
           </div>
         </CardContent>
       </Card>
@@ -111,44 +102,36 @@ export default function ResourcesSection() {
       />
       
       <div className="container mx-0 px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            RECURSOS
+        <div className="text-center mb-10">
+          <h2 className="text-3xl font-bold text-gray-900 mb-2">
+            Ferramentas Recomendadas
           </h2>
-          <p className="text-xl text-gray-600 mb-6">
-            Ferramentas Recomendadas por Nível
-          </p>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            Explore as melhores ferramentas de IA para cada estágio do framework DARE
+          <p className="text-gray-600 max-w-xl mx-auto">
+            Explore as ferramentas de IA adequadas para cada nível do framework
           </p>
         </div>
 
         <div className="max-w-6xl mx-auto px-4 md:px-0">
-          <div className="text-sm text-gray-500 mb-2 flex items-center justify-between">
-            <div className="flex items-center">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-1 text-blue-600"><path d="M9 18l6-6-6-6"/></svg>
-              <span>Deslize para ver mais níveis</span>
-            </div>
-            <div className="flex space-x-1">
-              <span className="inline-block w-2 h-2 rounded-full bg-blue-600"></span>
-              <span className="inline-block w-2 h-2 rounded-full bg-gray-300"></span>
-              <span className="inline-block w-2 h-2 rounded-full bg-gray-300"></span>
-              <span className="inline-block w-2 h-2 rounded-full bg-gray-300"></span>
-            </div>
+          <div className="text-sm text-gray-500 mb-4 text-center">
+            <span className="bg-blue-50 text-blue-700 px-2 py-1 rounded-full inline-flex items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-1"><path d="M15 18l-6-6 6-6"/><path d="M9 18l-6-6 6-6"/></svg>
+              <span>Deslize para navegar</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="ml-1"><path d="m9 18 6-6-6-6"/><path d="m15 18 6-6-6-6"/></svg>
+            </span>
           </div>
           <Tabs defaultValue="all" className="w-full" onValueChange={setActiveTab}>
-            <TabsList className="flex overflow-x-auto pb-2 mb-6 space-x-2 snap-x scrollbar-thin scrollbar-thumb-blue-500 scrollbar-track-blue-100">
-              <TabsTrigger value="all" className="data-[state=active]:bg-blue-600 data-[state=active]:text-white data-[state=active]:shadow-md snap-center shrink-0 min-w-[100px]">
-                Todos os Níveis
+            <TabsList className="w-full flex justify-center mb-8 space-x-2">
+              <TabsTrigger value="all" className="data-[state=active]:bg-white data-[state=active]:text-blue-600 data-[state=active]:shadow-sm data-[state=active]:border-b-2 data-[state=active]:border-blue-600 rounded-none px-4">
+                Todos
               </TabsTrigger>
-              <TabsTrigger value="basic" className="data-[state=active]:bg-blue-600 data-[state=active]:text-white data-[state=active]:shadow-md snap-center shrink-0 min-w-[100px]">
-                Básico (0-1)
+              <TabsTrigger value="basic" className="data-[state=active]:bg-white data-[state=active]:text-blue-600 data-[state=active]:shadow-sm data-[state=active]:border-b-2 data-[state=active]:border-blue-600 rounded-none px-4">
+                Básico
               </TabsTrigger>
-              <TabsTrigger value="intermediate" className="data-[state=active]:bg-blue-600 data-[state=active]:text-white data-[state=active]:shadow-md snap-center shrink-0 min-w-[140px]">
-                Intermediário (2-3)
+              <TabsTrigger value="intermediate" className="data-[state=active]:bg-white data-[state=active]:text-blue-600 data-[state=active]:shadow-sm data-[state=active]:border-b-2 data-[state=active]:border-blue-600 rounded-none px-4">
+                Intermediário
               </TabsTrigger>
-              <TabsTrigger value="advanced" className="data-[state=active]:bg-blue-600 data-[state=active]:text-white data-[state=active]:shadow-md snap-center shrink-0 min-w-[100px]">
-                Avançado (4-5)
+              <TabsTrigger value="advanced" className="data-[state=active]:bg-white data-[state=active]:text-blue-600 data-[state=active]:shadow-sm data-[state=active]:border-b-2 data-[state=active]:border-blue-600 rounded-none px-4">
+                Avançado
               </TabsTrigger>
             </TabsList>
 

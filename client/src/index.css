@@ -135,5 +135,9 @@
   .gradient-text {
     @apply bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent;
   }
+  
+  .nav-button {
+    @apply flex items-center justify-center h-8 w-8 bg-white/80 border border-gray-200 rounded-full z-10 shadow-sm backdrop-blur-sm cursor-pointer hover:bg-white hover:scale-110 transition-transform;
+  }
 }
 
