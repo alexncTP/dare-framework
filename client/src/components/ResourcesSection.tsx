@@ -130,7 +130,7 @@ export default function ResourcesSection() {
             </TabsList>
 
             <TabsContent value="all" className="mt-2">
-              <div className="flex flex-wrap justify-center gap-6">
+              <div className="flex flex-wrap justify-start gap-6">
                 {renderLevelCard(0, "Manual Total", [
                   "Caneta e papel para esboços iniciais",
                   "Figma ou Adobe XD para wireframes simples e protótipos básicos",
@@ -177,7 +177,7 @@ export default function ResourcesSection() {
             </TabsContent>
 
             <TabsContent value="basic" className="mt-2">
-              <div className="flex flex-wrap justify-center gap-6">
+              <div className="flex flex-wrap justify-start gap-6">
                 {renderLevelCard(0, "Manual Total", [
                   "Caneta e papel para esboços iniciais",
                   "Figma ou Adobe XD para wireframes simples e protótipos básicos",
@@ -193,7 +193,7 @@ export default function ResourcesSection() {
             </TabsContent>
 
             <TabsContent value="intermediate" className="mt-2">
-              <div className="flex flex-wrap justify-center gap-6">
+              <div className="flex flex-wrap justify-start gap-6">
                 {renderLevelCard(2, "Auxílio Pontual", [
                   "Midjourney para geração de imagens de alta qualidade e moodboards",
                   "DALL-E para criação de assets visuais personalizados",
@@ -213,7 +213,7 @@ export default function ResourcesSection() {
             </TabsContent>
 
             <TabsContent value="advanced" className="mt-2">
-              <div className="flex flex-wrap justify-center gap-6">
+              <div className="flex flex-wrap justify-start gap-6">
                 {renderLevelCard(4, "Co-criação", [
                   "Galileo AI para geração automática de UI, criando layouts interativos",
                   "Uizard para transformação de rascunhos e wireframes em protótipos de alta fidelidade",
