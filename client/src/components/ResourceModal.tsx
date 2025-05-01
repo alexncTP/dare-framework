@@ -27,7 +27,7 @@ export default function ResourceModal({
 }: ResourceModalProps) {
   return (
     <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
-      <DialogContent className="sm:max-w-md md:max-w-xl">
+      <DialogContent className="sm:max-w-md md:max-w-2xl p-6">
         <DialogHeader>
           <DialogTitle className="text-xl md:text-2xl flex items-center">
             <span className="bg-blue-600 text-white px-2 py-1 rounded-md mr-2 text-sm">
@@ -43,15 +43,6 @@ export default function ResourceModal({
         <DialogDescription className="text-base mt-4 text-gray-700">
           {content}
         </DialogDescription>
-        <div className="mt-6 flex justify-end">
-          <Button
-            variant="outline"
-            onClick={onClose}
-            className="border-blue-600 text-blue-600 hover:bg-blue-50"
-          >
-            Fechar
-          </Button>
-        </div>
       </DialogContent>
     </Dialog>
   );
