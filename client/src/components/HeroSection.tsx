@@ -53,21 +53,6 @@ export default function HeroSection() {
                 </a>
               </Button>
             </div>
-            
-            <div className="mt-10 flex justify-center items-center space-x-8">
-              <div className="flex flex-col items-center">
-                <div className="text-xl font-bold text-white">6</div>
-                <div className="text-xs text-blue-100">Níveis</div>
-              </div>
-              <div className="flex flex-col items-center">
-                <div className="text-xl font-bold text-white">Aberto</div>
-                <div className="text-xs text-blue-100">Comunidade</div>
-              </div>
-              <div className="flex flex-col items-center">
-                <div className="text-xl font-bold text-white">Confiável</div>
-                <div className="text-xs text-blue-100">Engajamento</div>
-              </div>
-            </div>
           </div>
         </div>
       </div>
