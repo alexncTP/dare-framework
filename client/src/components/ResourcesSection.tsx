@@ -28,18 +28,24 @@ export default function ResourcesSection() {
                 Todos os Níveis
               </TabsTrigger>
               <TabsTrigger value="basic" className="data-[state=active]:bg-blue-600 data-[state=active]:text-white">
-                Básico (0-2)
+                Básico (0-1)
               </TabsTrigger>
               <TabsTrigger value="intermediate" className="data-[state=active]:bg-blue-600 data-[state=active]:text-white">
-                Intermediário (3-5)
+                Intermediário (2-3)
               </TabsTrigger>
               <TabsTrigger value="advanced" className="data-[state=active]:bg-blue-600 data-[state=active]:text-white">
-                Avançado (6-7)
+                Avançado (4-5)
               </TabsTrigger>
             </TabsList>
 
             <TabsContent value="all" className="mt-2">
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6">
+                {renderLevelCard(0, "Manual Total", [
+                  "Caneta e papel para esboços iniciais",
+                  "InVision para wireframes simples",
+                  "Processos analógicos de design"
+                ], true)}
+                
                 {renderLevelCard(1, "Assistência Básica", [
                   "ChatGPT para organização de pesquisas",
                   "Notion AI para documentação",
@@ -68,72 +74,54 @@ export default function ResourcesSection() {
                   "Builder.io para componentes React",
                   "Anima para conversão de design para código",
                   "Locofy.ai para geração de código"
-                ], true)}
-                
-                {renderLevelCard(6, "Orquestração Visual", [
-                  "V0 by Vercel para geração de interfaces",
-                  "Wix ADI para sites completos",
-                  "Webflow AI para design de sistemas"
-                ], true)}
-                
-                {renderLevelCard(7, "Design Autônomo", [
-                  "GPT-Engineer para aplicações completas",
-                  "AutoGPT para sistemas autônomos",
-                  "Devin para desenvolvimento end-to-end"
                 ], true)}
               </div>
             </TabsContent>
 
             <TabsContent value="basic" className="mt-2">
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
+                {renderLevelCard(0, "Manual Total", [
+                  "Caneta e papel para esboços iniciais",
+                  "InVision para wireframes simples",
+                  "Processos analógicos de design"
+                ])}
+                
                 {renderLevelCard(1, "Assistência Básica", [
                   "ChatGPT para organização de pesquisas",
                   "Notion AI para documentação",
                   "Miro AI Assist para mapas mentais"
                 ])}
-                
+              </div>
+            </TabsContent>
+
+            <TabsContent value="intermediate" className="mt-2">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
                 {renderLevelCard(2, "Auxílio Pontual", [
                   "Midjourney para geração de imagens",
                   "DALL-E para criação de assets",
                   "Leonardo.ai para texturas e padrões"
                 ])}
-              </div>
-            </TabsContent>
-
-            <TabsContent value="intermediate" className="mt-2">
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
                 {renderLevelCard(3, "Design Acelerado", [
                   "Figma AI para autocompletar layouts",
                   "Adobe Firefly para edição de imagens",
                   "Framer AI para prototipagem rápida"
-                ])}
-                
-                {renderLevelCard(4, "Co-criação", [
-                  "Galileo AI para geração de UI",
-                  "Uizard para transformação de rascunhos",
-                  "Diagram para ideação visual"
-                ])}
-                
-                {renderLevelCard(5, "Automação de Componentes", [
-                  "Builder.io para componentes React",
-                  "Anima para conversão de design para código",
-                  "Locofy.ai para geração de código"
                 ])}
               </div>
             </TabsContent>
 
             <TabsContent value="advanced" className="mt-2">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {renderLevelCard(6, "Orquestração Visual", [
-                  "V0 by Vercel para geração de interfaces",
-                  "Wix ADI para sites completos",
-                  "Webflow AI para design de sistemas"
+                {renderLevelCard(4, "Co-criação", [
+                  "Galileo AI para geração de UI",
+                  "Uizard para transformação de rascunhos",
+                  "Diagram para ideação visual"
                 ])}
                 
-                {renderLevelCard(7, "Design Autônomo", [
-                  "GPT-Engineer para aplicações completas",
-                  "AutoGPT para sistemas autônomos",
-                  "Devin para desenvolvimento end-to-end"
+                {renderLevelCard(5, "Automação de Componentes", [
+                  "Builder.io para componentes React",
+                  "Anima para conversão de design para código",
+                  "Locofy.ai para geração de código"
                 ])}
               </div>
             </TabsContent>
