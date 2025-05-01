@@ -118,17 +118,17 @@ export default function ResourcesSection() {
             Deslize para ver mais níveis
           </div>
           <Tabs defaultValue="all" className="w-full" onValueChange={setActiveTab}>
-            <TabsList className="grid grid-cols-2 md:grid-cols-4 mb-8 gap-2">
-              <TabsTrigger value="all" className="data-[state=active]:bg-blue-600 data-[state=active]:text-white">
+            <TabsList className="flex overflow-x-auto pb-2 mb-8 space-x-2 snap-x">
+              <TabsTrigger value="all" className="data-[state=active]:bg-blue-600 data-[state=active]:text-white snap-center shrink-0">
                 Todos os Níveis
               </TabsTrigger>
-              <TabsTrigger value="basic" className="data-[state=active]:bg-blue-600 data-[state=active]:text-white">
+              <TabsTrigger value="basic" className="data-[state=active]:bg-blue-600 data-[state=active]:text-white snap-center shrink-0">
                 Básico (0-1)
               </TabsTrigger>
-              <TabsTrigger value="intermediate" className="data-[state=active]:bg-blue-600 data-[state=active]:text-white">
+              <TabsTrigger value="intermediate" className="data-[state=active]:bg-blue-600 data-[state=active]:text-white snap-center shrink-0">
                 Intermediário (2-3)
               </TabsTrigger>
-              <TabsTrigger value="advanced" className="data-[state=active]:bg-blue-600 data-[state=active]:text-white">
+              <TabsTrigger value="advanced" className="data-[state=active]:bg-blue-600 data-[state=active]:text-white snap-center shrink-0">
                 Avançado (4-5)
               </TabsTrigger>
             </TabsList>
