@@ -268,7 +268,7 @@ export default function ResourcesSection() {
         content={modalData.content}
       />
       
-      <div className="container mx-0 px-4">
+      <div className="container mx-auto px-4">
         <div className="text-center mb-10">
           <h2 className="text-3xl font-bold text-gray-900 mb-2">
             Ferramentas Recomendadas
@@ -278,7 +278,7 @@ export default function ResourcesSection() {
           </p>
         </div>
 
-        <div className="max-w-6xl mx-auto px-4 md:px-0">
+        <div className="max-w-5xl mx-auto px-4 md:px-0">
           <div className="text-sm text-gray-500 mb-4 text-center">
             <span className="bg-blue-50 text-blue-700 px-2 py-1 rounded-full inline-flex items-center">
               <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-1"><path d="M15 18l-6-6 6-6"/><path d="M9 18l-6-6 6-6"/></svg>
@@ -304,7 +304,7 @@ export default function ResourcesSection() {
 
             <TabsContent value="all" className="mt-2">
               <div className="relative snap-x-container">
-                <div className="flex overflow-x-auto pb-6 pt-2 space-x-6 snap-x px-4 rounded">
+                <div className="flex overflow-x-auto pb-6 pt-2 space-x-6 snap-x px-4 rounded justify-center md:justify-start">
                   {renderLevelCard(0, "Manual Total", [
                     "Caneta e papel para esboços iniciais",
                     "Figma ou Adobe XD para wireframes simples e protótipos básicos",
@@ -353,7 +353,7 @@ export default function ResourcesSection() {
 
             <TabsContent value="basic" className="mt-2">
               <div className="relative snap-x-container">
-                <div className="flex overflow-x-auto pb-6 pt-2 space-x-6 snap-x px-4 rounded">
+                <div className="flex overflow-x-auto pb-6 pt-2 space-x-6 snap-x px-4 rounded justify-center md:justify-start">
                   {renderLevelCard(0, "Manual Total", [
                     "Caneta e papel para esboços iniciais",
                     "Figma ou Adobe XD para wireframes simples e protótipos básicos",
@@ -371,7 +371,7 @@ export default function ResourcesSection() {
 
             <TabsContent value="intermediate" className="mt-2">
               <div className="relative snap-x-container">
-                <div className="flex overflow-x-auto pb-6 pt-2 space-x-6 snap-x px-4 rounded">
+                <div className="flex overflow-x-auto pb-6 pt-2 space-x-6 snap-x px-4 rounded justify-center md:justify-start">
                   {renderLevelCard(2, "Auxílio Pontual", [
                     "Midjourney para geração de imagens de alta qualidade e moodboards",
                     "DALL-E para criação de assets visuais personalizados",
@@ -393,7 +393,7 @@ export default function ResourcesSection() {
 
             <TabsContent value="advanced" className="mt-2">
               <div className="relative snap-x-container">
-                <div className="flex overflow-x-auto pb-6 pt-2 space-x-6 snap-x px-4 rounded">
+                <div className="flex overflow-x-auto pb-6 pt-2 space-x-6 snap-x px-4 rounded justify-center md:justify-start">
                   {renderLevelCard(4, "Co-criação", [
                     "Galileo AI para geração automática de UI, criando layouts interativos",
                     "Uizard para transformação de rascunhos e wireframes em protótipos de alta fidelidade",
