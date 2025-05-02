@@ -1,56 +1,223 @@
-import React, { useState } from 'react';
-import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
+import React, { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
-import ResourceModal from './ResourceModal';
+import ResourceModal from "./ResourceModal";
 
 export default function ResourcesSection() {
   const [activeTab, setActiveTab] = useState("all");
-  const [modalData, setModalData] = useState<{ isOpen: boolean; level: number; title: string; content: string }>({
+  const [modalData, setModalData] = useState({
     isOpen: false,
     level: 0,
     title: "",
     content: ""
   });
 
-  // Conteúdo detalhado para cada nível
-  const levelDetails = {
-    0: {
-      title: "Manual Total",
-      content: "No Nível 0, o design é realizado de maneira totalmente manual, sem o uso de IA. Essa fase é ideal para quando você precisa de total controle sobre cada aspecto do design, como esboços iniciais e wireframes simples. O uso de ferramentas tradicionais como Caneta e Papel ou plataformas como Figma e Adobe XD em sua versão manual são essenciais aqui. Este nível exige mais tempo e esforço, mas oferece um controle total sobre o produto final, sendo perfeito para projetos altamente personalizados ou quando a criatividade humana precisa estar no centro do processo."
-    },
-    1: {
-      title: "Assistência Básica",
-      content: "No Nível 1, a IA começa a atuar como assistente, ajudando com tarefas de organização e coleta de dados. Ferramentas como ChatGPT, Notion AI e Miro AI Assist ajudam a otimizar o processo de pesquisa, documentação e brainstorming. Neste nível, você mantém a responsabilidade criativa e o controle sobre as decisões, mas utiliza a IA para acelerar tarefas de suporte. Esse nível é ideal para quem está começando a explorar IA no design e quer aumentar a produtividade sem perder o controle do processo criativo."
-    },
-    2: {
-      title: "Auxílio Pontual",
-      content: "Nível 2 envolve a IA gerando partes específicas do trabalho, como imagens e elementos gráficos, para aliviar o designer de tarefas repetitivas. Ferramentas como Midjourney, DALL-E e Leonardo.ai podem ser usadas para gerar imagens, texturas e padrões personalizados que complementam o design. Neste nível, o designer ainda mantém o controle total do design, mas pode confiar em ferramentas de IA para acelerar a criação de ativos visuais e facilitar o processo de produção."
-    },
-    3: {
-      title: "Design Acelerado",
-      content: "No Nível 3, a IA começa a atuar como um copiloto, sugerindo e completando partes do design em tempo real. Ferramentas como Figma AI, Adobe Firefly e Framer AI ajudam a acelerar o processo de prototipagem e criação de layouts. A IA faz sugestões de arranjos e até preenche partes do design com base nas informações fornecidas, permitindo que o designer se concentre mais na direção criativa e nas decisões de alto nível. Esse nível é ideal quando você precisa de rapidez, mas ainda quer manter um papel ativo no processo de design."
-    },
-    4: {
-      title: "Co-criação",
-      content: "O Nível 4 é onde a IA começa a assumir um papel mais ativo no processo de design. Ferramentas como Galileo AI, Uizard e Diagram geram interfaces completas ou transformam rascunhos em protótipos interativos de alta fidelidade. Aqui, o designer e a IA trabalham juntos na criação de um produto de design mais refinado. A IA gera propostas iniciais, e o designer faz ajustes finos para garantir que o produto final esteja alinhado com os objetivos do projeto. Esse nível é ideal para prototipagem rápida e exploração de várias alternativas de design em um curto período de tempo."
-    },
-    5: {
-      title: "Automação de Componentes",
-      content: "No Nível 5, a IA começa a gerar componentes completos e funcionais a partir de descrições ou designs. Ferramentas como Builder.io, Anima e Locofy.ai convertem designs em código front-end, gerando interfaces que podem ser diretamente integradas ao desenvolvimento. Este nível permite que os designers se concentrem mais no layout e na estrutura geral, enquanto a IA cuida da implementação dos detalhes técnicos. Ideal para projetos em que a eficiência e a velocidade de entrega são prioridades, e quando há necessidade de iterar rapidamente entre design e desenvolvimento."
-    }
-  };
-
+  // Função para abrir o modal com os dados do nível selecionado
   const openModal = (level: number) => {
-    const details = levelDetails[level as keyof typeof levelDetails];
+    let title = "";
+    let content = "";
+
+    switch (level) {
+      case 0:
+        title = "Nível 0 - Manual Total";
+        content = `
+          <p><strong>No Nível 0, o designer trabalha completamente sem assistência de IA.</strong></p>
+          
+          <p>Todo o processo criativo é realizado manualmente, desde a concepção inicial até a finalização, utilizando apenas ferramentas tradicionais de design como Figma, Sketch ou Adobe XD para wireframes e protótipos.</p>
+
+          <h4>Apropriado para:</h4>
+          <ul>
+            <li>Projetos que exigem uma abordagem puramente humana</li>
+            <li>Trabalhos onde o cliente requer total controle e autoria</li>
+            <li>Situações onde questões de propriedade intelectual são rigorosas</li>
+          </ul>
+
+          <h4>Prós:</h4>
+          <ul>
+            <li>Total controle criativo e autoria clara</li>
+            <li>Originalidade garantida nas soluções</li>
+            <li>Sem preocupações com propriedade intelectual ligadas à IA</li>
+          </ul>
+
+          <h4>Contras:</h4>
+          <ul>
+            <li>Processo significativamente mais lento</li>
+            <li>Maior custo para o cliente devido ao tempo envolvido</li>
+            <li>Limitação às habilidades técnicas do designer individual</li>
+          </ul>
+
+          <p><strong>Nível de risco:</strong> Nenhum risco associado ao uso de IA, mas maior tempo de desenvolvimento.</p>
+        `;
+        break;
+      case 1:
+        title = "Nível 1 - Assistência Básica";
+        content = `
+          <p><strong>No Nível 1, o designer utiliza IA como ferramenta organizacional e de pesquisa.</strong></p>
+          
+          <p>A IA é utilizada apenas para tarefas secundárias como organização de informações, análise de dados e geração de insights preliminares. Todo o trabalho visual e criativo continua sendo 100% realizado pelo designer.</p>
+
+          <h4>Apropriado para:</h4>
+          <ul>
+            <li>Projetos que necessitam de pesquisa e organização eficiente</li>
+            <li>Trabalhos com grandes volumes de informação a serem analisados</li>
+            <li>Situações que exigem criatividade humana mas se beneficiam de apoio estrutural</li>
+          </ul>
+
+          <h4>Prós:</h4>
+          <ul>
+            <li>Aceleração das fases de pesquisa e organização</li>
+            <li>Análise mais profunda de dados e tendências</li>
+            <li>Mantém a autoria criativa integralmente humana</li>
+          </ul>
+
+          <h4>Contras:</h4>
+          <ul>
+            <li>Benefícios de produtividade limitados</li>
+            <li>Possíveis vieses na organização de informações pela IA</li>
+            <li>Necessidade de verificação humana das sugestões</li>
+          </ul>
+
+          <p><strong>Nível de risco:</strong> Mínimo, com questões éticas relacionadas apenas à fonte e qualidade dos dados utilizados.</p>
+        `;
+        break;
+      case 2:
+        title = "Nível 2 - Auxílio Pontual";
+        content = `
+          <p><strong>No Nível 2, o designer incorpora geração de imagens por IA como fonte de inspiração visual.</strong></p>
+          
+          <p>A IA é usada para criar moodboards, referências visuais e elementos gráficos que servem como ponto de partida, mas o designer mantém total controle sobre o desenvolvimento e finalização do projeto.</p>
+
+          <h4>Apropriado para:</h4>
+          <ul>
+            <li>Projetos que necessitam de exploração visual rápida</li>
+            <li>Criação de moodboards e direções estéticas preliminares</li>
+            <li>Geração de ativos visuais complementares</li>
+          </ul>
+
+          <h4>Prós:</h4>
+          <ul>
+            <li>Ampliação do repertório visual e possibilidades criativas</li>
+            <li>Aceleração na geração de referências e conceitos</li>
+            <li>Possibilidade de testar rapidamente diferentes direções visuais</li>
+          </ul>
+
+          <h4>Contras:</h4>
+          <ul>
+            <li>Risco de homogeneização estética</li>
+            <li>Potenciais problemas de direitos autorais nas imagens geradas</li>
+            <li>Dependência da qualidade dos prompts para resultados satisfatórios</li>
+          </ul>
+
+          <p><strong>Nível de risco:</strong> Moderado, principalmente relacionado a direitos autorais das imagens geradas e originalidade.</p>
+        `;
+        break;
+      case 3:
+        title = "Nível 3 - Design Acelerado";
+        content = `
+          <p><strong>No Nível 3, o designer utiliza IA para acelerar fluxos específicos do processo de design.</strong></p>
+          
+          <p>A IA é incorporada como ferramenta de auxílio em tarefas como criação de layouts, geração de variações, e refinamento de elementos. O designer mantém a direção criativa e toma as decisões finais, usando a IA como acelerador do processo.</p>
+
+          <h4>Apropriado para:</h4>
+          <ul>
+            <li>Projetos com prazos apertados</li>
+            <li>Necessidade de testar múltiplas variações rapidamente</li>
+            <li>Refinamento e iteração de conceitos já estabelecidos</li>
+          </ul>
+
+          <h4>Prós:</h4>
+          <ul>
+            <li>Significativo aumento de produtividade</li>
+            <li>Capacidade de explorar mais soluções em menos tempo</li>
+            <li>Automação de tarefas repetitivas</li>
+          </ul>
+
+          <h4>Contras:</h4>
+          <ul>
+            <li>Possível perda de nuances e detalhes específicos</li>
+            <li>Risco de soluções mais genéricas</li>
+            <li>Necessidade de supervisão constante da qualidade</li>
+          </ul>
+
+          <p><strong>Nível de risco:</strong> Moderado a alto, exigindo transparência com clientes sobre os processos auxiliados por IA.</p>
+        `;
+        break;
+      case 4:
+        title = "Nível 4 - Co-criação";
+        content = `
+          <p><strong>No Nível 4, o designer trabalha em parceria direta com a IA, em um processo de co-criação.</strong></p>
+          
+          <p>A IA é utilizada para gerar layouts, interfaces e elementos visuais completos, que o designer então avalia, seleciona, refina e integra ao projeto. A responsabilidade criativa é compartilhada, com o designer atuando como curador e diretor.</p>
+
+          <h4>Apropriado para:</h4>
+          <ul>
+            <li>Projetos experimentais ou inovadores</li>
+            <li>Situações onde a eficiência é prioridade máxima</li>
+            <li>Clientes abertos à integração profunda de IA no processo</li>
+          </ul>
+
+          <h4>Prós:</h4>
+          <ul>
+            <li>Produtividade extremamente alta</li>
+            <li>Possibilidade de resultados inesperados e inovadores</li>
+            <li>Capacidade de atender mais projetos simultaneamente</li>
+          </ul>
+
+          <h4>Contras:</h4>
+          <ul>
+            <li>Questões éticas sobre autoria e originalidade</li>
+            <li>Potencial homogeneização de soluções</li>
+            <li>Exigência de transparência total com clientes</li>
+          </ul>
+
+          <p><strong>Nível de risco:</strong> Alto, requerendo comunicação clara com clientes e acordos específicos sobre propriedade intelectual.</p>
+        `;
+        break;
+      case 5:
+        title = "Nível 5 - Automação de Componentes";
+        content = `
+          <p><strong>No Nível 5, a IA automatiza a criação de componentes funcionais e código a partir do design.</strong></p>
+          
+          <p>Além da co-criação visual, a IA é utilizada para transformar designs em código, gerar protótipos funcionais e automatizar a implementação. O designer supervisiona o processo, garantindo qualidade e consistência.</p>
+
+          <h4>Apropriado para:</h4>
+          <ul>
+            <li>Projetos que exigem rápida prototipação funcional</li>
+            <li>MVPs e produtos digitais com prazos curtos</li>
+            <li>Clientes com total abertura para métodos inovadores</li>
+          </ul>
+
+          <h4>Prós:</h4>
+          <ul>
+            <li>Integração direta entre design e implementação</li>
+            <li>Extraordinária velocidade de entrega</li>
+            <li>Potencial para maior experimentação técnica</li>
+          </ul>
+
+          <h4>Contras:</h4>
+          <ul>
+            <li>Alta complexidade técnica</li>
+            <li>Desafios significativos de controle de qualidade</li>
+            <li>Questões profundas sobre o papel do designer</li>
+          </ul>
+
+          <p><strong>Nível de risco:</strong> Muito alto, exigindo acordos contratuais específicos e total transparência sobre o uso de IA em todo o processo.</p>
+        `;
+        break;
+      default:
+        break;
+    }
+
     setModalData({
       isOpen: true,
       level,
-      title: details.title,
-      content: details.content
+      title,
+      content
     });
   };
 
+  // Função para fechar o modal
   const closeModal = () => {
     setModalData(prev => ({ ...prev, isOpen: false }));
   };
@@ -137,10 +304,6 @@ export default function ResourcesSection() {
 
             <TabsContent value="all" className="mt-2">
               <div className="relative snap-x-container">
-                <div className="absolute left-0 top-1/2 -translate-y-1/2 flex items-center justify-center h-8 w-8 bg-white/80 border border-gray-200 rounded-full z-10 shadow-sm backdrop-blur-sm cursor-pointer hover:bg-white hover:scale-110 transition-transform">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-blue-600"><path d="m15 18-6-6 6-6"/></svg>
-                </div>
-
                 <div className="flex overflow-x-auto pb-6 pt-2 space-x-6 snap-x px-4 rounded">
                   {renderLevelCard(0, "Manual Total", [
                     "Caneta e papel para esboços iniciais",
@@ -184,20 +347,12 @@ export default function ResourcesSection() {
                     "Locofy.ai para gerar código a partir de designs e layouts de UI",
                     "Bolt para criação de MVPs rápidos e automação de design para código"
                   ], true)}
-                </div>
-
-                <div className="absolute right-0 top-1/2 -translate-y-1/2 flex items-center justify-center h-8 w-8 bg-white/80 border border-gray-200 rounded-full z-10 shadow-sm backdrop-blur-sm cursor-pointer hover:bg-white">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-blue-600"><path d="m9 18 6-6-6-6"/></svg>
                 </div>
               </div>
             </TabsContent>
 
             <TabsContent value="basic" className="mt-2">
               <div className="relative snap-x-container">
-                <div className="absolute left-0 top-1/2 -translate-y-1/2 flex items-center justify-center h-8 w-8 bg-white/80 border border-gray-200 rounded-full z-10 shadow-sm backdrop-blur-sm cursor-pointer hover:bg-white hover:scale-110 transition-transform">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-blue-600"><path d="m15 18-6-6 6-6"/></svg>
-                </div>
-                
                 <div className="flex overflow-x-auto pb-6 pt-2 space-x-6 snap-x px-4 rounded">
                   {renderLevelCard(0, "Manual Total", [
                     "Caneta e papel para esboços iniciais",
@@ -211,19 +366,11 @@ export default function ResourcesSection() {
                     "Miro AI Assist para construção de mapas mentais e brainstorming"
                   ])}
                 </div>
-                
-                <div className="absolute right-0 top-1/2 -translate-y-1/2 flex items-center justify-center h-8 w-8 bg-white/80 border border-gray-200 rounded-full z-10 shadow-sm backdrop-blur-sm cursor-pointer hover:bg-white hover:scale-110 transition-transform">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-blue-600"><path d="m9 18 6-6-6-6"/></svg>
-                </div>
               </div>
             </TabsContent>
 
             <TabsContent value="intermediate" className="mt-2">
               <div className="relative snap-x-container">
-                <div className="absolute left-0 top-1/2 -translate-y-1/2 flex items-center justify-center h-8 w-8 bg-white/80 border border-gray-200 rounded-full z-10 shadow-sm backdrop-blur-sm cursor-pointer hover:bg-white hover:scale-110 transition-transform">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-blue-600"><path d="m15 18-6-6 6-6"/></svg>
-                </div>
-                
                 <div className="flex overflow-x-auto pb-6 pt-2 space-x-6 snap-x px-4 rounded">
                   {renderLevelCard(2, "Auxílio Pontual", [
                     "Midjourney para geração de imagens de alta qualidade e moodboards",
@@ -241,19 +388,11 @@ export default function ResourcesSection() {
                     "Lovable para otimizar a experiência de design colaborativo"
                   ])}
                 </div>
-                
-                <div className="absolute right-0 top-1/2 -translate-y-1/2 flex items-center justify-center h-8 w-8 bg-white/80 border border-gray-200 rounded-full z-10 shadow-sm backdrop-blur-sm cursor-pointer hover:bg-white hover:scale-110 transition-transform">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-blue-600"><path d="m9 18 6-6-6-6"/></svg>
-                </div>
               </div>
             </TabsContent>
 
             <TabsContent value="advanced" className="mt-2">
               <div className="relative snap-x-container">
-                <div className="absolute left-0 top-1/2 -translate-y-1/2 flex items-center justify-center h-8 w-8 bg-white/80 border border-gray-200 rounded-full z-10 shadow-sm backdrop-blur-sm cursor-pointer hover:bg-white hover:scale-110 transition-transform">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-blue-600"><path d="m15 18-6-6 6-6"/></svg>
-                </div>
-                
                 <div className="flex overflow-x-auto pb-6 pt-2 space-x-6 snap-x px-4 rounded">
                   {renderLevelCard(4, "Co-criação", [
                     "Galileo AI para geração automática de UI, criando layouts interativos",
@@ -269,10 +408,6 @@ export default function ResourcesSection() {
                     "Locofy.ai para gerar código a partir de designs e layouts de UI",
                     "Bolt para criação de MVPs rápidos e automação de design para código"
                   ])}
-                </div>
-                
-                <div className="absolute right-0 top-1/2 -translate-y-1/2 flex items-center justify-center h-8 w-8 bg-white/80 border border-gray-200 rounded-full z-10 shadow-sm backdrop-blur-sm cursor-pointer hover:bg-white">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-blue-600"><path d="m9 18 6-6-6-6"/></svg>
                 </div>
               </div>
             </TabsContent>
