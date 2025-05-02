@@ -225,28 +225,28 @@ export default function ResourcesSection() {
   // Função para renderizar cards de cada nível
   const renderLevelCard = (level: number, title: string, tools: string[], compact = false) => {
     return (
-      <Card key={level} className="overflow-hidden snap-center shrink-0 w-[280px] md:w-[300px] border-gray-200 hover:shadow-md transition-all">
+      <Card key={level} className="overflow-hidden snap-center shrink-0 w-[280px] md:w-[300px] border-gray-200 hover:shadow-lg hover:border-blue-200 transition-all duration-300 rounded-xl">
         <CardContent className={`p-0 ${compact ? 'h-full' : ''}`}>
-          <div className="p-4 bg-blue-600 text-white">
+          <div className="p-5 bg-gradient-to-r from-blue-600 to-blue-700 text-white">
             <div className="flex items-center justify-between mb-2">
               <h3 className="font-bold text-lg">{title}</h3>
-              <span className="bg-white text-blue-600 text-xs px-2 py-1 rounded font-medium">
+              <span className="bg-white text-blue-600 text-xs px-2.5 py-1 rounded-full font-medium shadow-sm">
                 Nível {level}
               </span>
             </div>
           </div>
-          <div className="p-4">
-            <ul className="space-y-1 mb-4 text-sm text-gray-700">
+          <div className="p-5">
+            <ul className="space-y-2 mb-5 text-sm text-gray-700">
               {tools.map((tool, index) => (
-                <li key={index} className="flex items-center">
-                  <span className="text-blue-500 mr-2">•</span>
+                <li key={index} className="flex items-start">
+                  <span className="text-blue-500 mr-2 mt-1">•</span>
                   <span>{tool}</span>
                 </li>
               ))}
             </ul>
             <Button 
               variant="outline" 
-              className="w-full text-sm font-medium"
+              className="w-full text-sm font-medium border-blue-200 hover:bg-blue-50 hover:text-blue-700 transition-colors"
               onClick={() => openModal(level)}
             >
               Saiba mais
@@ -302,9 +302,9 @@ export default function ResourcesSection() {
               </TabsTrigger>
             </TabsList>
 
-            <TabsContent value="all" className="mt-2">
+            <TabsContent value="all" className="mt-4">
               <div className="relative snap-x-container">
-                <div className="flex overflow-x-auto pb-6 pt-2 space-x-6 snap-x px-4 rounded justify-center md:justify-start">
+                <div className="flex overflow-x-auto pb-8 pt-4 space-x-6 snap-x px-4 rounded-lg justify-center md:justify-start">
                   {renderLevelCard(0, "Manual Total", [
                     "Caneta e papel para esboços iniciais",
                     "Figma ou Adobe XD para wireframes simples e protótipos básicos",
@@ -351,9 +351,9 @@ export default function ResourcesSection() {
               </div>
             </TabsContent>
 
-            <TabsContent value="basic" className="mt-2">
+            <TabsContent value="basic" className="mt-4">
               <div className="relative snap-x-container">
-                <div className="flex overflow-x-auto pb-6 pt-2 space-x-6 snap-x px-4 rounded justify-center md:justify-start">
+                <div className="flex overflow-x-auto pb-8 pt-4 space-x-6 snap-x px-4 rounded-lg justify-center md:justify-start">
                   {renderLevelCard(0, "Manual Total", [
                     "Caneta e papel para esboços iniciais",
                     "Figma ou Adobe XD para wireframes simples e protótipos básicos",
@@ -369,9 +369,9 @@ export default function ResourcesSection() {
               </div>
             </TabsContent>
 
-            <TabsContent value="intermediate" className="mt-2">
+            <TabsContent value="intermediate" className="mt-4">
               <div className="relative snap-x-container">
-                <div className="flex overflow-x-auto pb-6 pt-2 space-x-6 snap-x px-4 rounded justify-center md:justify-start">
+                <div className="flex overflow-x-auto pb-8 pt-4 space-x-6 snap-x px-4 rounded-lg justify-center md:justify-start">
                   {renderLevelCard(2, "Auxílio Pontual", [
                     "Midjourney para geração de imagens de alta qualidade e moodboards",
                     "DALL-E para criação de assets visuais personalizados",
@@ -391,9 +391,9 @@ export default function ResourcesSection() {
               </div>
             </TabsContent>
 
-            <TabsContent value="advanced" className="mt-2">
+            <TabsContent value="advanced" className="mt-4">
               <div className="relative snap-x-container">
-                <div className="flex overflow-x-auto pb-6 pt-2 space-x-6 snap-x px-4 rounded justify-center md:justify-start">
+                <div className="flex overflow-x-auto pb-8 pt-4 space-x-6 snap-x px-4 rounded-lg justify-center md:justify-start">
                   {renderLevelCard(4, "Co-criação", [
                     "Galileo AI para geração automática de UI, criando layouts interativos",
                     "Uizard para transformação de rascunhos e wireframes em protótipos de alta fidelidade",
