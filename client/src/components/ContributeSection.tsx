@@ -81,10 +81,6 @@ export default function ContributeSection() {
                   <li>Participe do processo de revisão</li>
                 </ol>
                 
-                <p>
-                  Todos os colaboradores devem seguir nosso <a href="https://github.com/guigonzalez/dare-framework/blob/main/CODE_OF_CONDUCT.md" className="text-blue-600 hover:text-blue-700" target="_blank" rel="noopener noreferrer">Código de Conduta</a>, que promove um ambiente inclusivo e acolhedor.
-                </p>
-                
                 <div className="mt-8 flex items-center justify-center">
                   <a href="https://github.com/guigonzalez/dare-framework" className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
                     <svg className="mr-2 h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
