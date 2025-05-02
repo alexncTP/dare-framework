@@ -258,7 +258,7 @@ export default function ResourcesSection() {
   };
 
   return (
-    <section id="recursos" className="py-16 bg-gray-50">
+    <section id="recursos" className="py-20 bg-gradient-to-b from-white to-blue-50/30">
       {/* Modal para detalhes de cada nível */}
       <ResourceModal 
         isOpen={modalData.isOpen}
@@ -269,35 +269,35 @@ export default function ResourcesSection() {
       />
       
       <div className="container mx-auto px-4">
-        <div className="text-center mb-10">
-          <h2 className="text-3xl font-bold text-gray-900 mb-2">
+        <div className="text-center mb-12">
+          <h2 className="text-4xl font-bold text-gray-900 mb-3 bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
             Ferramentas Recomendadas
           </h2>
-          <p className="text-gray-600 max-w-xl mx-auto">
+          <p className="text-gray-600 max-w-2xl mx-auto text-lg">
             Explore as ferramentas de IA adequadas para cada nível do framework
           </p>
         </div>
 
         <div className="max-w-5xl mx-auto px-4 md:px-0">
-          <div className="text-sm text-gray-500 mb-4 text-center">
-            <span className="bg-blue-50 text-blue-700 px-2 py-1 rounded-full inline-flex items-center">
-              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-1"><path d="M15 18l-6-6 6-6"/><path d="M9 18l-6-6 6-6"/></svg>
-              <span>Deslize para navegar</span>
-              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="ml-1"><path d="m9 18 6-6-6-6"/><path d="m15 18 6-6-6-6"/></svg>
+          <div className="text-sm mb-6 text-center">
+            <span className="bg-gradient-to-r from-blue-50 to-blue-100 text-blue-700 px-3 py-1.5 rounded-full inline-flex items-center shadow-sm">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-2"><path d="M15 18l-6-6 6-6"/><path d="M9 18l-6-6 6-6"/></svg>
+              <span className="font-medium">Deslize para navegar</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="ml-2"><path d="m9 18 6-6-6-6"/><path d="m15 18 6-6-6-6"/></svg>
             </span>
           </div>
           <Tabs defaultValue="all" className="w-full" onValueChange={setActiveTab}>
-            <TabsList className="w-full flex justify-center mb-8 space-x-2">
-              <TabsTrigger value="all" className="data-[state=active]:bg-white data-[state=active]:text-blue-600 data-[state=active]:shadow-sm data-[state=active]:border-b-2 data-[state=active]:border-blue-600 rounded-none px-4">
+            <TabsList className="w-full flex justify-center mb-8 space-x-4 bg-blue-50/50 rounded-lg p-1.5">
+              <TabsTrigger value="all" className="rounded-md px-5 py-2 text-sm font-medium data-[state=active]:bg-white data-[state=active]:text-blue-600 data-[state=active]:shadow-sm">
                 Todos
               </TabsTrigger>
-              <TabsTrigger value="basic" className="data-[state=active]:bg-white data-[state=active]:text-blue-600 data-[state=active]:shadow-sm data-[state=active]:border-b-2 data-[state=active]:border-blue-600 rounded-none px-4">
+              <TabsTrigger value="basic" className="rounded-md px-5 py-2 text-sm font-medium data-[state=active]:bg-white data-[state=active]:text-blue-600 data-[state=active]:shadow-sm">
                 Básico
               </TabsTrigger>
-              <TabsTrigger value="intermediate" className="data-[state=active]:bg-white data-[state=active]:text-blue-600 data-[state=active]:shadow-sm data-[state=active]:border-b-2 data-[state=active]:border-blue-600 rounded-none px-4">
+              <TabsTrigger value="intermediate" className="rounded-md px-5 py-2 text-sm font-medium data-[state=active]:bg-white data-[state=active]:text-blue-600 data-[state=active]:shadow-sm">
                 Intermediário
               </TabsTrigger>
-              <TabsTrigger value="advanced" className="data-[state=active]:bg-white data-[state=active]:text-blue-600 data-[state=active]:shadow-sm data-[state=active]:border-b-2 data-[state=active]:border-blue-600 rounded-none px-4">
+              <TabsTrigger value="advanced" className="rounded-md px-5 py-2 text-sm font-medium data-[state=active]:bg-white data-[state=active]:text-blue-600 data-[state=active]:shadow-sm">
                 Avançado
               </TabsTrigger>
             </TabsList>
