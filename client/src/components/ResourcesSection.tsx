@@ -225,7 +225,7 @@ export default function ResourcesSection() {
   // Função para renderizar cards de cada nível
   const renderLevelCard = (level: number, title: string, tools: string[], compact = false) => {
     return (
-      <Card key={level} className="overflow-hidden snap-center shrink-0 w-[280px] md:w-[300px] border-gray-200 hover:shadow-lg hover:border-blue-200 transition-all duration-300 rounded-xl">
+      <Card key={level} className="overflow-hidden snap-center shrink-0 w-[260px] sm:w-[280px] md:w-[300px] border-gray-200 hover:shadow-lg hover:border-blue-200 transition-all duration-300 rounded-xl">
         <CardContent className={`p-0 ${compact ? 'h-full' : ''}`}>
           <div className="p-5 bg-gradient-to-r from-blue-600 to-blue-700 text-white">
             <div className="flex items-center justify-between mb-2">
@@ -287,24 +287,26 @@ export default function ResourcesSection() {
             </span>
           </div>
           <Tabs defaultValue="all" className="w-full" onValueChange={setActiveTab}>
-            <TabsList className="w-full flex justify-center mb-8 space-x-4 bg-blue-50/50 rounded-lg p-1.5">
-              <TabsTrigger value="all" className="rounded-md px-5 py-2 text-sm font-medium data-[state=active]:bg-white data-[state=active]:text-blue-600 data-[state=active]:shadow-sm">
-                Todos
-              </TabsTrigger>
-              <TabsTrigger value="basic" className="rounded-md px-5 py-2 text-sm font-medium data-[state=active]:bg-white data-[state=active]:text-blue-600 data-[state=active]:shadow-sm">
-                Básico
-              </TabsTrigger>
-              <TabsTrigger value="intermediate" className="rounded-md px-5 py-2 text-sm font-medium data-[state=active]:bg-white data-[state=active]:text-blue-600 data-[state=active]:shadow-sm">
-                Intermediário
-              </TabsTrigger>
-              <TabsTrigger value="advanced" className="rounded-md px-5 py-2 text-sm font-medium data-[state=active]:bg-white data-[state=active]:text-blue-600 data-[state=active]:shadow-sm">
-                Avançado
-              </TabsTrigger>
-            </TabsList>
+            <div className="overflow-x-auto pb-2 max-w-full">
+              <TabsList className="flex justify-start md:justify-center mb-8 space-x-3 bg-blue-50/50 rounded-lg p-1.5 min-w-max mx-auto">
+                <TabsTrigger value="all" className="rounded-md px-4 sm:px-5 py-2 text-sm font-medium whitespace-nowrap data-[state=active]:bg-white data-[state=active]:text-blue-600 data-[state=active]:shadow-sm">
+                  Todos
+                </TabsTrigger>
+                <TabsTrigger value="basic" className="rounded-md px-4 sm:px-5 py-2 text-sm font-medium whitespace-nowrap data-[state=active]:bg-white data-[state=active]:text-blue-600 data-[state=active]:shadow-sm">
+                  Básico
+                </TabsTrigger>
+                <TabsTrigger value="intermediate" className="rounded-md px-4 sm:px-5 py-2 text-sm font-medium whitespace-nowrap data-[state=active]:bg-white data-[state=active]:text-blue-600 data-[state=active]:shadow-sm">
+                  Intermediário
+                </TabsTrigger>
+                <TabsTrigger value="advanced" className="rounded-md px-4 sm:px-5 py-2 text-sm font-medium whitespace-nowrap data-[state=active]:bg-white data-[state=active]:text-blue-600 data-[state=active]:shadow-sm">
+                  Avançado
+                </TabsTrigger>
+              </TabsList>
+            </div>
 
             <TabsContent value="all" className="mt-4">
               <div className="relative snap-x-container">
-                <div className="flex overflow-x-auto pb-8 pt-4 space-x-6 snap-x px-4 rounded-lg justify-center md:justify-start">
+                <div className="flex overflow-x-auto scrollbar-hide pb-10 pt-4 space-x-4 md:space-x-6 snap-x px-2 md:px-4 rounded-lg mx-auto" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
                   {renderLevelCard(0, "Manual Total", [
                     "Caneta e papel para esboços iniciais",
                     "Figma ou Adobe XD para wireframes simples e protótipos básicos",
@@ -347,13 +349,16 @@ export default function ResourcesSection() {
                     "Locofy.ai para gerar código a partir de designs e layouts de UI",
                     "Bolt para criação de MVPs rápidos e automação de design para código"
                   ], true)}
+                </div>
+                <div className="absolute bottom-0 left-0 right-0 flex justify-center space-x-2 py-2">
+                  <span className="h-1.5 w-24 bg-blue-200 rounded-full"></span>
                 </div>
               </div>
             </TabsContent>
 
             <TabsContent value="basic" className="mt-4">
               <div className="relative snap-x-container">
-                <div className="flex overflow-x-auto pb-8 pt-4 space-x-6 snap-x px-4 rounded-lg justify-center md:justify-start">
+                <div className="flex overflow-x-auto scrollbar-hide pb-10 pt-4 space-x-4 md:space-x-6 snap-x px-2 md:px-4 rounded-lg mx-auto" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
                   {renderLevelCard(0, "Manual Total", [
                     "Caneta e papel para esboços iniciais",
                     "Figma ou Adobe XD para wireframes simples e protótipos básicos",
@@ -366,12 +371,15 @@ export default function ResourcesSection() {
                     "Miro AI Assist para construção de mapas mentais e brainstorming"
                   ])}
                 </div>
+                <div className="absolute bottom-0 left-0 right-0 flex justify-center space-x-2 py-2">
+                  <span className="h-1.5 w-16 bg-blue-200 rounded-full"></span>
+                </div>
               </div>
             </TabsContent>
 
             <TabsContent value="intermediate" className="mt-4">
               <div className="relative snap-x-container">
-                <div className="flex overflow-x-auto pb-8 pt-4 space-x-6 snap-x px-4 rounded-lg justify-center md:justify-start">
+                <div className="flex overflow-x-auto scrollbar-hide pb-10 pt-4 space-x-4 md:space-x-6 snap-x px-2 md:px-4 rounded-lg mx-auto" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
                   {renderLevelCard(2, "Auxílio Pontual", [
                     "Midjourney para geração de imagens de alta qualidade e moodboards",
                     "DALL-E para criação de assets visuais personalizados",
@@ -388,12 +396,15 @@ export default function ResourcesSection() {
                     "Lovable para otimizar a experiência de design colaborativo"
                   ])}
                 </div>
+                <div className="absolute bottom-0 left-0 right-0 flex justify-center space-x-2 py-2">
+                  <span className="h-1.5 w-16 bg-blue-200 rounded-full"></span>
+                </div>
               </div>
             </TabsContent>
 
             <TabsContent value="advanced" className="mt-4">
               <div className="relative snap-x-container">
-                <div className="flex overflow-x-auto pb-8 pt-4 space-x-6 snap-x px-4 rounded-lg justify-center md:justify-start">
+                <div className="flex overflow-x-auto scrollbar-hide pb-10 pt-4 space-x-4 md:space-x-6 snap-x px-2 md:px-4 rounded-lg mx-auto" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
                   {renderLevelCard(4, "Co-criação", [
                     "Galileo AI para geração automática de UI, criando layouts interativos",
                     "Uizard para transformação de rascunhos e wireframes em protótipos de alta fidelidade",
@@ -408,6 +419,9 @@ export default function ResourcesSection() {
                     "Locofy.ai para gerar código a partir de designs e layouts de UI",
                     "Bolt para criação de MVPs rápidos e automação de design para código"
                   ])}
+                </div>
+                <div className="absolute bottom-0 left-0 right-0 flex justify-center space-x-2 py-2">
+                  <span className="h-1.5 w-16 bg-blue-200 rounded-full"></span>
                 </div>
               </div>
             </TabsContent>
