@@ -225,7 +225,7 @@ export default function ResourcesSection() {
   // Função para renderizar cards de cada nível
   const renderLevelCard = (level: number, title: string, tools: string[], compact = false) => {
     return (
-      <Card key={level} className="overflow-hidden snap-center shrink-0 w-[260px] sm:w-[280px] md:w-[300px] border-gray-200 hover:shadow-lg hover:border-blue-200 transition-all duration-300 rounded-xl">
+      <Card key={level} className="overflow-hidden snap-center shrink-0 w-[260px] sm:w-[280px] md:w-[300px] border-gray-200 hover:shadow-lg hover:border-blue-200 transition-all duration-300 rounded-xl bg-white">
         <CardContent className={`p-0 ${compact ? 'h-full' : ''}`}>
           <div className="p-5 bg-gradient-to-r from-blue-600 to-blue-700 text-white">
             <div className="flex items-center justify-between mb-2">
