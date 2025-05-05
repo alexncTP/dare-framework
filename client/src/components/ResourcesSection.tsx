@@ -225,31 +225,44 @@ export default function ResourcesSection() {
   // Função para renderizar cards de cada nível
   const renderLevelCard = (level: number, title: string, tools: string[], compact = false) => {
     return (
-      <Card key={level} className="overflow-hidden snap-center shrink-0 w-[260px] sm:w-[280px] md:w-[300px] border-gray-200 hover:shadow-lg hover:border-blue-200 transition-all duration-300 rounded-xl bg-white">
-        <CardContent className={`p-0 ${compact ? 'h-full' : ''}`}>
-          <div className="p-5 bg-gradient-to-r from-blue-600 to-blue-700 text-white">
-            <div className="flex items-center justify-between mb-2">
+      <Card key={level} className="overflow-hidden snap-center shrink-0 w-[260px] sm:w-[280px] md:w-[300px] border-0 hover:shadow-xl transition-all duration-300 rounded-xl bg-white shadow-md relative group">
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-white opacity-50 z-0"></div>
+        <div className="absolute inset-x-0 -top-px h-1 bg-gradient-to-r from-blue-400 to-blue-600 rounded-t-lg transform origin-left transition-all duration-300 scale-x-0 group-hover:scale-x-100"></div>
+        
+        <CardContent className={`p-0 ${compact ? 'h-full' : ''} relative z-10`}>
+          <div className="p-5 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-t-lg">
+            <div className="flex items-center justify-between">
               <h3 className="font-bold text-lg">{title}</h3>
-              <span className="bg-white text-blue-600 text-xs px-2.5 py-1 rounded-full font-medium shadow-sm">
+              <span className="bg-white text-blue-600 text-xs px-3 py-1 rounded-full font-medium shadow-sm">
                 Nível {level}
               </span>
             </div>
           </div>
-          <div className="p-5">
-            <ul className="space-y-2 mb-5 text-sm text-gray-700">
-              {tools.map((tool, index) => (
-                <li key={index} className="flex items-start">
-                  <span className="text-blue-500 mr-2 mt-1">•</span>
-                  <span>{tool}</span>
-                </li>
-              ))}
-            </ul>
+          
+          <div className="p-6">
+            <div className="mb-6">
+              <h4 className="text-sm font-medium text-gray-500 mb-3 uppercase tracking-wider">Ferramentas Principais</h4>
+              <ul className="space-y-3 mb-5 text-sm text-gray-700">
+                {tools.map((tool, index) => (
+                  <li key={index} className="flex items-start">
+                    <span className="text-blue-500 mr-2 mt-0.5 flex-shrink-0">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <polyline points="9 11 12 14 22 4"></polyline>
+                        <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+                      </svg>
+                    </span>
+                    <span>{tool}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            
             <Button 
               variant="outline" 
-              className="w-full text-sm font-medium border-blue-200 hover:bg-blue-50 hover:text-blue-700 transition-colors"
+              className="w-full text-sm font-medium bg-gradient-to-r from-blue-50 to-blue-100 border-blue-200 hover:bg-blue-100 hover:text-blue-700 transition-colors rounded-lg shadow-sm"
               onClick={() => openModal(level)}
             >
-              Saiba mais
+              Ver detalhes completos
             </Button>
           </div>
         </CardContent>
@@ -258,7 +271,12 @@ export default function ResourcesSection() {
   };
 
   return (
-    <section id="recursos" className="py-20 bg-gradient-to-b from-white to-blue-50/30">
+    <section id="recursos" className="py-24 bg-gradient-to-b from-blue-50/10 to-blue-100/20 relative overflow-hidden">
+      {/* Decorative elements */}
+      <div className="absolute top-0 left-0 w-full h-40 bg-gradient-to-b from-white to-transparent z-10"></div>
+      <div className="absolute -top-24 -right-24 w-64 h-64 bg-blue-500/5 rounded-full blur-3xl"></div>
+      <div className="absolute top-1/3 -left-32 w-64 h-64 bg-blue-600/5 rounded-full blur-3xl"></div>
+      
       {/* Modal para detalhes de cada nível */}
       <ResourceModal 
         isOpen={modalData.isOpen}
@@ -268,40 +286,45 @@ export default function ResourcesSection() {
         content={modalData.content}
       />
       
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-gray-900 mb-3 bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
+      <div className="container mx-auto px-4 relative z-20">
+        <div className="text-center mb-16">
+          <div className="inline-block p-2 px-4 rounded-full bg-blue-100/50 text-blue-700 font-medium text-sm mb-4">
+            Nível 0 até Nível 5
+          </div>
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
             Ferramentas Recomendadas
           </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto text-lg">
+          <p className="text-gray-600 max-w-2xl mx-auto text-lg md:text-xl">
             Explore as ferramentas de IA adequadas para cada nível do framework
           </p>
         </div>
 
-        <div className="max-w-5xl mx-auto px-4 md:px-0">
-          <div className="text-sm mb-6 text-center">
-            <span className="bg-gradient-to-r from-blue-50 to-blue-100 text-blue-700 px-3 py-1.5 rounded-full inline-flex items-center shadow-sm">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-2"><path d="M15 18l-6-6 6-6"/><path d="M9 18l-6-6 6-6"/></svg>
+        <div className="max-w-6xl mx-auto relative">
+          <div className="text-sm mb-8 text-center">
+            <span className="bg-gradient-to-r from-blue-100 to-blue-200 text-blue-700 px-4 py-2 rounded-full inline-flex items-center shadow-sm">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-2"><path d="M15 18l-6-6 6-6"/><path d="M9 18l-6-6 6-6"/></svg>
               <span className="font-medium">Deslize para navegar</span>
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="ml-2"><path d="m9 18 6-6-6-6"/><path d="m15 18 6-6-6-6"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="ml-2"><path d="m9 18 6-6-6-6"/><path d="m15 18 6-6-6-6"/></svg>
             </span>
           </div>
           <Tabs defaultValue="all" className="w-full" onValueChange={setActiveTab}>
             <div className="overflow-x-auto pb-2 max-w-full">
-              <TabsList className="flex justify-start md:justify-center mb-8 space-x-3 bg-blue-50/50 rounded-lg p-1.5 min-w-max mx-auto">
-                <TabsTrigger value="all" className="rounded-md px-4 sm:px-5 py-2 text-sm font-medium whitespace-nowrap data-[state=active]:bg-white data-[state=active]:text-blue-600 data-[state=active]:shadow-sm">
-                  Todos
-                </TabsTrigger>
-                <TabsTrigger value="basic" className="rounded-md px-4 sm:px-5 py-2 text-sm font-medium whitespace-nowrap data-[state=active]:bg-white data-[state=active]:text-blue-600 data-[state=active]:shadow-sm">
-                  Básico
-                </TabsTrigger>
-                <TabsTrigger value="intermediate" className="rounded-md px-4 sm:px-5 py-2 text-sm font-medium whitespace-nowrap data-[state=active]:bg-white data-[state=active]:text-blue-600 data-[state=active]:shadow-sm">
-                  Intermediário
-                </TabsTrigger>
-                <TabsTrigger value="advanced" className="rounded-md px-4 sm:px-5 py-2 text-sm font-medium whitespace-nowrap data-[state=active]:bg-white data-[state=active]:text-blue-600 data-[state=active]:shadow-sm">
-                  Avançado
-                </TabsTrigger>
-              </TabsList>
+              <div className="bg-white/60 p-2 rounded-xl shadow-sm backdrop-blur-sm max-w-2xl mx-auto">
+                <TabsList className="flex justify-start md:justify-center mb-0 space-x-1 bg-blue-50/80 rounded-lg p-1 min-w-max mx-auto">
+                  <TabsTrigger value="all" className="rounded-md px-4 sm:px-5 py-2.5 text-sm font-medium whitespace-nowrap data-[state=active]:bg-gradient-to-r data-[state=active]:from-blue-500 data-[state=active]:to-blue-600 data-[state=active]:text-white data-[state=active]:shadow-md transition-all duration-200">
+                    Todos os Níveis
+                  </TabsTrigger>
+                  <TabsTrigger value="basic" className="rounded-md px-4 sm:px-5 py-2.5 text-sm font-medium whitespace-nowrap data-[state=active]:bg-gradient-to-r data-[state=active]:from-blue-500 data-[state=active]:to-blue-600 data-[state=active]:text-white data-[state=active]:shadow-md transition-all duration-200">
+                    Básico (0-1)
+                  </TabsTrigger>
+                  <TabsTrigger value="intermediate" className="rounded-md px-4 sm:px-5 py-2.5 text-sm font-medium whitespace-nowrap data-[state=active]:bg-gradient-to-r data-[state=active]:from-blue-500 data-[state=active]:to-blue-600 data-[state=active]:text-white data-[state=active]:shadow-md transition-all duration-200">
+                    Intermediário (2-3)
+                  </TabsTrigger>
+                  <TabsTrigger value="advanced" className="rounded-md px-4 sm:px-5 py-2.5 text-sm font-medium whitespace-nowrap data-[state=active]:bg-gradient-to-r data-[state=active]:from-blue-500 data-[state=active]:to-blue-600 data-[state=active]:text-white data-[state=active]:shadow-md transition-all duration-200">
+                    Avançado (4-5)
+                  </TabsTrigger>
+                </TabsList>
+              </div>
             </div>
 
             <TabsContent value="all" className="mt-4">
