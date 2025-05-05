@@ -33,9 +33,9 @@ export default function ResourceModal({
             <span>{title}</span>
           </DialogTitle>
         </DialogHeader>
-        <DialogDescription className="text-base mt-4 text-gray-700">
+        <div className="text-base mt-4 text-gray-700">
           <div dangerouslySetInnerHTML={{ __html: content }} />
-        </DialogDescription>
+        </div>
       </DialogContent>
     </Dialog>
   );
