@@ -5,9 +5,12 @@ import {
   InsertContribution, 
   FrameworkLevel, 
   InsertFrameworkLevel,
+  Article,
+  InsertArticle,
   users,
   contributions,
-  frameworkLevels
+  frameworkLevels,
+  articles
 } from "@shared/schema";
 import { frameworkLevels as initialFrameworkLevels } from "../client/src/data/frameworkLevels";
 import { db } from "./db";
@@ -32,6 +35,15 @@ export interface IStorage {
   createContribution(contribution: InsertContribution): Promise<Contribution>;
   updateContributionStatus(id: number, status: 'pending' | 'approved' | 'rejected'): Promise<Contribution | undefined>;
   deleteContribution(id: number): Promise<boolean>;
+
+  // Article methods
+  getArticle(id: number): Promise<Article | undefined>;
+  getAllArticles(): Promise<Article[]>;
+  getFeaturedArticles(): Promise<Article[]>;
+  getArticlesByTag(tag: string): Promise<Article[]>;
+  createArticle(article: InsertArticle): Promise<Article>;
+  updateArticle(id: number, article: Partial<InsertArticle>): Promise<Article | undefined>;
+  deleteArticle(id: number): Promise<boolean>;
 
   // Database initialization
   initializeDatabase(): Promise<void>;
@@ -61,6 +73,75 @@ export class DatabaseStorage implements IStorage {
       
       await db.insert(frameworkLevels).values(levelsToInsert);
       console.log("Framework levels initialized successfully.");
+    }
+
+    // Initialize some sample articles if needed
+    try {
+      const existingArticles = await db.select().from(articles);
+      
+      if (existingArticles.length === 0) {
+        console.log("Initializing database with sample articles...");
+        
+        // These would typically come from a data file or API
+        const sampleArticles = [
+          {
+            title: "Introdução ao DARE Framework",
+            summary: "Uma visão geral do framework e seus níveis.",
+            content: `
+              <h2>O que é o DARE Framework?</h2>
+              <p>O DARE (Design AI Reliable Engagement) Framework é uma metodologia para adoção de IA no design, organizada em níveis de 0 a 5.</p>
+              <p>Cada nível representa um grau diferente de uso da inteligência artificial nos processos de design, desde o completamente manual até o altamente automatizado.</p>
+              <h2>Por que usar o DARE Framework?</h2>
+              <p>O framework oferece uma abordagem estruturada para designers e organizações que querem incorporar IA em seus processos de forma responsável e eficaz.</p>
+            `,
+            author: "Equipe DARE",
+            tags: ["introdução", "visão geral", "níveis"],
+            featured: 1
+          },
+          {
+            title: "Como aplicar o Nível 2 em projetos de UI/UX",
+            summary: "Exemplos práticos de uso do Nível 2 do DARE Framework em projetos de interface.",
+            content: `
+              <h2>O Nível 2 em prática</h2>
+              <p>No Nível 2 (Assistência com Supervisão Humana), designers podem usar ferramentas de IA para gerar ideias e protótipos iniciais, mas sempre com supervisão direta.</p>
+              <p>Este artigo explora estratégias eficazes para incorporar essas ferramentas sem comprometer a qualidade ou perder o controle do processo criativo.</p>
+              <h3>Exemplos de fluxos de trabalho</h3>
+              <ul>
+                <li>Geração de wireframes com revisão manual</li>
+                <li>Exploração de paletas de cores assistida por IA</li>
+                <li>Criação de protótipos rápidos para testes iniciais</li>
+              </ul>
+            `,
+            author: "Ana Silva",
+            tags: ["nível 2", "ui/ux", "casos práticos"],
+            featured: 0
+          },
+          {
+            title: "Considerações éticas sobre IA no design",
+            summary: "Uma análise das questões éticas relacionadas ao uso de IA em processos criativos.",
+            content: `
+              <h2>Ética e IA no Design</h2>
+              <p>À medida que as ferramentas de IA se tornam mais integradas ao processo de design, surgem importantes questões éticas que precisam ser consideradas.</p>
+              <p>Este artigo examina os dilemas éticos relacionados à autenticidade, propriedade intelectual, vieses algorítmicos e o impacto no mercado de trabalho.</p>
+              <h3>Principais pontos de discussão</h3>
+              <ul>
+                <li>Transparência no uso de IA em projetos de design</li>
+                <li>Atribuição apropriada e créditos em trabalhos assistidos por IA</li>
+                <li>Identificação e mitigação de vieses em sistemas de IA para design</li>
+                <li>Responsabilidade humana em decisões assistidas por IA</li>
+              </ul>
+            `,
+            author: "Carlos Mendes",
+            tags: ["ética", "responsabilidade", "propriedade intelectual"],
+            featured: 1
+          }
+        ];
+        
+        await db.insert(articles).values(sampleArticles);
+        console.log("Sample articles initialized successfully.");
+      }
+    } catch (error) {
+      console.error("Error initializing articles:", error);
     }
   }
 
@@ -160,6 +241,65 @@ export class DatabaseStorage implements IStorage {
     const result = await db
       .delete(contributions)
       .where(eq(contributions.id, id));
+    return !!result;
+  }
+
+  // Article methods
+  async getArticle(id: number): Promise<Article | undefined> {
+    const [article] = await db.select().from(articles).where(eq(articles.id, id));
+    return article;
+  }
+
+  async getAllArticles(): Promise<Article[]> {
+    return db
+      .select()
+      .from(articles)
+      .orderBy(desc(articles.publishedAt));
+  }
+
+  async getFeaturedArticles(): Promise<Article[]> {
+    return db
+      .select()
+      .from(articles)
+      .where(eq(articles.featured, 1))
+      .orderBy(desc(articles.publishedAt));
+  }
+
+  async getArticlesByTag(tag: string): Promise<Article[]> {
+    // This requires some SQL array operations, simplified for now
+    // In a real implementation would use a proper JSONB query to find articles with the tag
+    const allArticles = await this.getAllArticles();
+    return allArticles.filter(article => {
+      if (!article.tags) return false;
+      const tags = article.tags as string[];
+      return tags.includes(tag);
+    });
+  }
+
+  async createArticle(insertArticle: InsertArticle): Promise<Article> {
+    const [article] = await db
+      .insert(articles)
+      .values(insertArticle)
+      .returning();
+    return article;
+  }
+
+  async updateArticle(id: number, article: Partial<InsertArticle>): Promise<Article | undefined> {
+    const [updatedArticle] = await db
+      .update(articles)
+      .set({
+        ...article,
+        updatedAt: new Date()
+      })
+      .where(eq(articles.id, id))
+      .returning();
+    return updatedArticle;
+  }
+
+  async deleteArticle(id: number): Promise<boolean> {
+    const result = await db
+      .delete(articles)
+      .where(eq(articles.id, id));
     return !!result;
   }
 }
