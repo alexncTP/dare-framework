@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "wouter";
 import { Card, CardContent } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
@@ -294,9 +295,22 @@ export default function ResourcesSection() {
           <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
             Ferramentas Recomendadas
           </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto text-lg md:text-xl">
+          <p className="text-gray-600 max-w-2xl mx-auto text-lg md:text-xl mb-4">
             Explore as ferramentas de IA adequadas para cada nível do framework
           </p>
+          <div className="mt-2">
+            <Link to="/artigos">
+              <Button 
+                variant="outline" 
+                className="font-medium bg-gradient-to-r from-blue-50 to-blue-100 border-blue-200 hover:bg-blue-100 hover:text-blue-700 transition-colors rounded-lg shadow-sm"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-2">
+                  <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"></path>
+                </svg>
+                Ver Artigos e Materiais de Leitura
+              </Button>
+            </Link>
+          </div>
         </div>
 
         <div className="max-w-6xl mx-auto relative">

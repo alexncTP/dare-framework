@@ -14,7 +14,8 @@ export default function Header() {
     { href: "#recursos", label: "Recursos" },
     { href: "#vantagens", label: "Vantagens" },
     { href: "#manifesto", label: "Manifesto" },
-    { href: "#contribute", label: "Contribuir" }
+    { href: "#contribute", label: "Contribuir" },
+    { href: "/artigos", label: "Artigos", isExternal: true }
   ];
   
   // Handle scroll effect
@@ -61,17 +62,31 @@ export default function Header() {
             {/* Desktop Navigation */}
             <nav className="hidden md:ml-10 md:flex md:space-x-1">
               {navItems.map((item) => (
-                <a 
-                  key={item.href}
-                  href={item.href} 
-                  className={`px-4 py-2 rounded-md text-sm font-medium transition-colors duration-150 ${
-                    scrolled 
-                      ? 'text-gray-700 hover:text-primary hover:bg-gray-50' 
-                      : 'text-white hover:bg-white/10'
-                  }`}
-                >
-                  {item.label}
-                </a>
+                item.isExternal ? (
+                  <Link 
+                    key={item.href}
+                    to={item.href} 
+                    className={`px-4 py-2 rounded-md text-sm font-medium transition-colors duration-150 ${
+                      scrolled 
+                        ? 'text-gray-700 hover:text-primary hover:bg-gray-50' 
+                        : 'text-white hover:bg-white/10'
+                    }`}
+                  >
+                    {item.label}
+                  </Link>
+                ) : (
+                  <a 
+                    key={item.href}
+                    href={item.href} 
+                    className={`px-4 py-2 rounded-md text-sm font-medium transition-colors duration-150 ${
+                      scrolled 
+                        ? 'text-gray-700 hover:text-primary hover:bg-gray-50' 
+                        : 'text-white hover:bg-white/10'
+                    }`}
+                  >
+                    {item.label}
+                  </a>
+                )
               ))}
             </nav>
           </div>
@@ -125,18 +140,33 @@ export default function Header() {
             : 'bg-black/90 backdrop-blur-md'
         }`}>
           {navItems.map((item) => (
-            <a 
-              key={item.href}
-              href={item.href} 
-              className={`block py-2.5 px-4 mb-1 text-base font-medium rounded-md ${
-                scrolled 
-                  ? 'text-gray-700 hover:text-primary hover:bg-gray-50' 
-                  : 'text-white hover:bg-white/10'
-              }`}
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              {item.label}
-            </a>
+            item.isExternal ? (
+              <Link 
+                key={item.href}
+                to={item.href} 
+                className={`block py-2.5 px-4 mb-1 text-base font-medium rounded-md ${
+                  scrolled 
+                    ? 'text-gray-700 hover:text-primary hover:bg-gray-50' 
+                    : 'text-white hover:bg-white/10'
+                }`}
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                {item.label}
+              </Link>
+            ) : (
+              <a 
+                key={item.href}
+                href={item.href} 
+                className={`block py-2.5 px-4 mb-1 text-base font-medium rounded-md ${
+                  scrolled 
+                    ? 'text-gray-700 hover:text-primary hover:bg-gray-50' 
+                    : 'text-white hover:bg-white/10'
+                }`}
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                {item.label}
+              </a>
+            )
           ))}
         </div>
       </div>
