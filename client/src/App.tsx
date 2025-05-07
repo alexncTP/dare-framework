@@ -5,15 +5,13 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/not-found";
 import HomePage from "@/pages/HomePage";
-import ArticlesPage from "@/pages/ArticlesPage";
-import ArticleDetailPage from "@/pages/ArticleDetailPage";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 function Router() {
   return (
     <Switch>
       <Route path="/" component={HomePage} />
-      <Route path="/artigos" component={ArticlesPage} />
-      <Route path="/artigos/:id" component={ArticleDetailPage} />
       <Route component={NotFound} />
     </Switch>
   );
@@ -25,7 +23,9 @@ function App() {
       <TooltipProvider>
         <Toaster />
         <div className="flex flex-col min-h-screen">
+          <Header />
           <Router />
+          <Footer />
         </div>
       </TooltipProvider>
     </QueryClientProvider>
