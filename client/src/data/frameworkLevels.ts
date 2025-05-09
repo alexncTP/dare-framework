@@ -63,7 +63,7 @@ export const frameworkLevels: FrameworkLevel[] = [
   },
   {
     id: 3,
-    name: "Level 3 – IA como Copiloto",
+    name: "Nível 3 – IA como Copiloto",
     shortName: "Copiloto",
     tagline: "Você lidera, a IA propõe.",
     description: "A IA sugere layouts, fluxos, conteúdos e transições. O designer edita, mistura, ajusta.",
@@ -82,7 +82,7 @@ export const frameworkLevels: FrameworkLevel[] = [
   },
   {
     id: 4,
-    name: "Level 4 – Co-criação Modular",
+    name: "Nível 4 – Co-criação Modular",
     shortName: "Co-criação Modular",
     tagline: "A IA monta, você direciona.",
     description: "IA gera telas inteiras, animações ou identidades parciais com base em prompts. Designer atua como diretor de arte.",
@@ -101,7 +101,7 @@ export const frameworkLevels: FrameworkLevel[] = [
   },
   {
     id: 5,
-    name: "Level 5 – Automação Guiada por Prompt",
+    name: "Nível 5 – Automação Guiada por Prompt",
     shortName: "Automação Guiada",
     tagline: "Você descreve, a IA entrega.",
     description: "O design é quase totalmente gerado via linguagem natural. Criação, layout, conteúdo e até protótipo funcional vêm prontos.",
