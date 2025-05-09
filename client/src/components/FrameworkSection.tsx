@@ -124,7 +124,7 @@ export default function FrameworkSection() {
                       : 'text-gray-700 bg-gray-100 hover:bg-gray-200'
                   }`}
                 >
-                  <span className="block text-xs opacity-75 mb-1">Nível {index}</span>
+                  <span className="block text-xs opacity-75 mb-1">Nível {level.id}</span>
                   <span className="block">{level.shortName}</span>
                 </button>
               ))}
@@ -303,7 +303,7 @@ export default function FrameworkSection() {
                 </Button>
                 
                 <span className="flex items-center text-sm text-gray-500 font-medium">
-                  Nível {activeLevel + 1} de {levels.length}
+                  Nível {levels[activeLevel]?.id} de {levels.length - 1}
                 </span>
                 
                 <Button
