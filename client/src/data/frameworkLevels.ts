@@ -3,7 +3,7 @@ import { FrameworkLevel } from "@/lib/types";
 export const frameworkLevels: FrameworkLevel[] = [
   {
     id: 0,
-    name: "Level 0 – Manual Total",
+    name: "Nível 0 – Manual Total",
     shortName: "Manual Total",
     tagline: "Nenhuma IA. Só cérebro, mão e suor.",
     description: "Tudo feito à moda antiga. O designer conduz pesquisa, criação e entrega com ferramentas tradicionais, sem IA.",
@@ -26,7 +26,7 @@ export const frameworkLevels: FrameworkLevel[] = [
   },
   {
     id: 1,
-    name: "Level 1 – IA Assistiva",
+    name: "Nível 1 – IA Assistiva",
     shortName: "IA Assistiva",
     tagline: "A IA te ajuda, mas não cria.",
     description: "Uso pontual da IA para tarefas operacionais: resumir pesquisas, organizar dados, revisar textos, gerar insights.",
@@ -44,7 +44,7 @@ export const frameworkLevels: FrameworkLevel[] = [
   },
   {
     id: 2,
-    name: "Level 2 – IA como Acelerador Visual",
+    name: "Nível 2 – IA como Acelerador Visual",
     shortName: "Acelerador Visual",
     tagline: "Você cria, a IA preenche.",
     description: "A IA entra para gerar partes do design (imagens, textos, ícones, padrões). Designer controla a composição.",

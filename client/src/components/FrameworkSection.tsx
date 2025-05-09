@@ -412,7 +412,7 @@ export default function FrameworkSection() {
                                 : 'bg-gray-200 text-gray-700'
                           }`}
                         >
-                          <span className="font-bold">{index}</span>
+                          <span className="font-bold">{level.id}</span>
                         </div>
                         <p className={`mt-3 font-medium transition-colors ${
                           activeLevel === index
