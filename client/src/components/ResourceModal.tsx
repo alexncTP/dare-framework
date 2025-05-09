@@ -28,7 +28,7 @@ export default function ResourceModal({
         <DialogHeader>
           <DialogTitle className="text-xl md:text-2xl flex items-center">
             <span className="bg-blue-600 text-white px-2 py-1 rounded-md mr-2 text-sm">
-              Nível {level}
+              Nível {level + 1}
             </span>
             <span>{title}</span>
           </DialogTitle>

@@ -234,7 +234,7 @@ export default function ResourcesSection() {
             <div className="flex items-center justify-between">
               <h3 className="font-bold text-lg">{title}</h3>
               <span className="bg-white text-blue-600 text-xs px-3 py-1 rounded-full font-medium shadow-sm">
-                Nível {level}
+                Nível {level + 1}
               </span>
             </div>
           </div>
@@ -289,7 +289,7 @@ export default function ResourcesSection() {
       <div className="container mx-auto px-4 relative z-20">
         <div className="text-center mb-16">
           <div className="inline-block p-2 px-4 rounded-full bg-blue-100/50 text-blue-700 font-medium text-sm mb-4">
-            Nível 0 até Nível 5
+            Nível 1 até Nível 6
           </div>
           <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
             Ferramentas Recomendadas
@@ -315,13 +315,13 @@ export default function ResourcesSection() {
                     Todos os Níveis
                   </TabsTrigger>
                   <TabsTrigger value="basic" className="rounded-md px-4 sm:px-5 py-2.5 text-sm font-medium whitespace-nowrap data-[state=active]:bg-gradient-to-r data-[state=active]:from-blue-500 data-[state=active]:to-blue-600 data-[state=active]:text-white data-[state=active]:shadow-md transition-all duration-200">
-                    Básico (0-1)
+                    Básico (1-2)
                   </TabsTrigger>
                   <TabsTrigger value="intermediate" className="rounded-md px-4 sm:px-5 py-2.5 text-sm font-medium whitespace-nowrap data-[state=active]:bg-gradient-to-r data-[state=active]:from-blue-500 data-[state=active]:to-blue-600 data-[state=active]:text-white data-[state=active]:shadow-md transition-all duration-200">
-                    Intermediário (2-3)
+                    Intermediário (3-4)
                   </TabsTrigger>
                   <TabsTrigger value="advanced" className="rounded-md px-4 sm:px-5 py-2.5 text-sm font-medium whitespace-nowrap data-[state=active]:bg-gradient-to-r data-[state=active]:from-blue-500 data-[state=active]:to-blue-600 data-[state=active]:text-white data-[state=active]:shadow-md transition-all duration-200">
-                    Avançado (4-5)
+                    Avançado (5-6)
                   </TabsTrigger>
                 </TabsList>
               </div>
