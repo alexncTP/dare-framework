@@ -137,4 +137,8 @@ Este é um projeto open source. Contribuições são bem-vindas!
 
 ## 📄 Licença
 
-MIT License - veja o arquivo [LICENSE](LICENSE) para detalhes. 
+MIT License - veja o arquivo [LICENSE](LICENSE) para detalhes.
+
+---
+
+**Status:** ✅ Configurado para GitHub Pages com deploy automático 
