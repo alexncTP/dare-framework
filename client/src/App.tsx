@@ -1,4 +1,4 @@
-import { Switch, Route } from "wouter";
+import { Switch, Route, Router as WouterRouter } from "wouter";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/not-found";
@@ -7,11 +7,15 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 function Router() {
+  const basePath = import.meta.env.BASE_URL;
+  
   return (
-    <Switch>
-      <Route path="/" component={HomePage} />
-      <Route component={NotFound} />
-    </Switch>
+    <WouterRouter base={basePath}>
+      <Switch>
+        <Route path="/" component={HomePage} />
+        <Route component={NotFound} />
+      </Switch>
+    </WouterRouter>
   );
 }
 
