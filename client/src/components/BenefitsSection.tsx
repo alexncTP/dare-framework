@@ -30,55 +30,55 @@ function BenefitCard({ title, description, stat, statText }: BenefitProps) {
 export default function BenefitsSection() {
   const benefits: BenefitProps[] = [
     {
-      title: "Produtividade Aumentada",
-      description: "Reduza o tempo gasto em tarefas repetitivas e aumente a velocidade de entrega de projetos de design.",
+      title: "Boosted Productivity",
+      description: "Cut down on repetitive tasks and speed up design project delivery.",
       stat: "+30%",
-      statText: "Aumento médio de produtividade"
+      statText: "Average productivity increase"
     },
     {
-      title: "Inovação Acelerada",
-      description: "Explore mais variações e possibilidades criativas com a ajuda da IA, ampliando o horizonte de inovação.",
+      title: "Accelerated Innovation",
+      description: "Explore more variations and creative possibilities with AI, expanding your innovation horizon.",
       stat: "3x",
-      statText: "Mais ideias exploradas"
+      statText: "More ideas explored"
     },
     {
-      title: "Controle Equilibrado",
-      description: "Mantenha o equilíbrio entre automação e controle criativo, escolhendo o nível adequado para cada projeto.",
+      title: "Balanced Control",
+      description: "Keep the right balance between automation and creative direction by choosing the right level for each project.",
       stat: "100%",
-      statText: "Controle sobre o processo"
+      statText: "Process control"
     },
     {
-      title: "Escalabilidade",
-      description: "Adapte o uso de IA conforme a complexidade e escala dos projetos, desde pequenas tarefas até sistemas completos.",
+      title: "Scalability",
+      description: "Scale AI usage to match project complexity—from small tasks to full systems.",
       stat: "5x",
-      statText: "Capacidade de escala"
+      statText: "Scalability capacity"
     },
     {
-      title: "Colaboração Aprimorada",
-      description: "Facilite a colaboração entre designers, desenvolvedores e stakeholders com processos assistidos por IA.",
+      title: "Enhanced Collaboration",
+      description: "Streamline collaboration between designers, developers, and stakeholders with AI-assisted workflows.",
       stat: "-40%",
-      statText: "Redução em revisões"
+      statText: "Fewer revisions"
     },
     {
-      title: "Aprendizado Contínuo",
-      description: "Evolua gradualmente na adoção de IA, permitindo que a equipe aprenda e se adapte em seu próprio ritmo.",
+      title: "Continuous Learning",
+      description: "Adopt AI gradually, giving your team time to learn, adapt, and grow their skills.",
       stat: "+25%",
-      statText: "Aumento em habilidades"
+      statText: "Skill growth"
     }
   ];
 
   return (
-    <section id="vantagens" className="py-20 bg-gradient-to-b from-white to-blue-50/30">
+    <section id="benefits" className="py-20 bg-gradient-to-b from-white to-blue-50/30">
       <div className="container mx-auto px-4">
         <div className="text-center mb-14">
           <h2 className="text-4xl font-bold text-gray-900 mb-3 bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
-            VANTAGENS
+            BENEFITS
           </h2>
           <p className="text-xl text-gray-700 mb-6 font-medium">
-            Benefícios de Adotar o DARE
+            Why Adopt the DARE Framework
           </p>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            Descubra como o framework DARE pode transformar seu processo de design
+            See how the DARE Framework can transform your design process.
           </p>
         </div>
 
@@ -97,7 +97,7 @@ export default function BenefitsSection() {
         <div className="mt-16 text-center">
           <a href="#framework">
             <Button className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-8 py-3 rounded-lg text-lg font-medium shadow-md hover:shadow-lg transition-all duration-300">
-              Explorar os Níveis do Framework
+              Explore the Framework Levels
             </Button>
           </a>
         </div>
