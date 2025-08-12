@@ -3,119 +3,119 @@ import { FrameworkLevel } from "@/lib/types";
 export const frameworkLevels: FrameworkLevel[] = [
   {
     id: 0,
-    name: "Nível 0 – Manual Total",
-    shortName: "Manual Total",
-    tagline: "Nenhuma IA. Só cérebro, mão e suor.",
-    description: "Tudo feito à moda antiga. O designer conduz pesquisa, criação e entrega com ferramentas tradicionais, sem IA.",
+    name: "Level 0 – Fully Manual",
+    shortName: "Fully Manual",
+    tagline: "No AI. Just brain, hands, and hustle.",
+    description: "Purely old-school design. The designer owns research, creation, and delivery using traditional tools—no AI involved.",
     appropriateUses: [
-      "Projetos sensíveis à identidade",
-      "Branding rígido",
-      "Entregas finais"
+      "Brand-sensitive projects",
+      "Strict brand guidelines",
+      "Final production assets"
     ],
     pros: [
-      "Máximo controle",
-      "Refinamento detalhado",
-      "Autoria completa"
+      "Maximum creative control",
+      "Pixel-perfect refinement",
+      "Clear authorship"
     ],
     cons: [
-      "Lento",
-      "Pouco escalável",
-      "Sujeito a retrabalho braçal"
+      "Slow pace",
+      "Limited scalability",
+      "High manual workload"
     ],
-    risks: "Ineficiência em processos repetitivos; prazos potencialmente mais longos; maior custo por hora de trabalho."
+    risks: "Inefficient for repetitive work; potentially longer timelines; higher hourly cost."
   },
   {
     id: 1,
-    name: "Nível 1 – IA Assistiva",
-    shortName: "IA Assistiva",
-    tagline: "A IA te ajuda, mas não cria.",
-    description: "Uso pontual da IA para tarefas operacionais: resumir pesquisas, organizar dados, revisar textos, gerar insights.",
+    name: "Level 1 – Assistive AI",
+    shortName: "Assistive AI",
+    tagline: "AI supports you—but doesn’t design.",
+    description: "Light AI usage for operational tasks: summarizing research, organizing data, editing text, and surfacing insights.",
     tools: ["ChatGPT", "FigJam AI", "Notion AI", "MonkeyLearn"],
     pros: [
-      "Agiliza sem interferir no resultado visual",
-      "Mantém integridade criativa",
-      "Baixo risco de derivação"
+      "Speeds up without changing the visual result",
+      "Keeps creative direction intact",
+      "Low risk of off-brand output"
     ],
     cons: [
-      "Nenhuma aceleração no design em si",
-      "Benefícios limitados em processos puramente visuais"
+      "No direct acceleration of design work",
+      "Limited value for purely visual workflows"
     ],
-    risks: "Confiança excessiva em insights gerados por IA sem verificação; viés de dados influenciando decisões de design."
+    risks: "Over-relying on unverified AI insights; hidden data bias influencing design decisions."
   },
   {
     id: 2,
-    name: "Nível 2 – IA como Acelerador Visual",
-    shortName: "Acelerador Visual",
-    tagline: "Você cria, a IA preenche.",
-    description: "A IA entra para gerar partes do design (imagens, textos, ícones, padrões). Designer controla a composição.",
+    name: "Level 2 – AI as Visual Accelerator",
+    shortName: "Visual Accelerator",
+    tagline: "You lead the concept—AI fills in the gaps.",
+    description: "AI generates design elements (images, copy, icons, patterns) that you integrate into your composition.",
     tools: ["Midjourney", "DALL·E", "Runway", "Magician for Figma"],
     pros: [
-      "Ganha-se tempo nas tarefas repetitivas e criativas",
-      "Expande possibilidades visuais",
-      "Reduz dependência de bibliotecas de assets"
+      "Saves time on repetitive or exploratory tasks",
+      "Broadens creative possibilities",
+      "Reduces dependency on stock assets"
     ],
     cons: [
-      "Risco de quebra de consistência",
-      "Visual potencialmente genérico",
-      "Dependência de prompts bem escritos"
+      "Risk of inconsistent styles",
+      "May feel generic without strong art direction",
+      "Relies on well-crafted prompts"
     ],
-    risks: "Questões de direitos autorais com imagens geradas; falta de consistência entre elementos visuais; estéticas derivativas."
+    risks: "Potential copyright concerns; uneven visual consistency; derivative aesthetics."
   },
   {
     id: 3,
-    name: "Nível 3 – IA como Copiloto",
-    shortName: "Copiloto",
-    tagline: "Você lidera, a IA propõe.",
-    description: "A IA sugere layouts, fluxos, conteúdos e transições. O designer edita, mistura, ajusta.",
+    name: "Level 3 – AI as Copilot",
+    shortName: "Copilot",
+    tagline: "You drive—AI suggests the route.",
+    description: "AI proposes layouts, flows, content, and transitions. You refine, remix, and adjust to fit the vision.",
     tools: ["Figma AI", "Galileo AI", "Uizard", "Firefly"],
     pros: [
-      "Geração rápida de protótipos",
-      "Múltiplas variações instantâneas",
-      "Aceleração significativa do processo criativo"
+      "Rapid prototyping",
+      "Instant variation generation",
+      "Significant creative speed boost"
     ],
     cons: [
-      "Requer curadoria crítica",
-      "Risco de vício criativo (design preguiçoso)",
-      "Resultados podem parecer formulaicos"
+      "Requires sharp editorial judgment",
+      "Risk of creative complacency",
+      "Can feel formulaic without strong oversight"
     ],
-    risks: "Atrofia das habilidades criativas fundamentais; homogeneização visual; perda de identidade de marca única."
+    risks: "Erosion of core design skills; visual sameness; dilution of brand uniqueness."
   },
   {
     id: 4,
-    name: "Nível 4 – Co-criação Modular",
-    shortName: "Co-criação Modular",
-    tagline: "A IA monta, você direciona.",
-    description: "IA gera telas inteiras, animações ou identidades parciais com base em prompts. Designer atua como diretor de arte.",
+    name: "Level 4 – Modular Co-creation",
+    shortName: "Modular Co-creation",
+    tagline: "AI assembles—you direct the show.",
+    description: "AI generates full screens, animations, or partial brand identities from prompts. Your role shifts toward art direction.",
     tools: ["Runway Gen-2", "Visily", "Design-to-code tools"],
     pros: [
-      "Criação em velocidade insana",
-      "Útil para sprints, MVPs e testes",
-      "Amplia possibilidades para não-designers"
+      "Blazing-fast output",
+      "Perfect for sprints, MVPs, and rapid testing",
+      "Empowers non-designers to produce starting points"
     ],
     cons: [
-      "Falta finesse",
-      "Exige ajustes pesados para virar produto real",
-      "Design potencialmente desconectado dos objetivos de negócio"
+      "Lacks fine polish",
+      "Needs heavy refinement for production",
+      "May drift from business objectives"
     ],
-    risks: "Problemas de usabilidade não detectados; sistemas visuais incoerentes; limitação pela capacidade de articular prompts."
+    risks: "Undetected usability issues; incoherent visual systems; limited by your ability to prompt effectively."
   },
   {
     id: 5,
-    name: "Nível 5 – Automação Guiada por Prompt",
-    shortName: "Automação Guiada",
-    tagline: "Você descreve, a IA entrega.",
-    description: "O design é quase totalmente gerado via linguagem natural. Criação, layout, conteúdo e até protótipo funcional vêm prontos.",
-    tools: ["V0.dev", "GPT-Engineer", "Modelos customizados"],
+    name: "Level 5 – Prompt-Guided Automation",
+    shortName: "Prompt-Guided Automation",
+    tagline: "You describe—it delivers.",
+    description: "Almost the entire design is generated via natural language: layout, copy, visuals, and even functional prototypes—ready to review.",
+    tools: ["V0.dev", "GPT-Engineer", "Custom AI models"],
     pros: [
-      "Protótipos e páginas inteiras em minutos",
-      "Extremamente veloz para testes de conceito",
-      "Democratiza o processo de design"
+      "Full prototypes or pages in minutes",
+      "Ultra-fast for concept validation",
+      "Makes design more accessible to everyone"
     ],
     cons: [
-      "Baixo controle",
-      "Outputs genéricos",
-      "Revisão crítica obrigatória"
+      "Low creative control",
+      "Often generic outputs",
+      "Critical QA is non-negotiable"
     ],
-    risks: "Desconexão entre design e necessidades de negócio; problemas de acessibilidade; experiências homogêneas; desvalorização da expertise de design."
+    risks: "Misalignment with business needs; accessibility gaps; homogeneous experiences; undervaluing professional design expertise."
   }
 ];
