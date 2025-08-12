@@ -5,10 +5,20 @@ export default function HeroSection() {
     <section className="relative bg-gradient-to-br from-primary/90 via-primary to-blue-700 overflow-hidden">
       {/* Background pattern */}
       <div className="absolute inset-0 opacity-20">
-        <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+        <svg
+          className="w-full h-full"
+          xmlns="http://www.w3.org/2000/svg"
+          width="100%"
+          height="100%"
+        >
           <defs>
             <pattern id="grid-pattern" width="40" height="40" patternUnits="userSpaceOnUse">
-              <path d="M0 20h40M20 0v40" stroke="white" strokeWidth="0.5" fill="none" />
+              <path
+                d="M0 20h40M20 0v40"
+                stroke="white"
+                strokeWidth="0.5"
+                fill="none"
+              />
             </pattern>
             <pattern id="dots-pattern" width="20" height="20" patternUnits="userSpaceOnUse">
               <circle cx="10" cy="10" r="1" fill="white" />
@@ -18,14 +28,14 @@ export default function HeroSection() {
           <rect width="100%" height="100%" fill="url(#dots-pattern)" />
         </svg>
       </div>
-      
+
       {/* Content */}
       <div className="relative py-16 sm:py-24 md:py-28 lg:py-32">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
             <div className="inline-block mb-6 p-2 bg-white/10 backdrop-blur-sm rounded-full">
               <div className="px-4 py-1 rounded-full bg-white/20 text-sm font-medium text-white">
-                Open Source - AI Made
+                Open Source · AI-Powered
               </div>
             </div>
 
@@ -35,34 +45,36 @@ export default function HeroSection() {
                 Engagement Framework
               </span>
             </h1>
-            
+
             <p className="mt-6 text-xl text-blue-100 max-w-2xl mx-auto">
-              Um framework colaborativo para adoção estratégica de IA em processos de design—
-              equilibrando inovação com criatividade humana.
+              A collaborative framework for the strategic adoption of AI in design workflows—
+              balancing innovation with human creativity.
             </p>
-            
+
             <div className="mt-12 flex items-center justify-center relative z-10">
-              <Button 
+              <Button
                 size="lg"
-                variant="default" 
+                variant="default"
                 className="bg-white text-primary hover:bg-blue-50"
                 asChild
               >
-                <a href="#framework">
-                  Explorar Framework
-                </a>
+                <a href="#framework">Explore the Framework</a>
               </Button>
             </div>
           </div>
         </div>
       </div>
-      
+
       {/* Wave effect at bottom */}
       <div className="absolute -bottom-1 left-0 right-0 z-0">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" className="w-full">
-          <path 
-            fill="#ffffff" 
-            fillOpacity="1" 
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1440 320"
+          className="w-full"
+        >
+          <path
+            fill="#ffffff"
+            fillOpacity="1"
             d="M0,288L48,272C96,256,192,224,288,213.3C384,203,480,213,576,229.3C672,245,768,267,864,261.3C960,256,1056,224,1152,208C1248,192,1344,192,1392,192L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
           />
         </svg>
