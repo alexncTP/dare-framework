@@ -13,196 +13,196 @@ export default function ResourcesSection() {
     content: ""
   });
 
-  // Função para abrir o modal com os dados do nível selecionado
+  // Function to open the modal with data for the selected level
   const openModal = (level: number) => {
     let title = "";
     let content = "";
 
     switch (level) {
       case 0:
-        title = "Nível 0 - Manual Total";
+        title = "Level 0 – Fully Manual";
         content = `
-          <p><strong>No Nível 0, o designer trabalha completamente sem assistência de IA.</strong></p>
+          <p><strong>At Level 0, the designer works completely without AI assistance.</strong></p>
           
-          <p>Todo o processo criativo é realizado manualmente, desde a concepção inicial até a finalização, utilizando apenas ferramentas tradicionais de design como Figma, Sketch ou Adobe XD para wireframes e protótipos.</p>
+          <p>The entire creative process is handled manually—from early concept to final delivery—using only traditional design tools like Figma, Sketch, or Adobe XD for wireframes and prototypes.</p>
 
-          <h4>Apropriado para:</h4>
+          <h4>Appropriate for:</h4>
           <ul>
-            <li>Projetos que exigem uma abordagem puramente humana</li>
-            <li>Trabalhos onde o cliente requer total controle e autoria</li>
-            <li>Situações onde questões de propriedade intelectual são rigorosas</li>
+            <li>Projects that require a purely human approach</li>
+            <li>Engagements where the client requires full control and authorship</li>
+            <li>Situations with strict intellectual property requirements</li>
           </ul>
 
-          <h4>Prós:</h4>
+          <h4>Pros:</h4>
           <ul>
-            <li>Total controle criativo e autoria clara</li>
-            <li>Originalidade garantida nas soluções</li>
-            <li>Sem preocupações com propriedade intelectual ligadas à IA</li>
+            <li>Complete creative control and clear authorship</li>
+            <li>Guaranteed originality in solutions</li>
+            <li>No AI-related intellectual property concerns</li>
           </ul>
 
-          <h4>Contras:</h4>
+          <h4>Cons:</h4>
           <ul>
-            <li>Processo significativamente mais lento</li>
-            <li>Maior custo para o cliente devido ao tempo envolvido</li>
-            <li>Limitação às habilidades técnicas do designer individual</li>
+            <li>Significantly slower process</li>
+            <li>Higher client cost due to the time involved</li>
+            <li>Limited to the individual designer’s technical skills</li>
           </ul>
 
-          <p><strong>Nível de risco:</strong> Nenhum risco associado ao uso de IA, mas maior tempo de desenvolvimento.</p>
+          <p><strong>Risk level:</strong> No risks related to AI usage, but longer development time.</p>
         `;
         break;
       case 1:
-        title = "Nível 1 - Assistência Básica";
+        title = "Level 1 – Basic Assistance";
         content = `
-          <p><strong>No Nível 1, o designer utiliza IA como ferramenta organizacional e de pesquisa.</strong></p>
+          <p><strong>At Level 1, the designer uses AI for organization and research.</strong></p>
           
-          <p>A IA é utilizada apenas para tarefas secundárias como organização de informações, análise de dados e geração de insights preliminares. Todo o trabalho visual e criativo continua sendo 100% realizado pelo designer.</p>
+          <p>AI is used only for secondary tasks like structuring information, data analysis, and generating preliminary insights. All visual and creative work remains 100% human-made by the designer.</p>
 
-          <h4>Apropriado para:</h4>
+          <h4>Appropriate for:</h4>
           <ul>
-            <li>Projetos que necessitam de pesquisa e organização eficiente</li>
-            <li>Trabalhos com grandes volumes de informação a serem analisados</li>
-            <li>Situações que exigem criatividade humana mas se beneficiam de apoio estrutural</li>
+            <li>Projects that need efficient research and organization</li>
+            <li>Work with large volumes of information to analyze</li>
+            <li>Scenarios that rely on human creativity but benefit from structural support</li>
           </ul>
 
-          <h4>Prós:</h4>
+          <h4>Pros:</h4>
           <ul>
-            <li>Aceleração das fases de pesquisa e organização</li>
-            <li>Análise mais profunda de dados e tendências</li>
-            <li>Mantém a autoria criativa integralmente humana</li>
+            <li>Faster research and organization phases</li>
+            <li>Deeper data and trend analysis</li>
+            <li>Maintains fully human creative authorship</li>
           </ul>
 
-          <h4>Contras:</h4>
+          <h4>Cons:</h4>
           <ul>
-            <li>Benefícios de produtividade limitados</li>
-            <li>Possíveis vieses na organização de informações pela IA</li>
-            <li>Necessidade de verificação humana das sugestões</li>
+            <li>Limited productivity gains</li>
+            <li>Possible bias in AI-structured information</li>
+            <li>Human verification of suggestions is required</li>
           </ul>
 
-          <p><strong>Nível de risco:</strong> Mínimo, com questões éticas relacionadas apenas à fonte e qualidade dos dados utilizados.</p>
+          <p><strong>Risk level:</strong> Minimal—primarily ethical considerations about data sources and quality.</p>
         `;
         break;
       case 2:
-        title = "Nível 2 - Auxílio Pontual";
+        title = "Level 2 – Targeted Support";
         content = `
-          <p><strong>No Nível 2, o designer incorpora geração de imagens por IA como fonte de inspiração visual.</strong></p>
+          <p><strong>At Level 2, the designer incorporates AI image generation as visual inspiration.</strong></p>
           
-          <p>A IA é usada para criar moodboards, referências visuais e elementos gráficos que servem como ponto de partida, mas o designer mantém total controle sobre o desenvolvimento e finalização do projeto.</p>
+          <p>AI is used to create mood boards, references, and graphic elements that serve as a starting point, while the designer retains full control over development and finalization.</p>
 
-          <h4>Apropriado para:</h4>
+          <h4>Appropriate for:</h4>
           <ul>
-            <li>Projetos que necessitam de exploração visual rápida</li>
-            <li>Criação de moodboards e direções estéticas preliminares</li>
-            <li>Geração de ativos visuais complementares</li>
+            <li>Projects that need rapid visual exploration</li>
+            <li>Creating mood boards and early aesthetic directions</li>
+            <li>Generating complementary visual assets</li>
           </ul>
 
-          <h4>Prós:</h4>
+          <h4>Pros:</h4>
           <ul>
-            <li>Ampliação do repertório visual e possibilidades criativas</li>
-            <li>Aceleração na geração de referências e conceitos</li>
-            <li>Possibilidade de testar rapidamente diferentes direções visuais</li>
+            <li>Broader visual repertoire and creative possibilities</li>
+            <li>Faster generation of references and concepts</li>
+            <li>Ability to test different directions quickly</li>
           </ul>
 
-          <h4>Contras:</h4>
+          <h4>Cons:</h4>
           <ul>
-            <li>Risco de homogeneização estética</li>
-            <li>Potenciais problemas de direitos autorais nas imagens geradas</li>
-            <li>Dependência da qualidade dos prompts para resultados satisfatórios</li>
+            <li>Risk of aesthetic homogenization</li>
+            <li>Potential copyright issues with generated images</li>
+            <li>Outcome quality depends on prompt craft</li>
           </ul>
 
-          <p><strong>Nível de risco:</strong> Moderado, principalmente relacionado a direitos autorais das imagens geradas e originalidade.</p>
+          <p><strong>Risk level:</strong> Moderate—mainly around copyright of generated images and originality.</p>
         `;
         break;
       case 3:
-        title = "Nível 3 - Design Acelerado";
+        title = "Level 3 – Accelerated Design";
         content = `
-          <p><strong>No Nível 3, o designer utiliza IA para acelerar fluxos específicos do processo de design.</strong></p>
+          <p><strong>At Level 3, the designer uses AI to accelerate specific parts of the design process.</strong></p>
           
-          <p>A IA é incorporada como ferramenta de auxílio em tarefas como criação de layouts, geração de variações, e refinamento de elementos. O designer mantém a direção criativa e toma as decisões finais, usando a IA como acelerador do processo.</p>
+          <p>AI assists tasks like layout creation, variation generation, and element refinement. The designer keeps creative direction and makes final decisions, using AI as a process accelerator.</p>
 
-          <h4>Apropriado para:</h4>
+          <h4>Appropriate for:</h4>
           <ul>
-            <li>Projetos com prazos apertados</li>
-            <li>Necessidade de testar múltiplas variações rapidamente</li>
-            <li>Refinamento e iteração de conceitos já estabelecidos</li>
+            <li>Projects with tight deadlines</li>
+            <li>Need to test multiple variations quickly</li>
+            <li>Refinement and iteration of established concepts</li>
           </ul>
 
-          <h4>Prós:</h4>
+          <h4>Pros:</h4>
           <ul>
-            <li>Significativo aumento de produtividade</li>
-            <li>Capacidade de explorar mais soluções em menos tempo</li>
-            <li>Automação de tarefas repetitivas</li>
+            <li>Significant productivity gains</li>
+            <li>Explore more solutions in less time</li>
+            <li>Automation of repetitive tasks</li>
           </ul>
 
-          <h4>Contras:</h4>
+          <h4>Cons:</h4>
           <ul>
-            <li>Possível perda de nuances e detalhes específicos</li>
-            <li>Risco de soluções mais genéricas</li>
-            <li>Necessidade de supervisão constante da qualidade</li>
+            <li>Possible loss of nuance and project-specific detail</li>
+            <li>Risk of more generic solutions</li>
+            <li>Requires ongoing quality oversight</li>
           </ul>
 
-          <p><strong>Nível de risco:</strong> Moderado a alto, exigindo transparência com clientes sobre os processos auxiliados por IA.</p>
+          <p><strong>Risk level:</strong> Moderate to high—transparency with clients about AI-assisted steps is important.</p>
         `;
         break;
       case 4:
-        title = "Nível 4 - Co-criação";
+        title = "Level 4 – Co-creation";
         content = `
-          <p><strong>No Nível 4, o designer trabalha em parceria direta com a IA, em um processo de co-criação.</strong></p>
+          <p><strong>At Level 4, the designer works in direct partnership with AI in a co-creation process.</strong></p>
           
-          <p>A IA é utilizada para gerar layouts, interfaces e elementos visuais completos, que o designer então avalia, seleciona, refina e integra ao projeto. A responsabilidade criativa é compartilhada, com o designer atuando como curador e diretor.</p>
+          <p>AI generates full layouts, interfaces, and visual elements that the designer evaluates, selects, refines, and integrates. Creative responsibility is shared, with the designer acting as curator and director.</p>
 
-          <h4>Apropriado para:</h4>
+          <h4>Appropriate for:</h4>
           <ul>
-            <li>Projetos experimentais ou inovadores</li>
-            <li>Situações onde a eficiência é prioridade máxima</li>
-            <li>Clientes abertos à integração profunda de IA no processo</li>
+            <li>Experimental or innovation-focused projects</li>
+            <li>Situations where efficiency is the top priority</li>
+            <li>Clients open to deeper AI integration in the process</li>
           </ul>
 
-          <h4>Prós:</h4>
+          <h4>Pros:</h4>
           <ul>
-            <li>Produtividade extremamente alta</li>
-            <li>Possibilidade de resultados inesperados e inovadores</li>
-            <li>Capacidade de atender mais projetos simultaneamente</li>
+            <li>Extremely high productivity</li>
+            <li>Potential for surprising, innovative results</li>
+            <li>Capacity to take on more projects simultaneously</li>
           </ul>
 
-          <h4>Contras:</h4>
+          <h4>Cons:</h4>
           <ul>
-            <li>Questões éticas sobre autoria e originalidade</li>
-            <li>Potencial homogeneização de soluções</li>
-            <li>Exigência de transparência total com clientes</li>
+            <li>Ethical questions around authorship and originality</li>
+            <li>Potential homogenization of solutions</li>
+            <li>Demands full transparency with clients</li>
           </ul>
 
-          <p><strong>Nível de risco:</strong> Alto, requerendo comunicação clara com clientes e acordos específicos sobre propriedade intelectual.</p>
+          <p><strong>Risk level:</strong> High—requires clear client communication and specific IP agreements.</p>
         `;
         break;
       case 5:
-        title = "Nível 5 - Automação de Componentes";
+        title = "Level 5 – Component Automation";
         content = `
-          <p><strong>No Nível 5, a IA automatiza a criação de componentes funcionais e código a partir do design.</strong></p>
+          <p><strong>At Level 5, AI automates the creation of functional components and code from design.</strong></p>
           
-          <p>Além da co-criação visual, a IA é utilizada para transformar designs em código, gerar protótipos funcionais e automatizar a implementação. O designer supervisiona o processo, garantindo qualidade e consistência.</p>
+          <p>Beyond visual co-creation, AI transforms designs into code, generates functional prototypes, and automates implementation. The designer oversees the process to ensure quality and consistency.</p>
 
-          <h4>Apropriado para:</h4>
+          <h4>Appropriate for:</h4>
           <ul>
-            <li>Projetos que exigem rápida prototipação funcional</li>
-            <li>MVPs e produtos digitais com prazos curtos</li>
-            <li>Clientes com total abertura para métodos inovadores</li>
+            <li>Projects that require rapid functional prototyping</li>
+            <li>MVPs and digital products on short timelines</li>
+            <li>Clients fully open to innovative methods</li>
           </ul>
 
-          <h4>Prós:</h4>
+          <h4>Pros:</h4>
           <ul>
-            <li>Integração direta entre design e implementação</li>
-            <li>Extraordinária velocidade de entrega</li>
-            <li>Potencial para maior experimentação técnica</li>
+            <li>Direct integration between design and implementation</li>
+            <li>Extraordinary delivery speed</li>
+            <li>Greater room for technical experimentation</li>
           </ul>
 
-          <h4>Contras:</h4>
+          <h4>Cons:</h4>
           <ul>
-            <li>Alta complexidade técnica</li>
-            <li>Desafios significativos de controle de qualidade</li>
-            <li>Questões profundas sobre o papel do designer</li>
+            <li>High technical complexity</li>
+            <li>Significant quality assurance challenges</li>
+            <li>Deeper questions about the designer’s role</li>
           </ul>
 
-          <p><strong>Nível de risco:</strong> Muito alto, exigindo acordos contratuais específicos e total transparência sobre o uso de IA em todo o processo.</p>
+          <p><strong>Risk level:</strong> Very high—requires specific contractual agreements and full transparency on AI use throughout.</p>
         `;
         break;
       default:
@@ -217,12 +217,12 @@ export default function ResourcesSection() {
     });
   };
 
-  // Função para fechar o modal
+  // Function to close the modal
   const closeModal = () => {
     setModalData(prev => ({ ...prev, isOpen: false }));
   };
 
-  // Função para renderizar cards de cada nível
+  // Function to render a card for each level
   const renderLevelCard = (level: number, title: string, tools: string[], compact = false) => {
     return (
       <Card key={level} className="overflow-hidden snap-center shrink-0 w-[260px] sm:w-[280px] md:w-[300px] border-0 hover:shadow-xl transition-all duration-300 rounded-xl bg-white shadow-md relative group">
@@ -234,14 +234,14 @@ export default function ResourcesSection() {
             <div className="flex items-center justify-between">
               <h3 className="font-bold text-lg">{title}</h3>
               <span className="bg-white text-blue-600 text-xs px-3 py-1 rounded-full font-medium shadow-sm">
-                Nível {level + 1}
+                Level {level + 1}
               </span>
             </div>
           </div>
           
           <div className="p-6">
             <div className="mb-6">
-              <h4 className="text-sm font-medium text-gray-500 mb-3 uppercase tracking-wider">Ferramentas Principais</h4>
+              <h4 className="text-sm font-medium text-gray-500 mb-3 uppercase tracking-wider">Key Tools</h4>
               <ul className="space-y-3 mb-5 text-sm text-gray-700">
                 {tools.map((tool, index) => (
                   <li key={index} className="flex items-start">
@@ -262,7 +262,7 @@ export default function ResourcesSection() {
               className="w-full text-sm font-medium bg-gradient-to-r from-blue-50 to-blue-100 border-blue-200 hover:bg-blue-100 hover:text-blue-700 transition-colors rounded-lg shadow-sm"
               onClick={() => openModal(level)}
             >
-              Ver detalhes completos
+              View full details
             </Button>
           </div>
         </CardContent>
@@ -271,13 +271,13 @@ export default function ResourcesSection() {
   };
 
   return (
-    <section id="recursos" className="py-24 bg-gradient-to-b from-blue-50/10 to-blue-100/20 relative overflow-hidden">
+    <section id="resources" className="py-24 bg-gradient-to-b from-blue-50/10 to-blue-100/20 relative overflow-hidden">
       {/* Decorative elements */}
       <div className="absolute top-0 left-0 w-full h-40 bg-gradient-to-b from-white to-transparent z-10"></div>
       <div className="absolute -top-24 -right-24 w-64 h-64 bg-blue-500/5 rounded-full blur-3xl"></div>
       <div className="absolute top-1/3 -left-32 w-64 h-64 bg-blue-600/5 rounded-full blur-3xl"></div>
       
-      {/* Modal para detalhes de cada nível */}
+      {/* Modal with details for each level */}
       <ResourceModal 
         isOpen={modalData.isOpen}
         onClose={closeModal}
@@ -289,13 +289,13 @@ export default function ResourcesSection() {
       <div className="container mx-auto px-4 relative z-20">
         <div className="text-center mb-16">
           <div className="inline-block p-2 px-4 rounded-full bg-blue-100/50 text-blue-700 font-medium text-sm mb-4">
-            Nível 1 até Nível 6
+            Level 1 to Level 6
           </div>
           <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
-            Ferramentas Recomendadas
+            Recommended Tools
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto text-lg md:text-xl">
-            Explore as ferramentas de IA adequadas para cada nível do framework
+            Explore the AI tools suited to each level of the framework
           </p>
         </div>
 
@@ -303,7 +303,7 @@ export default function ResourcesSection() {
           <div className="text-sm mb-8 text-center">
             <span className="bg-gradient-to-r from-blue-100 to-blue-200 text-blue-700 px-4 py-2 rounded-full inline-flex items-center shadow-sm">
               <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-2"><path d="M15 18l-6-6 6-6"/><path d="M9 18l-6-6 6-6"/></svg>
-              <span className="font-medium">Deslize para navegar</span>
+              <span className="font-medium">Swipe to browse</span>
               <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="ml-2"><path d="m9 18 6-6-6-6"/><path d="m15 18 6-6-6-6"/></svg>
             </span>
           </div>
@@ -312,16 +312,16 @@ export default function ResourcesSection() {
               <div className="bg-white/60 p-2 rounded-xl shadow-sm backdrop-blur-sm max-w-2xl mx-auto">
                 <TabsList className="flex justify-start md:justify-center mb-0 space-x-1 bg-blue-50/80 rounded-lg p-1 min-w-max mx-auto">
                   <TabsTrigger value="all" className="rounded-md px-4 sm:px-5 py-2.5 text-sm font-medium whitespace-nowrap data-[state=active]:bg-gradient-to-r data-[state=active]:from-blue-500 data-[state=active]:to-blue-600 data-[state=active]:text-white data-[state=active]:shadow-md transition-all duration-200">
-                    Todos os Níveis
+                    All Levels
                   </TabsTrigger>
                   <TabsTrigger value="basic" className="rounded-md px-4 sm:px-5 py-2.5 text-sm font-medium whitespace-nowrap data-[state=active]:bg-gradient-to-r data-[state=active]:from-blue-500 data-[state=active]:to-blue-600 data-[state=active]:text-white data-[state=active]:shadow-md transition-all duration-200">
-                    Básico (1-2)
+                    Basic (1–2)
                   </TabsTrigger>
                   <TabsTrigger value="intermediate" className="rounded-md px-4 sm:px-5 py-2.5 text-sm font-medium whitespace-nowrap data-[state=active]:bg-gradient-to-r data-[state=active]:from-blue-500 data-[state=active]:to-blue-600 data-[state=active]:text-white data-[state=active]:shadow-md transition-all duration-200">
-                    Intermediário (3-4)
+                    Intermediate (3–4)
                   </TabsTrigger>
                   <TabsTrigger value="advanced" className="rounded-md px-4 sm:px-5 py-2.5 text-sm font-medium whitespace-nowrap data-[state=active]:bg-gradient-to-r data-[state=active]:from-blue-500 data-[state=active]:to-blue-600 data-[state=active]:text-white data-[state=active]:shadow-md transition-all duration-200">
-                    Avançado (5-6)
+                    Advanced (5–6)
                   </TabsTrigger>
                 </TabsList>
               </div>
@@ -330,47 +330,47 @@ export default function ResourcesSection() {
             <TabsContent value="all" className="mt-4">
               <div className="relative snap-x-container">
                 <div className="flex overflow-x-auto scrollbar-hide pb-10 pt-4 space-x-4 md:space-x-6 snap-x px-2 md:px-4 rounded-lg mx-auto" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
-                  {renderLevelCard(0, "Manual Total", [
-                    "Caneta e papel para esboços iniciais",
-                    "Figma ou Adobe XD para wireframes simples e protótipos básicos",
-                    "Processos analógicos de design, sem automação de IA"
+                  {renderLevelCard(0, "Fully Manual", [
+                    "Pen and paper for early sketches",
+                    "Figma or Adobe XD for simple wireframes and basic prototypes",
+                    "Analog design processes with no AI automation"
                   ], true)}
                   
-                  {renderLevelCard(1, "Assistência Básica", [
-                    "ChatGPT para organização de pesquisas, resumos e insights",
-                    "Notion AI para documentação e organização de informações de projetos",
-                    "Miro AI Assist para construção de mapas mentais e brainstorming"
+                  {renderLevelCard(1, "Basic Assistance", [
+                    "ChatGPT for organizing research, summaries, and insights",
+                    "Notion AI for project documentation and information organization",
+                    "Miro AI Assist for mind maps and brainstorming"
                   ], true)}
                   
-                  {renderLevelCard(2, "Auxílio Pontual", [
-                    "Midjourney para geração de imagens de alta qualidade e moodboards",
-                    "DALL-E para criação de assets visuais personalizados",
-                    "Leonardo.ai para geração de texturas, padrões e ilustrações",
-                    "GPT-Image 1 para geração de imagens realistas baseadas em prompts textuais",
-                    "Ideogram para criar imagens detalhadas e inovadoras a partir de descrições"
+                  {renderLevelCard(2, "Targeted Support", [
+                    "Midjourney for high-quality image generation and mood boards",
+                    "DALL·E for custom visual asset creation",
+                    "Leonardo.ai for textures, patterns, and illustrations",
+                    "GPT-Image 1 for realistic images from text prompts",
+                    "Ideogram to create detailed, innovative images from descriptions"
                   ], true)}
                   
-                  {renderLevelCard(3, "Design Acelerado", [
-                    "Figma AI para autocompletar layouts, sugestões de design e organização de componentes",
-                    "Adobe Firefly para edição rápida e criação de imagens e gráficos",
-                    "Framer AI para prototipagem rápida e design interativo",
-                    "Sora para automação de fluxos de trabalho de design e colaboração em tempo real",
-                    "Lovable para otimizar a experiência de design colaborativo"
+                  {renderLevelCard(3, "Accelerated Design", [
+                    "Figma AI to autocomplete layouts, suggest designs, and organize components",
+                    "Adobe Firefly for fast editing and generation of images/graphics",
+                    "Framer AI for rapid prototyping and interactive design",
+                    "Sora for workflow automation and real-time collaboration",
+                    "Lovable to streamline collaborative design experience"
                   ], true)}
                   
-                  {renderLevelCard(4, "Co-criação", [
-                    "Galileo AI para geração automática de UI, criando layouts interativos",
-                    "Uizard para transformação de rascunhos e wireframes em protótipos de alta fidelidade",
-                    "Diagram para ideação visual, geração de ideias e conceitos gráficos",
-                    "v0 (Vercel) para criação de sistemas de design escaláveis",
-                    "Replit para gerar código funcional, para pequenos MVPs que necessitem de uma leve integração com banco de dados, porém exige um pouco de conhecimento técnico"
+                  {renderLevelCard(4, "Co-creation", [
+                    "Galileo AI for automatic UI generation and interactive layouts",
+                    "Uizard to transform sketches and wireframes into high-fidelity prototypes",
+                    "Diagram for visual ideation, idea generation, and graphic concepts",
+                    "v0 (Vercel) for building scalable design systems",
+                    "Replit to generate functional code for small MVPs with light database integration (requires some technical knowledge)"
                   ], true)}
                   
-                  {renderLevelCard(5, "Automação de Componentes", [
-                    "Builder.io para criação de componentes React automatizados e dinâmicos",
-                    "Anima para conversão de design para código (HTML, CSS, React)",
-                    "Locofy.ai para gerar código a partir de designs e layouts de UI",
-                    "Bolt para criação de MVPs rápidos e automação de design para código"
+                  {renderLevelCard(5, "Component Automation", [
+                    "Builder.io for automated, dynamic React component creation",
+                    "Anima to convert design to code (HTML, CSS, React)",
+                    "Locofy.ai to generate code from UI designs and layouts",
+                    "Bolt for rapid MVP creation and design-to-code automation"
                   ], true)}
                 </div>
                 <div className="absolute bottom-0 left-0 right-0 flex justify-center space-x-2 py-2">
@@ -382,16 +382,16 @@ export default function ResourcesSection() {
             <TabsContent value="basic" className="mt-4">
               <div className="relative snap-x-container">
                 <div className="flex overflow-x-auto scrollbar-hide pb-10 pt-4 space-x-4 md:space-x-6 snap-x px-2 md:px-4 rounded-lg mx-auto" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
-                  {renderLevelCard(0, "Manual Total", [
-                    "Caneta e papel para esboços iniciais",
-                    "Figma ou Adobe XD para wireframes simples e protótipos básicos",
-                    "Processos analógicos de design, sem automação de IA"
+                  {renderLevelCard(0, "Fully Manual", [
+                    "Pen and paper for early sketches",
+                    "Figma or Adobe XD for simple wireframes and basic prototypes",
+                    "Analog design processes with no AI automation"
                   ])}
                   
-                  {renderLevelCard(1, "Assistência Básica", [
-                    "ChatGPT para organização de pesquisas, resumos e insights",
-                    "Notion AI para documentação e organização de informações de projetos",
-                    "Miro AI Assist para construção de mapas mentais e brainstorming"
+                  {renderLevelCard(1, "Basic Assistance", [
+                    "ChatGPT for organizing research, summaries, and insights",
+                    "Notion AI for project documentation and information organization",
+                    "Miro AI Assist for mind maps and brainstorming"
                   ])}
                 </div>
                 <div className="absolute bottom-0 left-0 right-0 flex justify-center space-x-2 py-2">
@@ -403,20 +403,20 @@ export default function ResourcesSection() {
             <TabsContent value="intermediate" className="mt-4">
               <div className="relative snap-x-container">
                 <div className="flex overflow-x-auto scrollbar-hide pb-10 pt-4 space-x-4 md:space-x-6 snap-x px-2 md:px-4 rounded-lg mx-auto" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
-                  {renderLevelCard(2, "Auxílio Pontual", [
-                    "Midjourney para geração de imagens de alta qualidade e moodboards",
-                    "DALL-E para criação de assets visuais personalizados",
-                    "Leonardo.ai para geração de texturas, padrões e ilustrações",
-                    "GPT-Image 1 para geração de imagens realistas baseadas em prompts textuais",
-                    "Ideogram para criar imagens detalhadas e inovadoras a partir de descrições"
+                  {renderLevelCard(2, "Targeted Support", [
+                    "Midjourney for high-quality image generation and mood boards",
+                    "DALL·E for custom visual asset creation",
+                    "Leonardo.ai for textures, patterns, and illustrations",
+                    "GPT-Image 1 for realistic images from text prompts",
+                    "Ideogram to create detailed, innovative images from descriptions"
                   ])}
                   
-                  {renderLevelCard(3, "Design Acelerado", [
-                    "Figma AI para autocompletar layouts, sugestões de design e organização de componentes",
-                    "Adobe Firefly para edição rápida e criação de imagens e gráficos",
-                    "Framer AI para prototipagem rápida e design interativo",
-                    "Sora para automação de fluxos de trabalho de design e colaboração em tempo real",
-                    "Lovable para otimizar a experiência de design colaborativo"
+                  {renderLevelCard(3, "Accelerated Design", [
+                    "Figma AI to autocomplete layouts, suggest designs, and organize components",
+                    "Adobe Firefly for fast editing and generation of images/graphics",
+                    "Framer AI for rapid prototyping and interactive design",
+                    "Sora for workflow automation and real-time collaboration",
+                    "Lovable to streamline collaborative design experience"
                   ])}
                 </div>
                 <div className="absolute bottom-0 left-0 right-0 flex justify-center space-x-2 py-2">
@@ -428,19 +428,19 @@ export default function ResourcesSection() {
             <TabsContent value="advanced" className="mt-4">
               <div className="relative snap-x-container">
                 <div className="flex overflow-x-auto scrollbar-hide pb-10 pt-4 space-x-4 md:space-x-6 snap-x px-2 md:px-4 rounded-lg mx-auto" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
-                  {renderLevelCard(4, "Co-criação", [
-                    "Galileo AI para geração automática de UI, criando layouts interativos",
-                    "Uizard para transformação de rascunhos e wireframes em protótipos de alta fidelidade",
-                    "Diagram para ideação visual, geração de ideias e conceitos gráficos",
-                    "v0 (Vercel) para criação de sistemas de design escaláveis",
-                    "Replit para gerar código funcional, para pequenos MVPs que necessitem de uma leve integração com banco de dados, porém exige um pouco de conhecimento técnico"
+                  {renderLevelCard(4, "Co-creation", [
+                    "Galileo AI for automatic UI generation and interactive layouts",
+                    "Uizard to transform sketches and wireframes into high-fidelity prototypes",
+                    "Diagram for visual ideation, idea generation, and graphic concepts",
+                    "v0 (Vercel) for building scalable design systems",
+                    "Replit to generate functional code for small MVPs with light database integration (requires some technical knowledge)"
                   ])}
                   
-                  {renderLevelCard(5, "Automação de Componentes", [
-                    "Builder.io para criação de componentes React automatizados e dinâmicos",
-                    "Anima para conversão de design para código (HTML, CSS, React)",
-                    "Locofy.ai para gerar código a partir de designs e layouts de UI",
-                    "Bolt para criação de MVPs rápidos e automação de design para código"
+                  {renderLevelCard(5, "Component Automation", [
+                    "Builder.io for automated, dynamic React component creation",
+                    "Anima to convert design to code (HTML, CSS, React)",
+                    "Locofy.ai to generate code from UI designs and layouts",
+                    "Bolt for rapid MVP creation and design-to-code automation"
                   ])}
                 </div>
                 <div className="absolute bottom-0 left-0 right-0 flex justify-center space-x-2 py-2">
