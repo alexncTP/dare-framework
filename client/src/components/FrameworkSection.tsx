@@ -63,11 +63,11 @@ export default function FrameworkSection() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <div className="inline-flex items-center justify-center px-4 py-1 mb-3 border border-primary/20 rounded-full bg-primary/5 text-primary text-sm font-medium">
-              6 níveis de adoção de IA
+              6 Levels of AI Adoption
             </div>
-            <h2 className="gradient-text">Níveis do Framework DARE</h2>
+            <h2 className="gradient-text">DARE Framework Levels</h2>
             <p className="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">
-              Seis níveis progressivos de integração de IA no design, de abordagens totalmente manuais à automação avançada — cada um com seus casos de uso apropriados.
+              Six progressive levels for integrating AI into design—from fully manual approaches to advanced automation—each with clear, appropriate use cases.
             </p>
           </div>
           
@@ -84,7 +84,7 @@ export default function FrameworkSection() {
                       : 'text-gray-700 bg-gray-100 hover:bg-gray-200'
                   }`}
                 >
-                  <span className="block text-xs opacity-75 mb-1">Nível {level.id}</span>
+                  <span className="block text-xs opacity-75 mb-1">Level {level.id}</span>
                   <span className="block">{level.shortName}</span>
                 </button>
               ))}
@@ -138,7 +138,7 @@ export default function FrameworkSection() {
                     
                     <div className="relative">
                       <Badge variant="outline" className="bg-white/10 text-white border-white/20 mb-4">
-                        Nível {level.id}
+                        Level {level.id}
                       </Badge>
                       
                       <h3 className="text-2xl font-bold">{level.name}</h3>
@@ -148,7 +148,7 @@ export default function FrameworkSection() {
                         <div className="mt-8">
                           <div className="flex items-center mb-3">
                             <Wrench className="h-5 w-5 mr-2 text-blue-200" />
-                            <h4 className="font-semibold text-lg">Ferramentas</h4>
+                            <h4 className="font-semibold text-lg">Tools</h4>
                           </div>
                           <div className="flex flex-wrap gap-2">
                             {level.tools.map((tool: string, toolIndex: number) => (
@@ -167,7 +167,7 @@ export default function FrameworkSection() {
                         <div className="mt-8">
                           <div className="flex items-center mb-3">
                             <CheckIcon className="h-5 w-5 mr-2 text-blue-200" />
-                            <h4 className="font-semibold text-lg">Usos Apropriados</h4>
+                            <h4 className="font-semibold text-lg">Appropriate Uses</h4>
                           </div>
                           <ul className="space-y-2 text-blue-50">
                             {level.appropriateUses.map((use: string, useIndex: number) => (
@@ -190,7 +190,7 @@ export default function FrameworkSection() {
                         <div className="p-2 bg-primary/10 rounded-md">
                           <Brain className="h-5 w-5 text-primary" />
                         </div>
-                        <span className="text-sm font-medium text-primary">Descrição</span>
+                        <span className="text-sm font-medium text-primary">Description</span>
                       </div>
                       <p className="text-gray-700 text-lg">{level.description}</p>
                       
@@ -198,7 +198,7 @@ export default function FrameworkSection() {
                         <div className="bg-green-50 p-5 rounded-lg border border-green-100">
                           <div className="flex items-center text-green-700 mb-3">
                             <CheckIcon className="h-5 w-5 mr-2" />
-                            <h4 className="font-medium text-green-800">Prós</h4>
+                            <h4 className="font-medium text-green-800">Pros</h4>
                           </div>
                           <ul className="mt-2 space-y-2">
                             {Array.isArray(level.pros) && level.pros.map((pro: string, proIndex: number) => (
@@ -215,7 +215,7 @@ export default function FrameworkSection() {
                             <svg className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
                             </svg>
-                            <h4 className="font-medium text-red-800">Contras</h4>
+                            <h4 className="font-medium text-red-800">Cons</h4>
                           </div>
                           <ul className="mt-2 space-y-2">
                             {Array.isArray(level.cons) && level.cons.map((con: string, conIndex: number) => (
@@ -233,7 +233,7 @@ export default function FrameworkSection() {
                       <div className="mt-8 bg-amber-50 p-5 rounded-lg border border-amber-100">
                         <div className="flex items-center text-amber-700 mb-3">
                           <AlertTriangleIcon className="h-5 w-5 mr-2" />
-                          <h4 className="font-medium text-amber-800">Riscos</h4>
+                          <h4 className="font-medium text-amber-800">Risks</h4>
                         </div>
                         <div className="text-gray-700">
                           {level.risks}
@@ -249,7 +249,7 @@ export default function FrameworkSection() {
           {/* Level Details - Mobile Carousel View */}
           <div className={`mt-10 ${isMobile ? 'block' : 'hidden'}`}>
             <div className="bg-white rounded-xl shadow-md overflow-hidden">
-              {/* Navegação simplificada para mobile */}
+              {/* Simplified mobile navigation */}
               <div className="flex justify-between p-4 border-b">
                 <Button
                   variant="outline"
@@ -259,11 +259,11 @@ export default function FrameworkSection() {
                   className="flex items-center gap-1"
                 >
                   <ChevronLeft className="h-4 w-4" />
-                  <span>Anterior</span>
+                  <span>Previous</span>
                 </Button>
                 
                 <span className="flex items-center text-sm text-gray-500 font-medium">
-                  Nível {levels[activeLevel]?.id} de {levels.length - 1}
+                  Level {levels[activeLevel]?.id} of {levels.length - 1}
                 </span>
                 
                 <Button
@@ -273,12 +273,12 @@ export default function FrameworkSection() {
                   disabled={activeLevel === levels.length - 1}
                   className="flex items-center gap-1"
                 >
-                  <span>Próximo</span>
+                  <span>Next</span>
                   <ChevronRight className="h-4 w-4" />
                 </Button>
               </div>
               
-              {/* Conteúdo do nível atual */}
+              {/* Current level content */}
               {levels.map((level, index) => (
                 <div 
                   key={index} 
@@ -287,7 +287,7 @@ export default function FrameworkSection() {
                   <div className="p-4">
                     <div className="bg-gradient-to-br from-primary to-blue-700 text-white p-6 rounded-lg relative overflow-hidden mb-4">
                       <Badge variant="outline" className="bg-white/10 text-white border-white/20 mb-2">
-                        Nível {level.id}
+                        Level {level.id}
                       </Badge>
                       
                       <h3 className="text-xl font-bold">{level.name}</h3>
@@ -295,11 +295,11 @@ export default function FrameworkSection() {
                     </div>
                     
                     <div className="prose max-w-none">
-                      <h4 className="text-md font-medium text-primary mb-2">Descrição</h4>
+                      <h4 className="text-md font-medium text-primary mb-2">Description</h4>
                       <p className="text-gray-700 mb-4">{level.description}</p>
                       
                       <div className="bg-green-50 p-4 rounded-lg border border-green-100 mb-4">
-                        <h5 className="font-medium text-green-800 mb-2">Prós</h5>
+                        <h5 className="font-medium text-green-800 mb-2">Pros</h5>
                         <ul className="space-y-1">
                           {Array.isArray(level.pros) && level.pros.map((pro: string, proIndex: number) => (
                             <li key={proIndex} className="flex items-start text-gray-700 text-sm">
@@ -311,7 +311,7 @@ export default function FrameworkSection() {
                       </div>
                       
                       <div className="bg-red-50 p-4 rounded-lg border border-red-100 mb-4">
-                        <h5 className="font-medium text-red-800 mb-2">Contras</h5>
+                        <h5 className="font-medium text-red-800 mb-2">Cons</h5>
                         <ul className="space-y-1">
                           {Array.isArray(level.cons) && level.cons.map((con: string, conIndex: number) => (
                             <li key={conIndex} className="flex items-start text-gray-700 text-sm">
@@ -325,7 +325,7 @@ export default function FrameworkSection() {
                       </div>
                       
                       <div className="bg-amber-50 p-4 rounded-lg border border-amber-100">
-                        <h5 className="font-medium text-amber-800 mb-2">Riscos</h5>
+                        <h5 className="font-medium text-amber-800 mb-2">Risks</h5>
                         <div className="text-gray-700 text-sm">
                           {level.risks}
                         </div>
@@ -341,11 +341,11 @@ export default function FrameworkSection() {
           <div className="mt-16">
             <div className="text-center mb-8">
               <div className="inline-flex items-center justify-center px-4 py-1 mb-3 border border-primary/20 rounded-full bg-primary/5 text-primary text-sm font-medium">
-                Métricas evolutivas
+                Evolving metrics
               </div>
-              <h3 className="text-2xl font-bold text-gray-900">Evolução do Framework</h3>
+              <h3 className="text-2xl font-bold text-gray-900">Framework Evolution</h3>
               <p className="mt-3 text-gray-600 max-w-2xl mx-auto">
-                A integração progressiva de IA nos processos de design e seus impactos nas métricas principais
+                How progressively integrating AI into design impacts the key metrics
               </p>
             </div>
             
@@ -396,7 +396,7 @@ export default function FrameworkSection() {
                     <div className="bg-gray-50 p-5 rounded-lg">
                       <div className="flex items-center mb-3">
                         <Brain className="h-5 w-5 text-green-600 mr-2" />
-                        <h4 className="font-bold text-gray-800">Controle Humano</h4>
+                        <h4 className="font-bold text-gray-800">Human Control</h4>
                       </div>
                       <div className="mt-2 h-6 bg-gray-200 rounded-full overflow-hidden">
                         <div 
@@ -405,14 +405,14 @@ export default function FrameworkSection() {
                         />
                       </div>
                       <div className="mt-2 flex justify-between text-xs text-gray-500">
-                        <span>Baixo</span>
-                        <span>Alto</span>
+                        <span>Low</span>
+                        <span>High</span>
                       </div>
                     </div>
                     <div className="bg-gray-50 p-5 rounded-lg">
                       <div className="flex items-center mb-3">
                         <Zap className="h-5 w-5 text-blue-600 mr-2" />
-                        <h4 className="font-bold text-gray-800">Velocidade</h4>
+                        <h4 className="font-bold text-gray-800">Speed</h4>
                       </div>
                       <div className="mt-2 h-6 bg-gray-200 rounded-full overflow-hidden">
                         <div 
@@ -421,14 +421,14 @@ export default function FrameworkSection() {
                         />
                       </div>
                       <div className="mt-2 flex justify-between text-xs text-gray-500">
-                        <span>Baixa</span>
-                        <span>Alta</span>
+                        <span>Low</span>
+                        <span>High</span>
                       </div>
                     </div>
                     <div className="bg-gray-50 p-5 rounded-lg">
                       <div className="flex items-center mb-3">
                         <Cpu className="h-5 w-5 text-amber-600 mr-2" />
-                        <h4 className="font-bold text-gray-800">Dependência de IA</h4>
+                        <h4 className="font-bold text-gray-800">AI Dependency</h4>
                       </div>
                       <div className="mt-2 h-6 bg-gray-200 rounded-full overflow-hidden">
                         <div 
@@ -437,8 +437,8 @@ export default function FrameworkSection() {
                         />
                       </div>
                       <div className="mt-2 flex justify-between text-xs text-gray-500">
-                        <span>Baixa</span>
-                        <span>Alta</span>
+                        <span>Low</span>
+                        <span>High</span>
                       </div>
                     </div>
                   </div>
@@ -454,7 +454,7 @@ export default function FrameworkSection() {
                   <div className="bg-gray-50 p-4 rounded-lg">
                     <div className="flex items-center mb-2">
                       <Brain className="h-4 w-4 text-green-600 mr-2" />
-                      <h4 className="font-bold text-gray-800 text-sm">Controle Humano</h4>
+                      <h4 className="font-bold text-gray-800 text-sm">Human Control</h4>
                     </div>
                     <div className="mt-2 h-4 bg-gray-200 rounded-full overflow-hidden">
                       <div 
@@ -463,15 +463,15 @@ export default function FrameworkSection() {
                       />
                     </div>
                     <div className="mt-1 flex justify-between text-xs text-gray-500">
-                      <span>Baixo</span>
-                      <span>Alto</span>
+                      <span>Low</span>
+                      <span>High</span>
                     </div>
                   </div>
                   
                   <div className="bg-gray-50 p-4 rounded-lg">
                     <div className="flex items-center mb-2">
                       <Zap className="h-4 w-4 text-blue-600 mr-2" />
-                      <h4 className="font-bold text-gray-800 text-sm">Velocidade</h4>
+                      <h4 className="font-bold text-gray-800 text-sm">Speed</h4>
                     </div>
                     <div className="mt-2 h-4 bg-gray-200 rounded-full overflow-hidden">
                       <div 
@@ -480,15 +480,15 @@ export default function FrameworkSection() {
                       />
                     </div>
                     <div className="mt-1 flex justify-between text-xs text-gray-500">
-                      <span>Baixa</span>
-                      <span>Alta</span>
+                      <span>Low</span>
+                      <span>High</span>
                     </div>
                   </div>
                   
                   <div className="bg-gray-50 p-4 rounded-lg">
                     <div className="flex items-center mb-2">
                       <Cpu className="h-4 w-4 text-amber-600 mr-2" />
-                      <h4 className="font-bold text-gray-800 text-sm">Dependência de IA</h4>
+                      <h4 className="font-bold text-gray-800 text-sm">AI Dependency</h4>
                     </div>
                     <div className="mt-2 h-4 bg-gray-200 rounded-full overflow-hidden">
                       <div 
@@ -497,8 +497,8 @@ export default function FrameworkSection() {
                       />
                     </div>
                     <div className="mt-1 flex justify-between text-xs text-gray-500">
-                      <span>Baixa</span>
-                      <span>Alta</span>
+                      <span>Low</span>
+                      <span>High</span>
                     </div>
                   </div>
                 </div>
